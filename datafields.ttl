@@ -71,3 +71,16 @@ ff:parentingSetup a ff:DataField ;
 
 ff:receivesWohngeld a ff:DataField ;
     rdfs:label "Wohngeld" .
+
+ff:hasEmploymentStatus a ff:DataField ;
+    rdfs:label "Beschäftigungsverhältnis" ;
+    ff:hasShaclShape ff:hasEmploymentStatusShape .
+
+ff:hasEmploymentStatusShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    ff:modelledAfter <https://www.xrepository.de/details/urn:xoev-de:xfamilie:codeliste:einkommensart> ;
+    sh:property [
+        sh:path ff:hasEmploymentStatus ;
+        sh:in ( "Angestellt" "Selbststaendig" "Ausbildung" "Arbeitslos" "Gefoerderte Ausbildung" ) ;
+        sh:minCount 1 ;
+    ] .
