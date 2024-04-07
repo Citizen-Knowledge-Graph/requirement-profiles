@@ -1,0 +1,51 @@
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ff:metadata ff:author ff:benjaminaaron ;
+             ff:created "2023-11-01"^^xsd:date ;
+             ff:title "Checks if a citizen is eligible for Wohngeld" ;
+             ff:queryType ff:dev ;
+             ff:targetGroup ff:Citizen ;
+             ff:fundingProvider ff:GermanState .
+
+ff:TypeDeclarationShape
+    a sh:NodeShape ;
+    sh:targetNode ff:this ;
+    sh:property [
+          sh:path rdf:type ;
+          sh:hasValue ff:CitizenProfile ;
+          sh:minCount 1 ;
+      ] .
+
+ff:CitizenRentsFlatShape
+    a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+          sh:path ff:rents ;
+          sh:class ff:Flat ;
+          sh:minCount 1 ;
+      ] .
+
+ff:FlatAreaShape
+    a sh:NodeShape ;
+    sh:targetClass ff:Flat ;
+    sh:property [
+          sh:path ff:livingArea ;
+          sh:datatype xsd:integer ;
+          sh:maxInclusive 60 ;
+          sh:message "60" ;
+          sh:minCount 1 ;
+      ] .
+
+ff:IncomeShape
+    a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+          sh:path ff:monthlyIncome ;
+          sh:datatype xsd:integer ;
+          sh:maxInclusive 2000 ;
+          sh:message "2000" ;
+          sh:minCount 1 ;
+      ] .
