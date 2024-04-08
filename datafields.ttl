@@ -211,5 +211,4 @@ ff:hasEmploymentStatusShape a sh:NodeShape ;
     sh:property [
         sh:path ff:hasEmploymentStatus ;
         sh:in ( "Angestellt" "Selbststaendig" "Ausbildung" "Arbeitslos" "Gefoerderte Ausbildung" ) ;
-        sh:minCount 1 ;
     ] .
