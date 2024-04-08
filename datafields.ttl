@@ -4,7 +4,6 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix schema: <http://schema.org/> .
 
 ff:hasFirstNames a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimId fim:F00000154 ;
@@ -133,6 +132,18 @@ ff:NeedsSocialSupportShape a sh:NodeShape ;
 
 # ------------------------------------------------------
 
+ff:hasAge a ff:DataField ;
+    rdfs:label "Alter" ;
+    ff:similarDatafield foaf:age ;
+    ff:hasShaclShape ff:AgeShape .
+ff:AgeShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:hasAge ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+    ] .
+
 ff:paysRentCold a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimId fim:F00000240 ;
     ff:hasFimVersion "1.5" ;
@@ -186,6 +197,9 @@ ff:parentingSetup a ff:DataField ;
 
 ff:receivesWohngeld a ff:DataField ;
     rdfs:label "Wohngeld" .
+
+ff:hasChild a ff:DataField ;
+    rdfs:label "Kind" .
 
 ff:hasEmploymentStatus a ff:DataField ;
     rdfs:label "Beschäftigungsverhältnis" ;

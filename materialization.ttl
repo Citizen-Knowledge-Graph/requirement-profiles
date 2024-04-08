@@ -1,20 +1,19 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ff: <https://foerderfunke.org/default#> .
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 ff:CalculateAgeFromBirthdate a ff:MaterializationRule, ff:SparqlRule ;
     rdfs:label "Calculate the age from the birthdate" ;
-    ff:input foaf:birthday ;
-    ff:output foaf:age ;
+    ff:input ff:birthday ;
+    ff:output ff:age ;
     ff:suggestPermanentMaterialization true ;
     ff:ifPermanentlyMaterializedAddPeriodicCheck "on-app-startup" ;
     ff:sparqlConstructQuery """
-        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+        PREFIX ff: <https://foerderfunke.org/default#>
         CONSTRUCT {
-            ?person foaf:age ?age .
+            ?person ff:hasAge ?age .
         } WHERE {
-            ?person foaf:birthday ?bday .
+            ?person ff:hasBirthday ?bday .
             BIND(YEAR(NOW()) - YEAR(?bday) - IF(MONTH(NOW()) < MONTH(?bday) || (MONTH(NOW()) = MONTH(?bday) && DAY(NOW()) < DAY(?bday)), 1, 0) AS ?age) .
         }
     """ .

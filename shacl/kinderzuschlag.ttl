@@ -1,9 +1,6 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ff: <https://foerderfunke.org/default#> .
-@prefix fim: <https://schema.fim.fitko.net/fields/baukasten/> .
-@prefix schema: <http://schema.org/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 ff:metadata ff:author ff:benjaminaaron ;
@@ -39,7 +36,7 @@ ff:MainPersonShape a sh:NodeShape ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
-        sh:path schema:children ;
+        sh:path ff:hasChild ;
         sh:node ff:ChildRequirementsShape ;
         sh:minCount 1 ;
         sh:message "The child doesn't exist or doesn't fulfill one or more criteria" ;
@@ -61,9 +58,9 @@ ff:MainPersonShape a sh:NodeShape ;
     ] .
 
 ff:ChildShape a sh:NodeShape ;
-    sh:targetObjectsOf schema:children ;
+    sh:targetObjectsOf ff:Child ;
     sh:property [
-        sh:path foaf:age ;
+        sh:path ff:age ;
         sh:maxExclusive 25 ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -168,13 +165,11 @@ ff:KinderzuschlagPerChild a ff:Constant ;
 
 ff:CalculateGesamtbedarfFamilie a ff:SparqlFormula ;
     rdfs:label "Berechne den Gesamtbedarf einer Familie" ;
-    ff:input foaf:age ;
+    ff:input ff:hasAge ;
     ff:output ff:hasGesamtbedarf ;
     ff:suggestPermanentMaterialization false ;
     ff:sparqlConstructQuery """
         PREFIX ff: <https://foerderfunke.org/default#>
-        PREFIX schema: <http://schema.org/>
-        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
         CONSTRUCT {
             ff:mainPerson ff:hasGesamtbedarf ?gesamtbedarf .
@@ -184,8 +179,8 @@ ff:CalculateGesamtbedarfFamilie a ff:SparqlFormula ;
                     ff:mainPerson ff:parentingSetup ?parentingSetup .
                     ?parentingSetup ff:hatRegelbedarfParent ?bedarf .
                 } UNION {
-                    ff:mainPerson schema:children ?child .
-                    ?child foaf:age ?age .
+                    ff:mainPerson ff:hasChild ?child .
+                    ?child ff:hasAge ?age .
                     ?ageGroup xsd:minInclusive ?min ;
                         xsd:maxExclusive ?max .
                     FILTER(?age >= ?min && ?age < ?max) .
@@ -203,15 +198,13 @@ ff:CalculateGesamtverfuegungFamilie a ff:SparqlFormula ;
     ff:suggestPermanentMaterialization false ;
     ff:sparqlConstructQuery """
         PREFIX ff: <https://foerderfunke.org/default#>
-        PREFIX schema: <http://schema.org/>
-        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
         CONSTRUCT {
             ff:mainPerson ff:hasGesamtverfuegung ?gesamtverfuegung .
         } WHERE {
             SELECT (SUM(?income) AS ?gesamtverfuegung) WHERE {
                 {
-                    ff:mainPerson schema:children ?child .
+                    ff:mainPerson ff:hasChild ?child .
                     ?child ff:receiveKindergeld ?income .
                 } UNION {
                     ff:mainPerson ff:hasIncomeNetto ?income .
@@ -229,7 +222,6 @@ ff:CalculateGesamtverfuegungPlusKinderzuschlagFamilie a ff:SparqlFormula ;
     ff:suggestPermanentMaterialization false ;
     ff:sparqlConstructQuery """
         PREFIX ff: <https://foerderfunke.org/default#>
-        PREFIX schema: <http://schema.org/>
 
         CONSTRUCT {
             ff:mainPerson ff:hasGesamtverfuegungPlusKinderzuschlag ?total .
@@ -241,7 +233,7 @@ ff:CalculateGesamtverfuegungPlusKinderzuschlagFamilie a ff:SparqlFormula ;
                         ff:KinderzuschlagPerChild ff:hasValue ?value .
                         {
                             SELECT (COUNT(?child) AS ?childrenCount) WHERE {
-                                ff:mainPerson schema:children ?child .
+                                ff:mainPerson ff:hasChild ?child .
                             }
                         }
                     }
