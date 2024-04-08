@@ -101,7 +101,7 @@ ff:hasResidence a ff:FimDataFieldProperty, ff:DataField ;
 ff:ResidenceShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-        sh:path ff:hasBirthPlace ;
+        sh:path ff:hasResidence ;
         sh:datatype xsd:string ;
     ] .
 
