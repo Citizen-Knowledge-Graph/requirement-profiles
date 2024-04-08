@@ -48,17 +48,6 @@ ff:BirthdayShape a sh:NodeShape ;
     sh:property [
         sh:path ff:hasBirthday ;
         sh:datatype xsd:date ;
-        sh:sparql [
-            sh:message "Birthday must not be in the future." ;
-            sh:select """
-            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-            PREFIX ff: <https://foerderfunke.org/default#>
-            ASK WHERE {
-                $this ff:hasBirthday ?date .
-                FILTER(?date > NOW())
-            }
-            """ ;
-        ] ;
     ] .
 
 ff:hasGender a ff:FimDataFieldProperty, ff:DataField ;
