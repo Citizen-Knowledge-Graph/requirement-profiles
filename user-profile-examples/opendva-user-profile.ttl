@@ -5,9 +5,10 @@ ff:mainPerson a ff:Citizen ;
     ff:hasFirstNames "Max" ;
     ff:hasFamilyName "Mustermann" ;
     ff:hasBirthday "1988-08-08"^^xsd:date ;
-    ff:hasGender "male" ;
+    ff:hasGender "männlich" ;
     ff:hasBirthPlace "Jena" ;
     ff:hasResidence "Jena" ;
+    # ff:residesInState "Thüringen" ;
     ff:hasMaritalStatus "VH" ;
     ff:eligibleForSocialSupport true ;
     ff:worksAsFreelancer false .
