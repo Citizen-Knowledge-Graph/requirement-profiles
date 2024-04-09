@@ -4,8 +4,8 @@
 
 ff:CalculateAgeFromBirthdate a ff:MaterializationRule, ff:SparqlRule ;
     rdfs:label "Calculate the age from the birthdate" ;
-    ff:input ff:birthday ;
-    ff:output ff:age ;
+    ff:input ff:hasBirthday ;
+    ff:output ff:hasAge ;
     ff:suggestPermanentMaterialization true ;
     ff:ifPermanentlyMaterializedAddPeriodicCheck "on-app-startup" ;
     ff:sparqlConstructQuery """

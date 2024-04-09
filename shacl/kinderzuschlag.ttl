@@ -37,7 +37,7 @@ ff:MainPersonShape a sh:NodeShape ;
     ] ;
     sh:property [
         sh:path ff:hasChild ;
-        sh:node ff:ChildRequirementsShape ;
+        sh:node ff:ChildShape ;
         sh:minCount 1 ;
         sh:message "The child doesn't exist or doesn't fulfill one or more criteria" ;
     ] ;
@@ -58,9 +58,9 @@ ff:MainPersonShape a sh:NodeShape ;
     ] .
 
 ff:ChildShape a sh:NodeShape ;
-    sh:targetObjectsOf ff:Child ;
+    sh:targetObjectsOf ff:hasChild ;
     sh:property [
-        sh:path ff:age ;
+        sh:path ff:hasAge ;
         sh:maxExclusive 25 ;
         sh:minCount 1 ;
         sh:maxCount 1 ;

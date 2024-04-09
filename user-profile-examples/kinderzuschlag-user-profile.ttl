@@ -19,16 +19,16 @@ ff:mainPerson a ff:Citizen ;
     # ff:hasGesamtverfuegung 2550 ;
     # ff:hasGesamtverfuegungPlusKinderzuschlag 3134 .
 
-ff:child1 a ff:Child, ff:Citizen ;
+ff:child1 a ff:Child ;
     ff:hasFirstNames "Maria" ;
     ff:hasFamilyName "Mustermann" ;
     ff:hasBirthday "2013-01-23"^^xsd:date ;
-    # foaf:age 11 ;
+    # ff:hasAge 11 ;
     ff:hasMaritalStatus "LD" ; # ledig
     ff:receiveKindergeld 250 .
 
-ff:child2 a ff:Child, ff:Citizen ;
+ff:child2 a ff:Child ;
     ff:hasBirthday "2008-02-15"^^xsd:date ;
-    # foaf:age 16 ;
+    # ff:hasAge 16 ;
     ff:hasMaritalStatus "LD" ;
     ff:receiveKindergeld 250 .
