@@ -119,6 +119,16 @@ ff:EligibleForSocialSupportShape a sh:NodeShape ;
         sh:datatype xsd:boolean ;
     ] .
 
+ff:worksAsFreelancer a ff:DataField ;
+    rdfs:label "Selbstständige Tätigkeiten" ;
+    ff:hasShaclShape ff:WorksAsFreelancerShape .
+ff:WorksAsFreelancerShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:worksAsFreelancer ;
+        sh:datatype xsd:boolean ;
+    ] .
+
 # ------------------------------------------------------
 
 ff:hasAge a ff:DataField ;
