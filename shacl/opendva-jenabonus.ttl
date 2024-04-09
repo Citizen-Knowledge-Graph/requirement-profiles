@@ -1,0 +1,27 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ff:metadata ff:author ff:benjaminaaron ;
+            ff:created "2024-04-09"^^xsd:date ;
+            ff:title "Jenabonus" ;
+            ff:validFor "P1Y"^^xsd:duration ;
+            rdfs:seeAlso <https://service.jena.de/de/jenabonus-beantragen> .
+
+ff:MainPersonShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:needsSocialSupport ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue true ;
+        sh:message "Eine Form von Sozialhilfe ist Voraussetzung"
+    ] ;
+    sh:property [
+        sh:path ff:hasResidence ;
+        sh:hasValue "Jena" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Der Wohnort muss Jena sein"
+    ] .
