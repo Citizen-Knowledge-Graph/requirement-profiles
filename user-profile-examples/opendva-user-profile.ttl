@@ -9,4 +9,4 @@ ff:mainPerson a ff:Citizen ;
     ff:hasBirthPlace "Jena" ;
     ff:hasResidence "Jena" ;
     ff:hasMaritalStatus "VH" ;
-    ff:needsSocialSupport true .
+    ff:eligibleForSocialSupport true .
