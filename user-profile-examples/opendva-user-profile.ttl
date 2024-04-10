@@ -2,13 +2,13 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 
 ff:mainPerson a ff:Citizen ;
-    ff:hasFirstNames "Max" ;
+    ff:hasFirstNames "Maria" ;
     ff:hasFamilyName "Mustermann" ;
-    ff:hasBirthday "1988-08-08"^^xsd:date ;
-    ff:hasGender "männlich" ;
-    ff:hasBirthPlace "Jena" ;
+    ff:hasBirthday "1994-12-06"^^xsd:date ;
+    ff:hasGender "weiblich" ;
     ff:hasResidence "Jena" ;
-    # ff:residesInState "Thüringen" ;
-    ff:hasMaritalStatus "VH" ;
     ff:eligibleForSocialSupport true ;
     ff:worksAsFreelancer false .
+    # ff:hasBirthPlace "Jena" ;
+    # ff:hasMaritalStatus "VH" ;
+    # ff:residesInState "Thüringen" ; <-- gets materialized in-memory during validation
