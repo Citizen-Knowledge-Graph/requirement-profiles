@@ -15,3 +15,7 @@ ff:materializationFile a schema:DigitalDocument ;
 ff:requirementProfilesFolder a schema:Collection ;
     schema:identifier "requirement-profiles-folder" ;
     ff:relativePath "shacl/" .
+
+ff:requirementProfilesFolder a schema:Collection ;
+    schema:identifier "user-profile-examples-folder" ;
+    ff:relativePath "user-profile-examples/" .
