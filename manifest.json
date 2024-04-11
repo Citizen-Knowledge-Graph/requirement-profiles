@@ -1,0 +1,16 @@
+{
+  "datafieldsFile": {
+    "relativePath": "datafields.ttl",
+    "format": "text/turtle"
+  },
+  "materializationFile": {
+    "relativePath": "materialization.ttl",
+    "format": "text/turtle"
+  },
+  "requirementProfilesFolder": {
+    "relativePath": "shacl/"
+  },
+  "userProfileExamplesFolder": {
+    "relativePath": "user-profile-examples/"
+  }
+}
