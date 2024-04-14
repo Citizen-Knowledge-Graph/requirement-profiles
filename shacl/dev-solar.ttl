@@ -10,15 +10,6 @@ ff:metadata ff:author ff:benjaminaaron ;
              ff:targetGroup ff:Citizen ;
              ff:fundingProvider ff:GermanState .
 
-ff:TypeDeclarationShape
-    a sh:NodeShape ;
-    sh:targetNode ff:this ;
-    sh:property [
-          sh:path rdf:type ;
-          sh:hasValue ff:CitizenProfile ;
-          sh:minCount 1 ;
-      ] .
-
 ff:CitizenOwnsHouseShape
     a sh:NodeShape ;
     sh:targetClass ff:Citizen ;

@@ -3,15 +3,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-ff:TypeDeclarationShape
-    a sh:NodeShape ;
-    sh:targetNode ff:this ;
-    sh:property [
-          sh:path rdf:type ;
-          sh:hasValue ff:CitizenProfile ;
-          sh:minCount 1 ;
-      ] .
-
 ff:CitizenOwnsHouseShape
     a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
