@@ -1,7 +1,10 @@
+@base <https://github.com/Citizen-Knowledge-Graph/requirement-profiles/blob/main/shacl/kinderzuschlag.ttl> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<> a ff:RequirementProfile .
 
 ff:metadata ff:author ff:benjaminaaron ;
     ff:created "2024-03-14"^^xsd:date ;
@@ -12,7 +15,7 @@ ff:metadata ff:author ff:benjaminaaron ;
 
 # CONDITIONS
 
-ff:MainPersonShape a sh:NodeShape ;
+ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
     sh:property [
         sh:path ff:parentingSetup ;

@@ -1,0 +1,8 @@
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix cccev: <http://data.europa.eu/m8g/> . # Core Criterion and Core Evidence Vocabulary https://github.com/SEMICeu/CCCEV
+
+ff:RequirementProfile a cccev:Criterion .
+
+ff:EligibilityConstraint a cccev:Constraint .
+
+ff:DataField a cccev:Evidence .
