@@ -21,7 +21,7 @@ ff:MainPersonShape a sh:NodeShape ;
     ] ;
     sh:property [
         sh:path ff:residesInState ;
-        sh:hasValue "Thüringen" ;
+        sh:in ("Thüringen") ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "Der Wohnort muss in Thüringen sein"
