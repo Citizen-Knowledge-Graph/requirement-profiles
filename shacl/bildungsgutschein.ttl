@@ -6,10 +6,9 @@
 ff:metadata
     ff:author    ff:benglaeser ;
     ff:created   "2024-04-02"^^xsd:date ;
-    ff:title     "Bildungsgutschein Citizenship Check" ;
-    rdfs:comment "Validates that the entity is of type ff:Citizen for Bildungsgutschein eligibility." ;
+    ff:title     "Bildungsgutschein" ;
+    rdfs:comment "Checks for eligibility for the Bildungsgutschein" ;
     rdfs:seeAlso <https://mein-now.de/privatpersonen/foerderungen/suche/bildungsgutschein> .
-
 
 ff:BildungsgutscheinCitizenshipShape
     a              sh:NodeShape ;
