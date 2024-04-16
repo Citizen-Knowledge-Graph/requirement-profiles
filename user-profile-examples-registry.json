@@ -6,5 +6,9 @@
   "opendva-user-profile": {
     "name": "OpenDVA User",
     "description": "This is profile B"
+  },
+  "user-template": {
+    "name": "Template for new user",
+    "description": "This is Profile C"
   }
 }
