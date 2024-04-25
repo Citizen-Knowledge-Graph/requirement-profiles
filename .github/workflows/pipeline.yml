@@ -1,4 +1,4 @@
-name: build zip with latest commit hash
+name: build archive.zip and trigger webapp deployment
 on:
   push:
     branches:
@@ -30,3 +30,13 @@ jobs:
           git commit -m "Upload latest zip archive"
           git branch -M zip-archive
           git push -fu origin zip-archive
+
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch event to trigger webapp deployment
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: Citizen-Knowledge-Graph/foerderfunke-webapp
+          event-type: external-webapp-deployment-trigger
