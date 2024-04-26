@@ -237,7 +237,7 @@ ff:hasChildShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
         sh:path ff:hasChild ;
-        sh:datatype xsd:boolean ;
+        sh:class ff:Child ;
     ] .
 
 ff:hasEmploymentStatus a ff:DataField ;
