@@ -152,6 +152,7 @@ ff:paysRentColdShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
          sh:path ff:paysRentCold ;
+         sh:datatype xsd:integer ;
          sh:maxCount 1 ;
          sh:minInclusive 0 ;
      ] .
@@ -159,7 +160,15 @@ ff:paysRentColdShape a sh:NodeShape ;
 ff:hasLivingArea a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimId fim:F00003175 ;
     ff:hasFimVersion "1.0" ;
-    rdfs:label "Wohnfläche in m²" .
+    rdfs:label "Wohnfläche in m²" ;
+    ff:hasShaclShape ff:hasLivingAreaShape .
+ff:hasLivingAreaShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:hasLivingArea ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+    ] .
 
 ff:hasNumberOfChildren a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimId fim:F05011522 ;
@@ -170,12 +179,28 @@ ff:hasNumberOfChildren a ff:FimDataFieldProperty, ff:DataField ;
 ff:hasIncomeBrutto a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimId fim:F00000575 ;
     ff:hasFimVersion "1.1" ;
-    rdfs:label "Höhe des Einkommens (Brutto)" .
+    rdfs:label "Höhe des Einkommens (Brutto)" ;
+    ff:hasShaclShape ff:hasIncomeBruttoShape .
+ff:hasIncomeBruttoShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:hasIncomeBrutto ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+    ] .
 
 ff:hasIncomeNetto a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimId fim:F00001158 ;
     ff:hasFimVersion "1.0" ;
-    rdfs:label "Nettoeinkommen monatlich" .
+    rdfs:label "Nettoeinkommen monatlich" ;
+    ff:hasShaclShape ff:hasIncomeNettoShape .
+ff:hasIncomeNettoShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:hasIncomeNetto ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+    ] .
 
 ff:receivesKindergeld a ff:FimLeistung, ff:DataField ;
     ff:hasFimId 576982 ;
@@ -195,10 +220,25 @@ ff:parentingSetup a ff:DataField ;
     ] .
 
 ff:receivesWohngeld a ff:DataField ;
-    rdfs:label "Wohngeld" .
+    rdfs:label "Wohngeld" ;
+    ff:hasShaclShape ff:receivesWohngeldShape .
+ff:receivesWohngeldShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:receivesWohngeld ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+   ] .
 
 ff:hasChild a ff:DataField ;
-    rdfs:label "Kind" .
+    rdfs:label "Kind" ;
+    ff:hasShaclShape ff:hasChildShape .
+ff:hasChildShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:hasChild ;
+        sh:datatype xsd:boolean ;
+    ] .
 
 ff:hasEmploymentStatus a ff:DataField ;
     rdfs:label "Beschäftigungsverhältnis" ;
