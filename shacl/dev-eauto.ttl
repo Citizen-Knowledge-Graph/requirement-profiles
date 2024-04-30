@@ -13,11 +13,11 @@ ff:CitizenOwnsElectricCarShape
                 ] ;
     sh:property [
                     sh:path ff:hasResidence ;
-                    sh:hasValue "Berlin" ;
+                    sh:in ("Berlin") ;
                 ] ;
     sh:property [
                     sh:path ff:hasDrivingLicense ;
-                    sh:hasValue true ;
+                    sh:in (true) ;
                 ] .
 
 ff:ElectricCarShape

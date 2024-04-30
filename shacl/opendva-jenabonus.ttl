@@ -17,12 +17,12 @@ ff:MainPersonShape a sh:NodeShape ;
         sh:path ff:eligibleForSocialSupport ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
         sh:message "Eine Form von Sozialhilfe ist Voraussetzung"
     ] ;
     sh:property [
         sh:path ff:hasResidence ;
-        sh:hasValue "Jena" ;
+        sh:in ("Jena") ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "Der Wohnort muss Jena sein"
