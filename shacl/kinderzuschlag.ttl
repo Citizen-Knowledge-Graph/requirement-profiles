@@ -8,6 +8,7 @@
 
 ff:metadata ff:author ff:benjaminaaron ;
     ff:created "2024-03-14"^^xsd:date ;
+    ff:id "kinderzuschlag" ;
     ff:title "Kinderzuschlag" ;
     ff:category "Sozialleistung" ;
     ff:validFor "P6M"^^xsd:duration ; # suggest setting up reminder TODO

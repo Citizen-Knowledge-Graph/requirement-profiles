@@ -6,6 +6,7 @@
 
 ff:metadata ff:author ff:benglaeser ;
     ff:created "2024-04-04"^^xsd:date ;
+    ff:id "arbeitslosengeld" ;
     ff:title   "Arbeitslosengeld" ;
     ff:category "Sozialleistung" ;
     rdfs:seeAlso

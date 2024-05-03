@@ -5,6 +5,7 @@
 
 ff:metadata ff:author ff:benjaminaaron ;
              ff:created "2023-10-26"^^xsd:date ;
+             ff:id "solar" ;
              ff:title "Solarpanel Förderung" ;
              ff:category "Wärmewende" ;
              ff:queryType ff:dev ;

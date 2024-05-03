@@ -5,6 +5,7 @@
 
 ff:metadata ff:author ff:benjaminaaron ;
     ff:created "2024-04-16"^^xsd:date ;
+    ff:id "senioren-bahncard" ;
     ff:title "Senioren BahnCard" ;
     rdfs:seeAlso <https://www.bahn.de/angebot/bahncard> .
 

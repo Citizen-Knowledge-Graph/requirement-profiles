@@ -5,6 +5,7 @@
 
 ff:metadata ff:author ff:benjaminaaron ;
             ff:created "2024-04-09"^^xsd:date ;
+            ff:id "existenzgruendungspass-thueringen" ;
             ff:title "Existenzgründungspass Thüringen" ;
             rdfs:seeAlso <https://www.aufbaubank.de/Foerderprogramme/Gruendungsrichtlinie-Existenzgruendungspass> .
 
