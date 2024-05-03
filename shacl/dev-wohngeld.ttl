@@ -15,7 +15,7 @@ ff:CitizenRentsFlatShape
     a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-          sh:path ff:rents ;
+          sh:path ff:rentsFlat ;
           sh:class ff:Flat ;
           sh:minCount 1 ;
       ] .

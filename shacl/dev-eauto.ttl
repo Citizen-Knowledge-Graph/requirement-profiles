@@ -11,7 +11,7 @@ ff:CitizenOwnsElectricCarShape
     a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-                    sh:path ff:owns ;
+                    sh:path ff:ownsCar ;
                     sh:qualifiedValueShape ff:ElectricCarShape ;
                     sh:qualifiedMinCount 1 ;
                 ] ;

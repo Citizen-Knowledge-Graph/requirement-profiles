@@ -16,7 +16,7 @@ ff:CitizenOwnsHouseShape
     a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-        sh:path ff:owns ;
+        sh:path ff:ownsHouse ;
         sh:qualifiedValueShape [
             sh:class ff:House ; # Shape that values must conform to, in this case, a House
         ] ;
