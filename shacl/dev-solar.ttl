@@ -7,7 +7,7 @@ ff:solarRP a ff:RequirementProfile ;
              ff:author ff:benjaminaaron ;
              ff:created "2023-10-26"^^xsd:date ;
              ff:title "Solarpanel Förderung" ;
-             ff:category ff:Waermewende ;
+             ff:category ff:Waermewende, ff:Klimaschutz ;
              ff:queryType ff:dev ;
              ff:targetGroup ff:Citizen ;
              ff:fundingProvider ff:GermanState .

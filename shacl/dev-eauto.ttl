@@ -5,7 +5,7 @@
 
 ff:eautoRP a ff:RequirementProfile ;
     ff:title "E-Auto Zuschuss" ;
-    ff:category ff:Waermewende .
+    ff:category ff:Klimaschutz .
 
 ff:CitizenOwnsElectricCarShape
     a sh:NodeShape ;
