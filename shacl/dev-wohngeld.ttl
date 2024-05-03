@@ -5,7 +5,7 @@
 
 ff:metadata ff:author ff:benjaminaaron ;
              ff:created "2023-11-01"^^xsd:date ;
-             ff:title "Checks if a citizen is eligible for Wohngeld" ;
+             ff:title "Wohngeld dev" ;
              ff:queryType ff:dev ;
              ff:targetGroup ff:Citizen ;
              ff:fundingProvider ff:GermanState .

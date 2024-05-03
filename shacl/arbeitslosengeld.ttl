@@ -7,6 +7,7 @@
 ff:metadata ff:author ff:benglaeser ;
     ff:created "2024-04-04"^^xsd:date ;
     ff:title   "Arbeitslosengeld" ;
+    ff:category "Sozialleistung" ;
     rdfs:seeAlso
                <https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld/finanzielle-hilfen/arbeitslosengeld-anspruch-hoehe-dauer> .
 

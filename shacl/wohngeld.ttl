@@ -6,6 +6,7 @@
 
 ff:metadata ff:author ff:benjaminaaron ;
             ff:created "2024-03-23"^^xsd:date ;
-            ff:title "Wohngeld" .
+            ff:title "Wohngeld" ;
+            ff:category "Sozialleistung" .
 
 # CONDITIONS

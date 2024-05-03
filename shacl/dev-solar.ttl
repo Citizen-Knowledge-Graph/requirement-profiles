@@ -5,7 +5,8 @@
 
 ff:metadata ff:author ff:benjaminaaron ;
              ff:created "2023-10-26"^^xsd:date ;
-             ff:title "Checks if house owners are eligible for funding for solar panels" ;
+             ff:title "Solarpanel Förderung" ;
+             ff:category "Wärmewende" ;
              ff:queryType ff:dev ;
              ff:targetGroup ff:Citizen ;
              ff:fundingProvider ff:GermanState .
