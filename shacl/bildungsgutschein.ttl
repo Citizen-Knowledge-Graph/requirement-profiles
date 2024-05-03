@@ -3,12 +3,11 @@
 @prefix ff:   <https://foerderfuchs.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:metadata
+ff:bildungsgutscheinRP a ff:RequirementProfile ;
     ff:author    ff:benglaeser ;
     ff:created   "2024-04-02"^^xsd:date ;
-    ff:id "bildungsgutschein" ;
     ff:title     "Bildungsgutschein" ;
-    ff:category  "Bildungsförderung" ;
+    ff:category   ff:Bildungsteilhabe ;
     rdfs:comment "Checks for eligibility for the Bildungsgutschein" ;
     rdfs:seeAlso <https://mein-now.de/privatpersonen/foerderungen/suche/bildungsgutschein> .
 

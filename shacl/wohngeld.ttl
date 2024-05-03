@@ -4,10 +4,10 @@
 @prefix fim: <https://schema.fim.fitko.net/fields/baukasten/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:metadata ff:author ff:benjaminaaron ;
+ff:wohngeldRP a ff:RequirementProfile ;
+            ff:author ff:benjaminaaron ;
             ff:created "2024-03-23"^^xsd:date ;
-            ff:id "wohngeld" ;
             ff:title "Wohngeld" ;
-            ff:category "Sozialleistung" .
+            ff:category ff:Sozialleistung .
 
 # CONDITIONS

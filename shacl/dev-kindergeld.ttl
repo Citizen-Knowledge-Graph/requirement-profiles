@@ -3,9 +3,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-ff:metadata ff:id "kindergeld" ;
+ff:kindergeldRP a ff:RequirementProfile ;
     ff:title "Kindergeld" ;
-    ff:category "Sozialleistung" .
+    ff:category ff:Sozialleistung .
 
 ff:MainPersonShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;

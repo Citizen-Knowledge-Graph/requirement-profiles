@@ -3,11 +3,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-ff:metadata ff:author ff:benjaminaaron ;
+ff:solarRP a ff:RequirementProfile ;
+             ff:author ff:benjaminaaron ;
              ff:created "2023-10-26"^^xsd:date ;
-             ff:id "solar" ;
              ff:title "Solarpanel Förderung" ;
-             ff:category "Wärmewende" ;
+             ff:category ff:Waermewende ;
              ff:queryType ff:dev ;
              ff:targetGroup ff:Citizen ;
              ff:fundingProvider ff:GermanState .

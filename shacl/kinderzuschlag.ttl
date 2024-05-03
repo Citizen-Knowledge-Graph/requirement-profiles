@@ -1,16 +1,13 @@
-@base <https://github.com/Citizen-Knowledge-Graph/requirement-profiles/blob/main/shacl/kinderzuschlag.ttl> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<> a ff:RequirementProfile .
-
-ff:metadata ff:author ff:benjaminaaron ;
+ff:kinderzuschlagRP a ff:RequirementProfile ;
+    ff:author ff:benjaminaaron ;
     ff:created "2024-03-14"^^xsd:date ;
-    ff:id "kinderzuschlag" ;
     ff:title "Kinderzuschlag" ;
-    ff:category "Sozialleistung" ;
+    ff:category ff:Sozialleistung ;
     ff:validFor "P6M"^^xsd:duration ; # suggest setting up reminder TODO
     rdfs:seeAlso <https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag-verstehen/kinderzuschlag-anspruch-hoehe-dauer> ;
     ff:onlineEligibilityCheckingTool <https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag-verstehen/kiz-lotse> .

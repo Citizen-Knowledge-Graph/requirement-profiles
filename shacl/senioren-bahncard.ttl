@@ -3,9 +3,9 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:metadata ff:author ff:benjaminaaron ;
+ff:seniorenbahncardRP a ff:RequirementProfile ;
+    ff:author ff:benjaminaaron ;
     ff:created "2024-04-16"^^xsd:date ;
-    ff:id "senioren-bahncard" ;
     ff:title "Senioren BahnCard" ;
     rdfs:seeAlso <https://www.bahn.de/angebot/bahncard> .
 
