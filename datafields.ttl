@@ -228,14 +228,12 @@ ff:receivesKindergeld a ff:FimLeistung, ff:DataField ;
 
 ff:parentingSetup a ff:DataField ;
     rdfs:label "Erziehungsverantwortung" ;
-    ff:canHaveValue [
-        ff:hasFimId fim:F00001072 ;
-        ff:hasFimVersion "1.1" ;
-        rdfs:label "Alleinerziehend" ;
-    ] ,
-    [
-        a ff:DataField ;
-        rdfs:label "Elternpaar" ;
+ff:hasShaclShape ff:parentingSetupShape .
+ff:parentingSetupShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:parentingSetup ;
+        sh:in ("Alleinerziehend" "Elternpaar")
     ] .
 
 ff:receivesWohngeld a ff:DataField ;
