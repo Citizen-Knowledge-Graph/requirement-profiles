@@ -1,6 +1,6 @@
 @prefix sh:   <http://www.w3.org/ns/shacl#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix ff:   <https://foerderfuchs.org/default#> .
+@prefix ff:   <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 ff:bildungsgutscheinRP a ff:RequirementProfile ;
