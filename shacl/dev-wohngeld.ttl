@@ -35,7 +35,7 @@ ff:IncomeShape
     a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-          sh:path ff:monthlyIncome ;
+          sh:path ff:hasIncomeNetto ;
           sh:datatype xsd:integer ;
           sh:maxInclusive 2000 ;
           sh:message "2000" ;

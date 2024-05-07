@@ -28,7 +28,7 @@ ff:ChildAllowanceEligibilityShape
                     sh:minCount 1 ;
                 ] ;
     sh:property [
-                    sh:path ff:monthlyIncome ;
+                    sh:path ff:hasIncomeNetto ;
                     sh:maxInclusive 2000 ;
                     sh:datatype xsd:integer ;
                 ] .
