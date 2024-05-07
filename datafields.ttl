@@ -233,7 +233,7 @@ ff:parentingSetupShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
         sh:path ff:parentingSetup ;
-        sh:in ("Alleinerziehend" "Elternpaar")
+        sh:in (ff:Alleinerziehend ff:Elternpaar) ;
     ] .
 
 ff:receivesWohngeld a ff:DataField ;
