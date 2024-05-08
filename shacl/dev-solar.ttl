@@ -8,35 +8,12 @@ ff:solarRP a ff:RequirementProfile ;
              ff:created "2023-10-26"^^xsd:date ;
              ff:title "Solarpanel Förderung" ;
              ff:category ff:Waermewende, ff:Klimaschutz ;
-             ff:queryType ff:dev ;
              ff:targetGroup ff:Citizen ;
              ff:fundingProvider ff:GermanState .
 
-ff:CitizenOwnsHouseShape
-    a sh:NodeShape ;
+ff:MainPersonShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-        sh:path ff:ownsHouse ;
-        sh:qualifiedValueShape [
-            sh:class ff:House ; # Shape that values must conform to, in this case, a House
-        ] ;
-        sh:qualifiedMinCount 1 ; # At least one value must conform to the above shape
-    ] .
-
-ff:HouseEligibleForSolarFundingShape
-    a sh:NodeShape ;
-    sh:targetClass ff:House ;
-    sh:property [
-        sh:path ff:roofArea ;
-        sh:minCount 1 ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 100 ;
-        sh:message "100" ;
-    ] ;
-    sh:property [
-        sh:path ff:houseAge ;
-        sh:minCount 1 ;
-        sh:datatype xsd:integer ;
-        sh:maxInclusive 20 ;
-        sh:message "20" ;
-    ] .
+        sh:path ff:hasResidence ;
+        sh:in ("Berlin") ;
+    ]  .

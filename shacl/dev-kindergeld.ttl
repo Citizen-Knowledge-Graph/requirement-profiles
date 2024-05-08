@@ -13,22 +13,4 @@ ff:MainPersonShape a sh:NodeShape ;
         sh:path ff:hasIncomeBrutto ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ff:hasIncomeNetto ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
     ] .
-
-ff:ChildAllowanceEligibilityShape
-    a sh:NodeShape ;
-    sh:targetClass ff:Citizen ;
-    sh:property [
-                    sh:path ff:hasChildren ;
-                    sh:minCount 1 ;
-                ] ;
-    sh:property [
-                    sh:path ff:hasIncomeNetto ;
-                    sh:maxInclusive 2000 ;
-                    sh:datatype xsd:integer ;
-                ] .

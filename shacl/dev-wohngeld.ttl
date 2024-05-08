@@ -7,37 +7,13 @@ ff:wohngelddevRP a ff:RequirementProfile ;
              ff:author ff:benjaminaaron ;
              ff:created "2023-11-01"^^xsd:date ;
              ff:title "Wohngeld dev" ;
-             ff:queryType ff:dev ;
              ff:targetGroup ff:Citizen ;
              ff:fundingProvider ff:GermanState .
 
-ff:CitizenRentsFlatShape
-    a sh:NodeShape ;
+ff:MainPersonShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-          sh:path ff:rentsFlat ;
-          sh:class ff:Flat ;
-          sh:minCount 1 ;
-      ] .
-
-ff:FlatAreaShape
-    a sh:NodeShape ;
-    sh:targetClass ff:Flat ;
-    sh:property [
-          sh:path ff:livingArea ;
-          sh:datatype xsd:integer ;
-          sh:maxInclusive 60 ;
-          sh:message "60" ;
-          sh:minCount 1 ;
-      ] .
-
-ff:IncomeShape
-    a sh:NodeShape ;
-    sh:targetClass ff:Citizen ;
-    sh:property [
-          sh:path ff:hasIncomeNetto ;
-          sh:datatype xsd:integer ;
-          sh:maxInclusive 2000 ;
-          sh:message "2000" ;
-          sh:minCount 1 ;
-      ] .
+        sh:path ff:paysRentCold ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .

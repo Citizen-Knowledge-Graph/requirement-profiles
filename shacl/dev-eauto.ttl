@@ -7,36 +7,9 @@ ff:eautoRP a ff:RequirementProfile ;
     ff:title "E-Auto Zuschuss" ;
     ff:category ff:Klimaschutz .
 
-ff:CitizenOwnsElectricCarShape
-    a sh:NodeShape ;
+ff:MainPersonShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
-                    sh:path ff:ownsCar ;
-                    sh:qualifiedValueShape ff:ElectricCarShape ;
-                    sh:qualifiedMinCount 1 ;
-                ] ;
-    sh:property [
-                    sh:path ff:hasResidence ;
-                    sh:in ("Berlin") ;
-                ] ;
-    sh:property [
-                    sh:path ff:hasDrivingLicense ;
-                    sh:in (true) ;
-                ] .
-
-ff:ElectricCarShape
-    a sh:NodeShape ;
-    sh:targetClass ff:Car ;
-    sh:property [
-                    sh:path rdf:type ;
-                    sh:hasValue ff:Car ;
-                ] ;
-    sh:property [
-                    sh:path ff:carType ;
-                    sh:hasValue "Electric" ;
-                ] ;
-    sh:property [
-                    sh:path ff:carAge ;
-                    sh:maxInclusive 5 ;
-                    sh:datatype xsd:integer ;
-                ] .
+        sh:path ff:hasResidence ;
+        sh:in ("Berlin") ;
+    ]  .

@@ -14,23 +14,3 @@ ff:MainPersonShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] .
-
-ff:CitizenOwnsHouseShape
-    a sh:NodeShape ;
-    sh:targetClass ff:Citizen ;
-    sh:property [
-          sh:path ff:ownsHouse ;
-          sh:class ff:House ;
-          sh:minCount 1 ;
-      ] .
-
-ff:HouseEligibleForInsulationBonusShape
-    a sh:NodeShape ;
-    sh:targetClass ff:House ;
-    sh:property [
-          sh:path ff:roofArea ;
-          sh:minCount 1 ;
-          sh:datatype xsd:integer ;
-          sh:minInclusive 50 ;
-          sh:message "50" ;
-      ] .
