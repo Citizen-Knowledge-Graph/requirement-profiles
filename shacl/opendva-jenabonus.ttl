@@ -4,11 +4,12 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 ff:jenabonusRP a ff:RequirementProfile ;
-            ff:author ff:benjaminaaron ;
-            ff:created "2024-04-09"^^xsd:date ;
-            ff:title "Jenabonus" ;
-            ff:validFor "P1Y"^^xsd:duration ;
-            rdfs:seeAlso <https://service.jena.de/de/jenabonus-beantragen> .
+    ff:author ff:benjaminaaron ;
+    ff:created "2024-04-09"^^xsd:date ;
+    ff:title "Jenabonus" ;
+    ff:category ff:Sozialleistung ;
+    ff:validFor "P1Y"^^xsd:duration ;
+    rdfs:seeAlso <https://service.jena.de/de/jenabonus-beantragen> .
 
 # CONDITIONS
 
