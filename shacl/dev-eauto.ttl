@@ -12,4 +12,6 @@ ff:MainPersonShape a sh:NodeShape ;
     sh:property [
         sh:path ff:hasResidence ;
         sh:in ("Berlin") ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
     ]  .
