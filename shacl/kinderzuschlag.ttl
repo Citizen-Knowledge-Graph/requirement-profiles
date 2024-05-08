@@ -32,6 +32,11 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
+        sh:path ff:paysRentCold ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:receivesWohngeld ;
         sh:message "[optional]" ;
         sh:minCount 1 ;
