@@ -3,7 +3,7 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:kinderzuschlagRP a ff:RequirementProfile ;
+ff:kinderzuschlag a ff:RequirementProfile ;
     ff:author ff:benjaminaaron ;
     ff:created "2024-03-14"^^xsd:date ;
     ff:title "Kinderzuschlag" ;

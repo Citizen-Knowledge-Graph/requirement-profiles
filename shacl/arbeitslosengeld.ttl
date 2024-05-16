@@ -4,7 +4,7 @@
 @prefix fim:    <https://schema.fim.fitko.net/fields/baukasten/> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:arbeitslosengeldRP a ff:RequirementProfile ;
+ff:arbeitslosengeld a ff:RequirementProfile ;
     ff:author ff:benglaeser ;
     ff:created "2024-04-04"^^xsd:date ;
     ff:title   "Arbeitslosengeld" ;
