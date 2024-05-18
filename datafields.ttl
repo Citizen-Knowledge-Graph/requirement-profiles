@@ -249,7 +249,7 @@ ff:receivesWohngeldShape a sh:NodeShape ;
    ] .
 
 ff:hasChild a ff:DataField ;
-    rdfs:label "Kind" ;
+    rdfs:label "Kind(er)" ;
     ff:hasShaclShape ff:hasChildShape .
 ff:hasChildShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
