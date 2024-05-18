@@ -258,6 +258,9 @@ ff:hasChildShape a sh:NodeShape ;
         sh:class ff:Child ;
     ] .
 
+ff:Child a ff:Class ;
+    rdfs:label "Kind" .
+
 ff:hasEmploymentStatus a ff:DataField ;
     rdfs:label "Beschäftigungsverhältnis" ;
     ff:hasShaclShape ff:hasEmploymentStatusShape .
