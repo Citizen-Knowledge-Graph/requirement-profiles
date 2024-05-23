@@ -1,7 +1,8 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ff: <https://foerderfunke.org/default#> .
 
-ff:devChildToy a ff:RequirementProfile .
+ff:devChildToy a ff:RequirementProfile ;
+    ff:title "Spielzeug dev" .
 
 ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
