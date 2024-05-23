@@ -24,7 +24,7 @@ ff:ChildShape a sh:NodeShape ;
     ] ;
     sh:property [
         sh:path ff:devHasToy ;
-        sh:node ff:ChildShape ;
+        sh:node ff:DevToyShape ;
         sh:minCount 1 ;
         sh:message "The toy of the child doesn't exist or doesn't fulfill all criteria" ;
     ] .
