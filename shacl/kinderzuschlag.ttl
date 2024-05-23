@@ -46,7 +46,7 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:path ff:hasChild ;
         sh:node ff:ChildShape ;
         sh:minCount 1 ;
-        sh:message "The child doesn't exist or doesn't fulfill one or more criteria" ;
+        sh:message "The child doesn't exist or doesn't fulfill all criteria" ;
     ] ;
     sh:property [
         sh:path ff:hasGesamtbedarf ;
