@@ -261,6 +261,19 @@ ff:hasChildShape a sh:NodeShape ;
 ff:Child a ff:Class ;
     rdfs:label "Kind" .
 
+ff:devHasToy a ff:DataField ;
+    rdfs:label "Spielzeug" ;
+    ff:hasShaclShape ff:devHasToyShape .
+ff:devHasToyShape a sh:NodeShape ;
+    sh:targetClass ff:Child ;
+    sh:property [
+        sh:path ff:devHasToy ;
+        sh:class ff:DevToy ;
+    ] .
+
+ff:DevToy a ff:Class ;
+    rdfs:label "Spielzeug" .
+
 ff:hasEmploymentStatus a ff:DataField ;
     rdfs:label "Beschäftigungsverhältnis" ;
     ff:hasShaclShape ff:hasEmploymentStatusShape .
