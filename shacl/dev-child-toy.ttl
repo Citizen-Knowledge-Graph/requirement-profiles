@@ -1,7 +1,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ff: <https://foerderfunke.org/default#> .
 
-ff:devChildToy a ff:RequirementProfile ;
+ff:childToy a ff:RequirementProfile ;
     ff:title "Spielzeug dev" .
 
 ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
@@ -23,14 +23,14 @@ ff:ChildShape a sh:NodeShape ;
         sh:message "The child must be under 18 years old" ;
     ] ;
     sh:property [
-        sh:path ff:devHasToy ;
-        sh:node ff:DevToyShape ;
+        sh:path ff:hasToy ;
+        sh:node ff:ToyShape ;
         sh:minCount 1 ;
         sh:message "The toy of the child doesn't exist or doesn't fulfill all criteria" ;
     ] .
 
-ff:DevToyShape a sh:NodeShape ;
-    sh:targetObjectsOf ff:devHasToy ;
+ff:ToyShape a sh:NodeShape ;
+    sh:targetObjectsOf ff:hasToy ;
     sh:property [
         sh:path ff:hasAge ;
         sh:maxExclusive 5 ;

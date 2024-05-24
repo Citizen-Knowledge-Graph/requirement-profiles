@@ -5,7 +5,7 @@ ff:mainPerson a ff:Citizen ;
 
 ff:child0 a ff:Child ;
     ff:hasAge 14 ;
-    ff:devHasToy ff:toy0 .
+    ff:hasToy ff:toy0 .
 
-ff:toy0 a ff:DevToy ;
+ff:toy0 a ff:Toy ;
     ff:hasAge 3 .
