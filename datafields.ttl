@@ -310,3 +310,6 @@ ff:CompliedRequirementProfileShape a sh:NodeShape ;
 
 ff:hasRpUri a ff:DataField ;
     rdfs:label "Anforderungsprofil" .
+
+ff:residesInState a ff:DataField ;
+    rdfs:label "Bundesland" .
