@@ -293,5 +293,5 @@ ff:hasCompliedRequirementProfileShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
         sh:path ff:hasCompliedRequirementProfile ;
-        sh:class ff:RequirementProfile ;
+        sh:nodeKind sh:IRI ; # "sh:class ff:RequirementProfile ;" would be better, but would require to throw the RPs into the user profile validation because those triples are defined there, e.g.: ff:kinderzuschlag a ff:RequirementProfile
     ] .
