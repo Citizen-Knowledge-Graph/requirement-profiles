@@ -293,5 +293,18 @@ ff:hasCompliedRequirementProfileShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
     sh:property [
         sh:path ff:hasCompliedRequirementProfile ;
+        sh:class ff:CompliedRequirementProfile ;
+    ] .
+
+ff:CompliedRequirementProfile a ff:Class ;
+    rdfs:label "Bereits erfülltes Anforderungsprofil" ;
+    ff:hasShaclShape ff:CompliedRequirementProfileShape .
+ff:CompliedRequirementProfileShape a sh:NodeShape ;
+    sh:targetClass ff:CompliedRequirementProfile ;
+    sh:property [
+        sh:path ff:hasRpUri ;
         sh:nodeKind sh:IRI ; # "sh:class ff:RequirementProfile ;" would be better, but would require to throw the RPs into the user profile validation because those triples are defined there, e.g.: ff:kinderzuschlag a ff:RequirementProfile
     ] .
+
+ff:hasRpUri a ff:DataField ;
+    rdfs:label "Anforderungsprofil" .
