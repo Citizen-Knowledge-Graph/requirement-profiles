@@ -1,0 +1,7 @@
+@prefix ff: <https://foerderfunke.org/default#> .
+
+ff:mainPerson a ff:Citizen ;
+    ff:hasCompliedRequirementProfile ff:compliedrequirementprofile0 .
+
+ff:compliedrequirementprofile0 a ff:CompliedRequirementProfile ;
+    ff:hasRpUri ff:jenabonus .

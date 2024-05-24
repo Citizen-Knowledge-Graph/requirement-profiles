@@ -304,6 +304,8 @@ ff:CompliedRequirementProfileShape a sh:NodeShape ;
     sh:property [
         sh:path ff:hasRpUri ;
         sh:nodeKind sh:IRI ; # "sh:class ff:RequirementProfile ;" would be better, but would require to throw the RPs into the user profile validation because those triples are defined there, e.g.: ff:kinderzuschlag a ff:RequirementProfile
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
     ] .
 
 ff:hasRpUri a ff:DataField ;
