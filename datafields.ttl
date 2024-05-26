@@ -1,9 +1,11 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fim: <https://schema.fim.fitko.net/fields/baukasten/> .
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 ff:hasFirstNames a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimId fim:F00000154 ;
@@ -313,3 +315,49 @@ ff:hasRpUri a ff:DataField ;
 
 ff:residesInState a ff:DataField ;
     rdfs:label "Bundesland" .
+
+ff:hasDeferred a ff:DataField ;
+    rdfs:label "Zurückgestellt" ;
+    ff:hasShaclShape ff:hasDeferredShape .
+    ff:hasDeferredShape a sh:NodeShape ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:hasDeferred ;
+        sh:class ff:Deferment ;
+    ] .
+
+ff:Deferment a ff:Class ;
+    rdfs:label "Zurückstellung" ;
+    ff:hasShaclShape ff:DefermentShape .
+ff:DefermentShape a sh:NodeShape ;
+    sh:targetClass ff:Deferment ;
+    sh:property [
+        sh:path dcterms:created ;
+        sh:datatype xsd:date ;
+    ] ;
+    sh:property [
+        sh:path dcterms:type ;
+        sh:in ( ff:MaterializationRule ff:CompliedRequirementProfile ff:MissingDataField ) ; # was suggested to user via one of these
+    ] ;
+    sh:property [
+        sh:path dcterms:source ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        sh:path rdf:subject ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdf:predicate ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+dcterms:created a ff:DataField ; rdfs:label "erstellt" .
+dcterms:type a ff:DataField ; rdfs:label "Typ" .
+dcterms:source a ff:DataField ; rdfs:label "Quelle" .
+rdf:subject a ff:DataField ; rdfs:label "Subjekt" .
+rdf:predicate a ff:DataField ; rdfs:label "Attribut" .
