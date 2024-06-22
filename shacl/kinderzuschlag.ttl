@@ -44,8 +44,8 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     ] ;
     sh:property [
         sh:path ff:hasChild ;
-        sh:node ff:ChildShape ;
-        sh:minCount 1 ;
+        sh:qualifiedValueShape ff:ChildShape;
+        sh:qualifiedMinCount 1;
         sh:message "The child doesn't exist or doesn't fulfill all criteria" ;
     ] ;
     sh:property [
@@ -65,7 +65,6 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     ] .
 
 ff:ChildShape a sh:NodeShape ;
-    sh:targetObjectsOf ff:hasChild ;
     sh:property [
         sh:path ff:hasAge ;
         sh:maxExclusive 25 ;
