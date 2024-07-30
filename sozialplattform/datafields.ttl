@@ -1,0 +1,38 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# TOPICS
+
+ff:arbeitslosigkeit a ff:Topic ;
+    rdfs:label "Arbeitslosigkeit & Arbeitsuche" ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/arbeitslosigkeit> .
+
+ff:sozialhilfe-grundsicherung a ff:Topic ;
+    rdfs:label "Sozialhilfe & Grundsicherung" ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/sozialhilfe-grundsicherung> .
+
+ff:wohnen a ff:Topic ;
+    rdfs:label "Wohnen" ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/wohnen> .
+
+ff:schule-studium-ausbildung a ff:Topic ;
+    rdfs:label "Schule, Studium, Ausbildung" ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/schule-studium-ausbildung> .
+
+ff:leistungen-fuer-familien a ff:Topic ;
+    rdfs:label "Leistungen für Familien" ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/leistungen-fuer-familien> .
+
+ff:migration-asyl a ff:Topic ;
+    rdfs:label "Migration & Asyl" ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/migration-asyl> .
+
+ff:alter-ruhestand a ff:Topic ;
+    rdfs:label "Alter und Ruhestand" ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/alter-ruhestand> .
+
+ff:gesundheit-pflege a ff:Topic ;
+    rdfs:label "Gesundheit & Pflege" ;
+    rdfs:seeAlso <https://sozialplattform.de/gesundheit-pflege> .
