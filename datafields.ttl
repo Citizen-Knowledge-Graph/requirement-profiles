@@ -13,7 +13,7 @@ ff:hasFirstNames a ff:FimDataFieldProperty, ff:DataField ;
     ff:hasFimUrl "https://schema.fim.fitko.net/fields/baukasten/F00000154/1.3" ;
     rdfs:label "Vorname" ; # Vornamen
     rdfs:comment "Vorname + Mittelnamen" ;
-    ff:similarDatafield foaf:firstName ;
+    ff:similarDatafield foaf:firstName ; # owl equivalentProperty/class? TODO
     ff:hasShaclShape ff:FirstNamesShape .
 ff:FirstNamesShape a sh:NodeShape ;
     sh:targetClass ff:Citizen ;
