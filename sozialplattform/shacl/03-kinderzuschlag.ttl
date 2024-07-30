@@ -1,0 +1,10 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ff:kinderzuschlag a ff:RequirementProfile ;
+    ff:leikaId "99107016017000" ;
+    ff:title "Kinderzuschlag" ;
+    ff:category ff:leistungen-fuer-familien ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/kinderzuschlag> .

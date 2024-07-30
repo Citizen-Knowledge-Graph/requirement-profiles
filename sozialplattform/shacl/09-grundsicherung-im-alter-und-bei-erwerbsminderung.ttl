@@ -1,0 +1,10 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ff:grundsicherung-im-alter-und-bei-erwerbsminderung a ff:RequirementProfile ;
+    ff:leikaId "99107009017000" ;
+    ff:title "Grundsicherung im Alter und bei Erwerbsminderung" ;
+    ff:category ff:sozialhilfe-grundsicherung, ff:alter-ruhestand ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/grundsicherung-im-alter-und-bei-erwerbsminderung> .

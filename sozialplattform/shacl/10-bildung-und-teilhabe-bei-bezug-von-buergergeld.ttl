@@ -1,0 +1,11 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ff:bildung-und-teilhabe-bei-bezug-von-buergergeld a ff:RequirementProfile ;
+    ff:leikaId "99107032017007" ;
+    ff:title "Bildung und Teilhabe - bei Bezug von Bürgergeld" ;
+    ff:category ff:arbeitslosigkeit, ff:sozialhilfe-grundsicherung, ff:schule-studium-ausbildung, ff:leistungen-fuer-familien ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/bildung-und-teilhabe> ;
+    rdfs:seeAlso <https://sozialplattform.de/leistung/bildung-und-teilhabe-bei-bezug-von-buergergeld> .

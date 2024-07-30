@@ -1,0 +1,10 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ff:hberufsausbildungsbeihilfe-bab a ff:RequirementProfile ;
+    ff:leikaId "99007004017000" ;
+    ff:title "Berufsausbildungsbeihilfe (BAB)" ;
+    ff:category ff:schule-studium-ausbildung ;
+    rdfs:seeAlso <https://sozialplattform.de/inhalt/berufsausbildungsbeihilfe-bab> .
