@@ -2,6 +2,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
 
 # BENEFIT CATEGORIES
 
@@ -48,8 +49,9 @@ ff:gesundheit a ff:DatafieldCategory ; rdfs:label "Gesundheit" .
 # DATAFIELDS
 
 ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:persoenliche-angaben ;
     rdfs:label "Geburtsdatum" ;
-    rdfs:comment "Wie lautet Ihr Geburtsdatum?" ;
+    schema:question  "Wie lautet Ihr Geburtsdatum?" ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:geburtsdatum ;
@@ -64,10 +66,52 @@ ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
         ] ;
     ] .
 
+ff:staatsbuergerschaft a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:persoenliche-angaben ;
+    rdfs:label "Staatsbürgerschaft" ;
+    schema:question "Welche Staatsbürgerschaft haben Sie?" ;
+    rdfs:comment "Welches Land steht auf Ihrem Pass oder Ausweis? Meistens ist das Deutschland. Mitgliedstaaten der Europäischen Union sind: Belgien, Bulgarien, Dänemark, Deutschland, Estland, Finnland, Frankreich, Griechenland, Irland, Italien, Kroatien, Lettland, Litauen, Luxemburg, Malta, die Niederlande, Österreich, Polen, Portugal, Rumänien, Schweden, die Slowakei, Slowenien, Spanien, die Tschechische Republik, Ungarn und Zypern." ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:staatsbuergerschaft ;
+        sh:in (ff:staatsbuergerschaft-ao-ger ff:staatsbuergerschaft-ao-eu ff:staatsbuergerschaft-ao-3rd) ;
+    ] ;
+    ff:usageConstraints [
+    a sh:NodeShape ;
+        sh:targetSubjectsOf ff:staatsbuergerschaft ;
+        sh:property [
+            sh:path ff:staatsbuergerschaft ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:staatsbuergerschaft-ao-ger a ff:AnswerOption ; rdfs:label "Deutsch" .
+ff:staatsbuergerschaft-ao-eu a ff:AnswerOption ; rdfs:label "EU" .
+ff:staatsbuergerschaft-ao-3rd a ff:AnswerOption ; rdfs:label "Drittstaat (Nicht-EU)" .
+
+ff:aufenthalt a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:persoenliche-angaben ;
+    rdfs:label "Aufenthalt" ;
+    schema:question "Sind Sie in Deutschland aufenthaltsberechtigt?" ;
+    rdfs:comment "Wenn Sie Ausländer:in sind und eine Aufenthaltsberechtigung haben (diese wurden zwischen 1991 und 2004 ausgestellt) oder eine Niederlassungsberechtigung (seit 2005), klicken Sie „ja“ an. Wenn Sie das nicht haben, klicken Sie „nein“ an." ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:aufenthalt ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+    a sh:NodeShape ;
+        sh:targetSubjectsOf ff:aufenthalt ;
+        sh:property [
+            sh:path ff:aufenthalt ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
 ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:persoenliche-angaben ;
     rdfs:label "Aufenthaltsort" ;
-    rdfs:comment "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?" ;
-    ff:explanation "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein." ;
+    schema:question "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?" ;
+    rdfs:comment "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein." ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:aufenthaltsort ;
@@ -76,7 +120,7 @@ ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
     ff:usageConstraints [
         a sh:NodeShape ;
         sh:targetSubjectsOf ff:aufenthaltsort ;
-            sh:property [
+        sh:property [
             sh:path ff:aufenthaltsort ;
             sh:maxCount 1 ;
         ] ;
