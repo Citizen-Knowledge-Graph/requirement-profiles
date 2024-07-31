@@ -1,0 +1,10 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+
+ff:mainPerson a ff:Citizen ;
+    ff:geburtsdatum "1992-05-17"^^xsd:date ;
+    ff:aufenthaltsort ff:aufenthaltsort-option-innerhalb ;
+    ff:hasChild ff:child0 .
+
+ff:child0 a ff:Child ;
+    ff:geburtsdatum "2020-03-12"^^xsd:date .
