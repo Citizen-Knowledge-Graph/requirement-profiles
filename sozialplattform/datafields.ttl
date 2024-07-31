@@ -37,6 +37,14 @@ ff:gesundheit-pflege a ff:BenefitCategory ;
     rdfs:label "Gesundheit & Pflege" ;
     rdfs:seeAlso <https://sozialplattform.de/gesundheit-pflege> .
 
+# DATAFIELD CATEGORIES
+
+ff:persoenliche-angaben a ff:DatafieldCategory ; rdfs:label "Persönliche Angaben" .
+ff:kinder a ff:DatafieldCategory ; rdfs:label "Kinder" .
+ff:erwerbstaetigkeit a ff:DatafieldCategory ; rdfs:label "Erwerbstätigkeit" .
+ff:lebenssituation a ff:DatafieldCategory ; rdfs:label "Lebenssituation" .
+ff:gesundheit a ff:DatafieldCategory ; rdfs:label "Gesundheit" .
+
 # DATAFIELDS
 
 ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
