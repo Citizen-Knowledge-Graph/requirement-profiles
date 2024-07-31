@@ -3,37 +3,37 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# TOPICS
+# BENEFIT CATEGORIES
 
-ff:arbeitslosigkeit a ff:Topic ;
+ff:arbeitslosigkeit a ff:BenefitCategory ;
     rdfs:label "Arbeitslosigkeit & Arbeitsuche" ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/arbeitslosigkeit> .
 
-ff:sozialhilfe-grundsicherung a ff:Topic ;
+ff:sozialhilfe-grundsicherung a ff:BenefitCategory ;
     rdfs:label "Sozialhilfe & Grundsicherung" ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/sozialhilfe-grundsicherung> .
 
-ff:wohnen a ff:Topic ;
+ff:wohnen a ff:BenefitCategory ;
     rdfs:label "Wohnen" ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/wohnen> .
 
-ff:schule-studium-ausbildung a ff:Topic ;
+ff:schule-studium-ausbildung a ff:BenefitCategory ;
     rdfs:label "Schule, Studium, Ausbildung" ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/schule-studium-ausbildung> .
 
-ff:leistungen-fuer-familien a ff:Topic ;
+ff:leistungen-fuer-familien a ff:BenefitCategory ;
     rdfs:label "Leistungen für Familien" ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/leistungen-fuer-familien> .
 
-ff:migration-asyl a ff:Topic ;
+ff:migration-asyl a ff:BenefitCategory ;
     rdfs:label "Migration & Asyl" ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/migration-asyl> .
 
-ff:alter-ruhestand a ff:Topic ;
+ff:alter-ruhestand a ff:BenefitCategory ;
     rdfs:label "Alter und Ruhestand" ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/alter-ruhestand> .
 
-ff:gesundheit-pflege a ff:Topic ;
+ff:gesundheit-pflege a ff:BenefitCategory ;
     rdfs:label "Gesundheit & Pflege" ;
     rdfs:seeAlso <https://sozialplattform.de/gesundheit-pflege> .
 
