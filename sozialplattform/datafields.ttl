@@ -42,49 +42,36 @@ ff:gesundheit-pflege a ff:Topic ;
 ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
     rdfs:label "Geburtsdatum" ;
     rdfs:comment "Wie lautet Ihr Geburtsdatum?" ;
-    ff:hasOOshape ff:geburtsdatumOOshape ;
-    ff:hasSOshape ff:geburtsdatumSOshape .
-ff:geburtsdatumOOshape a sh:PropertyShape ;
-    sh:targetObjectsOf ff:geburtsdatum ;
-    sh:datatype xsd:date .
-ff:geburtsdatumSOshape a sh:NodeShape ;
-    sh:targetSubjectsOf ff:geburtsdatum ;
-    sh:property [
-        sh:path ff:geburtsdatum ;
-        sh:maxCount 1 ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:geburtsdatum ;
+        sh:datatype xsd:date ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:geburtsdatum ;
+        sh:property [
+            sh:path ff:geburtsdatum ;
+            sh:maxCount 1 ;
+        ] ;
     ] .
-
-#ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
-#    rdfs:label "Geburtsdatum" ;
-#    rdfs:comment "Wie lautet Ihr Geburtsdatum?" ;
-#    ff:hasOOshape [
-#        a sh:PropertyShape ;
-#        sh:targetObjectsOf ff:geburtsdatum ;
-#        sh:datatype xsd:date ;
-#    ] ;
-#    ff:hasSOshape [
-#        a sh:NodeShape ;
-#        sh:targetSubjectsOf ff:geburtsdatum ;
-#        sh:property [
-#            sh:path ff:geburtsdatum ;
-#            sh:maxCount 1 ;
-#        ] ;
-#    ] .
 
 ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
     rdfs:label "Aufenthaltsort" ;
     rdfs:comment "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?" ;
     ff:explanation "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein." ;
-    ff:hasOOshape ff:aufenthaltsortOOshape ;
-    ff:hasSOshape ff:aufenthaltsortSOshape .
-ff:aufenthaltsortOOshape a sh:PropertyShape ;
-    sh:targetObjectsOf ff:aufenthaltsort ;
-    sh:in (ff:aufenthaltsort-option-ausserhalb ff:aufenthaltsort-option-innerhalb) .
-ff:aufenthaltsortSOshape a sh:NodeShape ;
-    sh:targetSubjectsOf ff:aufenthaltsort ;
-        sh:property [
-        sh:path ff:aufenthaltsort ;
-        sh:maxCount 1 ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:aufenthaltsort ;
+        sh:in (ff:aufenthaltsort-ao-ausserhalb ff:aufenthaltsort-ao-innerhalb) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:aufenthaltsort ;
+            sh:property [
+            sh:path ff:aufenthaltsort ;
+            sh:maxCount 1 ;
+        ] ;
     ] .
-ff:aufenthaltsort-option-ausserhalb a ff:AnswerOption ; rdfs:label "außerhalb Deutschlands" .
-ff:aufenthaltsort-option-innerhalb a ff:AnswerOption ; rdfs:label "innerhalb Deutschlands" .
+ff:aufenthaltsort-ao-ausserhalb a ff:AnswerOption ; rdfs:label "außerhalb Deutschlands" .
+ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "innerhalb Deutschlands" .
