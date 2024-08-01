@@ -2,9 +2,9 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 
 ff:mainPerson a ff:Citizen ;
+    ff:aufenthaltsort ff:aufenthaltsort-ao-innerhalb ;
     ff:geburtsdatum "1992-05-17"^^xsd:date ;
-    ff:aufenthaltsort ff:aufenthaltsort-option-innerhalb ;
-    ff:hasChild ff:child0 .
-
-ff:child0 a ff:Child ;
-    ff:geburtsdatum "2020-03-12"^^xsd:date .
+    ff:pensionable false ; # TODO derive from ff:geburtsdatum
+    ff:erwerbsfaehig_neu ff:erwerbsfaehig_neu-ao-nein-weniger-6-monate ;
+    ff:beruf_neu ff:beruf_neu-ao-soz ; # not ff:beruf_neu-ao-alg
+    ff:einkommen_neu ff:einkommen_neu-ao-soz . # not ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-alg-ii
