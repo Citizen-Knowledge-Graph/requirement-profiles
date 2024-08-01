@@ -1,0 +1,92 @@
+------------------------------------------------------------
+DATAFIELDS
+------------------------------------------------------------
+
+I will successively share definitions of data fields and their allowed answers in JSON format with you. My goal is to transform them all to SHACL syntax. I did this transformation manually for two of them and would like you to do it for the rest.
+Furthermore I would like to ask you to "slugify" the questionKeys, so "Staatsbürgerschaft" for instance should become "staatsbuergerschaft". And also in the value/label pairs of the answerOptions, please find sensible ways to slugify the value.
+Also note that I am using "sh:maxCount 1" to indicate "answerType singleOption" whereas "answerType multiOption" doesn't need a count-restriction.
+
+These are the SHACL prefixes I am using:
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+Here are the two transformations I did manually so that you understand what I need:
+
+-----
+JSON:
+{
+  "questionKey": "Geburtsdatum",
+  "questionText": "Wie lautet Ihr Geburtsdatum?",
+  "placeholder": "",
+  "noteCitizen": "",
+  "answerType": "date",
+  "answerOptions": []
+}
+
+SHACL:
+
+ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:persoenliche-angaben ;
+    rdfs:label "Geburtsdatum" ;
+    schema:question  "Wie lautet Ihr Geburtsdatum?" ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:geburtsdatum ;
+        sh:datatype xsd:date ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:geburtsdatum ;
+        sh:property [
+            sh:path ff:geburtsdatum ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+-----
+JSON:
+{
+  "questionKey": "Aufenthaltsort",
+  "questionText": "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?",
+  "placeholder": "",
+  "noteCitizen": "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein.",
+  "answerType": "singleSelect",
+  "answerOptions": [
+    {
+      "value": "außerhalb",
+      "label": "außerhalb Deutschlands"
+    },
+    {
+      "value": "innerhalb",
+      "label": "innerhalb Deutschlands"
+    }
+  ]
+}
+
+SHACL:
+ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:persoenliche-angaben ;
+    rdfs:label "Aufenthaltsort" ;
+    schema:question "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?" ;
+    rdfs:comment "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein." ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:aufenthaltsort ;
+        sh:in (ff:aufenthaltsort-ao-ausserhalb ff:aufenthaltsort-ao-innerhalb) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:aufenthaltsort ;
+        sh:property [
+            sh:path ff:aufenthaltsort ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:aufenthaltsort-ao-ausserhalb a ff:AnswerOption ; rdfs:label "außerhalb Deutschlands" .
+ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "innerhalb Deutschlands" .
+-----
+
+Does this make sense? Can I share more JSON definitions for you to transform them to SHACL following the examples I gave you?
