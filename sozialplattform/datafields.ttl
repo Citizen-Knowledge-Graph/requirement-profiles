@@ -40,11 +40,11 @@ ff:gesundheit-pflege a ff:BenefitCategory ;
 
 # DATAFIELD CATEGORIES
 
-ff:persoenliche-angaben a ff:DatafieldCategory ; rdfs:label "Persönliche Angaben" .
-ff:kinder a ff:DatafieldCategory ; rdfs:label "Kinder" .
-ff:erwerbstaetigkeit a ff:DatafieldCategory ; rdfs:label "Erwerbstätigkeit" .
-ff:lebenssituation a ff:DatafieldCategory ; rdfs:label "Lebenssituation" .
-ff:gesundheit a ff:DatafieldCategory ; rdfs:label "Gesundheit" .
+ff:persoenliche-angaben a ff:DatafieldCategory ; rdfs:label "Persönliche Angaben"@de, "Personal information"@en .
+ff:kinder a ff:DatafieldCategory ; rdfs:label "Kinder"@de, "Children"@en .
+ff:erwerbstaetigkeit a ff:DatafieldCategory ; rdfs:label "Erwerbstätigkeit"@de, "Employment"@en .
+ff:lebenssituation a ff:DatafieldCategory ; rdfs:label "Lebenssituation"@de, "Living situation"@en .
+ff:gesundheit a ff:DatafieldCategory ; rdfs:label "Gesundheit"@de, "Health"@en .
 
 # DATAFIELDS
 
@@ -52,8 +52,8 @@ ff:gesundheit a ff:DatafieldCategory ; rdfs:label "Gesundheit" .
 
 ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:persoenliche-angaben ;
-    rdfs:label "Geburtsdatum" ;
-    schema:question  "Wie lautet Ihr Geburtsdatum?" ;
+    rdfs:label "Geburtsdatum"@de , "Date of Birth"@en ;
+    schema:question "Wie lautet Ihr Geburtsdatum?"@de , "What is your date of birth?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:geburtsdatum ;
@@ -70,31 +70,33 @@ ff:geburtsdatum a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:staatsbuergerschaft a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:persoenliche-angaben ;
-    rdfs:label "Staatsbürgerschaft" ;
-    schema:question "Welche Staatsbürgerschaft haben Sie?" ;
-    rdfs:comment "Welches Land steht auf Ihrem Pass oder Ausweis? Meistens ist das Deutschland. Mitgliedstaaten der Europäischen Union sind: Belgien, Bulgarien, Dänemark, Deutschland, Estland, Finnland, Frankreich, Griechenland, Irland, Italien, Kroatien, Lettland, Litauen, Luxemburg, Malta, die Niederlande, Österreich, Polen, Portugal, Rumänien, Schweden, die Slowakei, Slowenien, Spanien, die Tschechische Republik, Ungarn und Zypern." ;
+    rdfs:label "Staatsbürgerschaft"@de , "Citizenship"@en ;
+    schema:question "Welche Staatsbürgerschaft haben Sie?"@de , "What is your citizenship?"@en ;
+    rdfs:comment "Welches Land steht auf Ihrem Pass oder Ausweis? Meistens ist das Deutschland. Mitgliedstaaten der Europäischen Union sind: Belgien, Bulgarien, Dänemark, Deutschland, Estland, Finnland, Frankreich, Griechenland, Irland, Italien, Kroatien, Lettland, Litauen, Luxemburg, Malta, die Niederlande, Österreich, Polen, Portugal, Rumänien, Schweden, die Slowakei, Slowenien, Spanien, die Tschechische Republik, Ungarn und Zypern."@de ,
+        "Which country is on your passport or ID card? Mostly it is Germany. Member states of the European Union are: Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:staatsbuergerschaft ;
         sh:in (ff:staatsbuergerschaft-ao-ger ff:staatsbuergerschaft-ao-eu ff:staatsbuergerschaft-ao-3rd) ;
     ] ;
     ff:usageConstraints [
-    a sh:NodeShape ;
+        a sh:NodeShape ;
         sh:targetSubjectsOf ff:staatsbuergerschaft ;
         sh:property [
             sh:path ff:staatsbuergerschaft ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:staatsbuergerschaft-ao-ger a ff:AnswerOption ; rdfs:label "Deutsch" .
-ff:staatsbuergerschaft-ao-eu a ff:AnswerOption ; rdfs:label "EU" .
-ff:staatsbuergerschaft-ao-3rd a ff:AnswerOption ; rdfs:label "Drittstaat (Nicht-EU)" .
+ff:staatsbuergerschaft-ao-ger a ff:AnswerOption ; rdfs:label "Deutsch"@de , "German"@en .
+ff:staatsbuergerschaft-ao-eu a ff:AnswerOption ; rdfs:label "EU"@de , "EU"@en .
+ff:staatsbuergerschaft-ao-3rd a ff:AnswerOption ; rdfs:label "Drittstaat (Nicht-EU)"@de , "Third country (non-EU)"@en .
 
 ff:aufenthalt a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:persoenliche-angaben ;
-    rdfs:label "Aufenthalt" ;
-    schema:question "Sind Sie in Deutschland aufenthaltsberechtigt?" ;
-    rdfs:comment "Wenn Sie Ausländer:in sind und eine Aufenthaltsberechtigung haben (diese wurden zwischen 1991 und 2004 ausgestellt) oder eine Niederlassungsberechtigung (seit 2005), klicken Sie „ja“ an. Wenn Sie das nicht haben, klicken Sie „nein“ an." ;
+    rdfs:label "Aufenthalt"@de , "Residence"@en ;
+    schema:question "Sind Sie in Deutschland aufenthaltsberechtigt?"@de , "Are you entitled to stay in Germany?"@en ;
+    rdfs:comment "Wenn Sie Ausländer:in sind und eine Aufenthaltsberechtigung haben (diese wurden zwischen 1991 und 2004 ausgestellt) oder eine Niederlassungsberechtigung (seit 2005), klicken Sie „ja“ an. Wenn Sie das nicht haben, klicken Sie „nein“ an."@de ,
+        "If you are a foreigner and have a residence permit (these were issued between 1991 and 2004) or a settlement permit (since 2005), click \"yes\". If you do not have one, click \"no\"."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:aufenthalt ;
@@ -111,9 +113,11 @@ ff:aufenthalt a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:persoenliche-angaben ;
-    rdfs:label "Aufenthaltsort" ;
-    schema:question "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?" ;
-    rdfs:comment "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein." ;
+    rdfs:label "Aufenthaltsort"@de , "Residence"@en ;
+    schema:question "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?"@de ,
+        "Where is your actual residence where you can be reached?"@en ;
+    rdfs:comment "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein."@de ,
+        "This is the place where you are actually staying. It does not matter whether you are registered there or have the right to live here. This can also be a care facility, a women's shelter, a city district or the like."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:aufenthaltsort ;
@@ -127,16 +131,17 @@ ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:aufenthaltsort-ao-ausserhalb a ff:AnswerOption ; rdfs:label "außerhalb Deutschlands" .
-ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "innerhalb Deutschlands" .
+ff:aufenthaltsort-ao-ausserhalb a ff:AnswerOption ; rdfs:label "außerhalb Deutschlands"@de , "outside Germany"@en .
+ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "innerhalb Deutschlands"@de , "inside Germany"@en .
 
 # Kinder
 
 ff:kinder a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:kinder ;
-    rdfs:label "Kinder" ;
-    schema:question "Haben Sie ein oder mehrere Kinder?" ;
-    rdfs:comment "Bitte geben Sie an, ob Kinder in Ihrem Haushalt leben." ;
+    rdfs:label "Kinder"@de , "Children"@en ;
+    schema:question "Haben Sie ein oder mehrere Kinder?"@de , "Do you have one or more children?"@en ;
+    rdfs:comment "Bitte geben Sie an, ob Kinder in Ihrem Haushalt leben."@de ,
+        "Please specify if there are children living in your household."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:kinder ;
@@ -153,8 +158,8 @@ ff:kinder a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:kinder_unter_18 a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:kinder ;
-    rdfs:label "Kinder unter 18" ;
-    schema:question "Haben Sie Kinder unter 18 Jahren?" ;
+    rdfs:label "Kinder unter 18"@de , "Children under 18"@en ;
+    schema:question "Haben Sie Kinder unter 18 Jahren?"@de , "Do you have children younger than 18 years old?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:kinder_unter_18 ;
@@ -171,8 +176,8 @@ ff:kinder_unter_18 a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:kinder_18_25 a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:kinder ;
-    rdfs:label "Kinder 18-25" ;
-    schema:question "Haben Sie Kinder zwischen 18-25 Jahren?" ;
+    rdfs:label "Kinder 18-25"@de , "Children 18-25"@en ;
+    schema:question "Haben Sie Kinder zwischen 18-25 Jahren?"@de , "Do you have children between the ages of 18 and 25?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:kinder_18_25 ;
@@ -189,8 +194,9 @@ ff:kinder_18_25 a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:kinder_in_ausbildung a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:kinder ;
-    rdfs:label "Kinder in Ausbildung" ;
-    schema:question "Haben Sie Kinder zwischen 18 und 25 Jahren, die sich noch in Schule, Ausbildung oder Studium befinden?" ;
+    rdfs:label "Kinder in Ausbildung"@de , "Children in Education"@en ;
+    schema:question "Haben Sie Kinder zwischen 18 und 25 Jahren, die sich noch in Schule, Ausbildung oder Studium befinden?"@de ,
+        "Do you have children between the ages of 18 and 25 who are still in school, training or studying?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:kinder_in_ausbildung ;
@@ -207,8 +213,9 @@ ff:kinder_in_ausbildung a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:kindergeld a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:kinder ;
-    rdfs:label "Kindergeld" ;
-    schema:question "Beziehen Sie Kindergeld für ein oder mehrere Kinder?" ;
+    rdfs:label "Kindergeld"@de , "Child Benefit"@en ;
+    schema:question "Beziehen Sie Kindergeld für ein oder mehrere Kinder?"@de ,
+        "Do you receive child benefit for one or more children?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:kindergeld ;
@@ -227,9 +234,11 @@ ff:kindergeld a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:erwerbsfaehig_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit ;
-    rdfs:label "Erwerbsfähig neu" ;
-    schema:question "Sind Sie erwerbsfähig und können täglich mindestens 3 Stunden arbeiten?" ;
-    rdfs:comment "Sie sind erwerbsfähig, wenn Sie mindestens 3 Stunden am Tag normal arbeiten können. Wenn Sie es wegen längerer Krankheit oder Behinderung nicht schaffen, so lange zu arbeiten, geben Sie „nein“ an." ;
+    rdfs:label "Erwerbsfähig neu"@de , "Fit for Work"@en ;
+    schema:question "Sind Sie erwerbsfähig und können täglich mindestens 3 Stunden arbeiten?"@de ,
+        "Are you fit for work and able to work at least 3 hours a day?"@en ;
+    rdfs:comment "Sie sind erwerbsfähig, wenn Sie mindestens 3 Stunden am Tag normal arbeiten können. Wenn Sie es wegen längerer Krankheit oder Behinderung nicht schaffen, so lange zu arbeiten, geben Sie „nein“ an."@de ,
+        "You are fit for work if you can work normally for at least 3 hours a day. If you cannot manage to work that long because of a prolonged illness or disability, click “no”."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:erwerbsfaehig_neu ;
@@ -243,14 +252,14 @@ ff:erwerbsfaehig_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:erwerbsfaehig_neu-ao-ja a ff:AnswerOption ; rdfs:label "ja" .
-ff:erwerbsfaehig_neu-ao-nein-ueber-6-monate a ff:AnswerOption ; rdfs:label "nein, dauerhaft erwerbsunfähig (über 6 Monate)" .
-ff:erwerbsfaehig_neu-ao-nein-weniger-6-monate a ff:AnswerOption ; rdfs:label "nein, temporär erwerbsunfähig (weniger als 6 Monate)" .
+ff:erwerbsfaehig_neu-ao-ja a ff:AnswerOption ; rdfs:label "ja"@de , "yes"@en .
+ff:erwerbsfaehig_neu-ao-nein-ueber-6-monate a ff:AnswerOption ; rdfs:label "nein, dauerhaft erwerbsunfähig (über 6 Monate)"@de , "no, permanently unable to work (more than 6 months)"@en .
+ff:erwerbsfaehig_neu-ao-nein-weniger-6-monate a ff:AnswerOption ; rdfs:label "nein, temporär erwerbsunfähig (weniger als 6 Monate)"@de , "no, temporarily unable to work (less than 6 months)"@en .
 
 ff:beruf_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit ;
-    rdfs:label "Beruf neu" ;
-    schema:question "Wie ist Ihre berufliche Situation?" ;
+    rdfs:label "Beruf neu"@de , "Profession new"@en ;
+    schema:question "Wie ist Ihre berufliche Situation?"@de , "What is your professional situation?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:beruf_neu ;
@@ -264,39 +273,40 @@ ff:beruf_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:beruf_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "selbständig in einer Beschäftigung von mehr als 15 Stunden pro Woche" .
-ff:beruf_neu-ao-soz a ff:AnswerOption ; rdfs:label "berufstätig in einer sozialversicherungspflichtigen Beschäftigung" .
-ff:beruf_neu-ao-alg a ff:AnswerOption ; rdfs:label "arbeitslos" .
-ff:beruf_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Schule/Ausbildung/Studium" .
-ff:beruf_neu-ao-bfd a ff:AnswerOption ; rdfs:label "Bundesfreiwilligendienst" .
-ff:beruf_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente/Pension" .
-ff:beruf_neu-ao-eltern a ff:AnswerOption ; rdfs:label "Elternzeit" .
+ff:beruf_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "selbständig in einer Beschäftigung von mehr als 15 Stunden pro Woche"@de , "Self-employed, working more than 15 hours per week"@en .
+ff:beruf_neu-ao-soz a ff:AnswerOption ; rdfs:label "berufstätig in einer sozialversicherungspflichtigen Beschäftigung"@de , "employed in a job subject to social security contributions"@en .
+ff:beruf_neu-ao-alg a ff:AnswerOption ; rdfs:label "arbeitslos"@de , "unemployed"@en .
+ff:beruf_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Schule/Ausbildung/Studium"@de , "School/vocational training/studies"@en .
+ff:beruf_neu-ao-bfd a ff:AnswerOption ; rdfs:label "Bundesfreiwilligendienst"@de , "Federal voluntary service"@en .
+ff:beruf_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente/Pension"@de , "Standard old-age pension/retirement"@en .
+ff:beruf_neu-ao-eltern a ff:AnswerOption ; rdfs:label "Elternzeit"@de , "Parental leave"@en .
 
 ff:einkommen_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit ;
-    rdfs:label "Einkommen neu" ;
-    schema:question "Wie erzielen Sie Ihr Einkommen? (Mehrfachnennung möglich)" ;
+    rdfs:label "Einkommen neu"@de , "Income new"@en ;
+    schema:question "Wie erzielen Sie Ihr Einkommen? (Mehrfachnennung möglich)"@de ,
+        "How do you earn your income? (multiple answers possible)"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:einkommen_neu ;
         sh:in (ff:einkommen_neu-ao-selbstaendig ff:einkommen_neu-ao-soz ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-alg-ii ff:einkommen_neu-ao-ausbildung ff:einkommen_neu-ao-bafoeg ff:einkommen_neu-ao-rente ff:einkommen_neu-ao-elterngeld ff:einkommen_neu-ao-mutterschaftsgeld ff:einkommen_neu-ao-wohngeld ff:einkommen_neu-ao-sonstige) ;
     ] .
-ff:einkommen_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "selbstständige Arbeit in einer Beschäftigung von mehr als 15 Stunden pro Woche" .
-ff:einkommen_neu-ao-soz a ff:AnswerOption ; rdfs:label "sozialversicherungspflichtige Beschäftigung" .
-ff:einkommen_neu-ao-alg a ff:AnswerOption ; rdfs:label "Arbeitslosengeld" .
-ff:einkommen_neu-ao-alg-ii a ff:AnswerOption ; rdfs:label "Bürgergeld (früher ALG II)" .
-ff:einkommen_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Ausbildungsvergütung" .
-ff:einkommen_neu-ao-bafoeg a ff:AnswerOption ; rdfs:label "BAföG" .
-ff:einkommen_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente" .
-ff:einkommen_neu-ao-elterngeld a ff:AnswerOption ; rdfs:label "Elterngeld" .
-ff:einkommen_neu-ao-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutterschaftsgeld" .
-ff:einkommen_neu-ao-wohngeld a ff:AnswerOption ; rdfs:label "Wohngeld" .
-ff:einkommen_neu-ao-sonstige a ff:AnswerOption ; rdfs:label "Sonstige" .
+ff:einkommen_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "selbstständige Arbeit in einer Beschäftigung von mehr als 15 Stunden pro Woche"@de , "self-employed work of more than 15 hours per week"@en .
+ff:einkommen_neu-ao-soz a ff:AnswerOption ; rdfs:label "sozialversicherungspflichtige Beschäftigung"@de , "employment subject to social security contributions"@en .
+ff:einkommen_neu-ao-alg a ff:AnswerOption ; rdfs:label "Arbeitslosengeld"@de , "unemployment benefit"@en .
+ff:einkommen_neu-ao-alg-ii a ff:AnswerOption ; rdfs:label "Bürgergeld (früher ALG II)"@de , "citizen's income (formerly unemployment benefit II)"@en .
+ff:einkommen_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Ausbildungsvergütung"@de , "training allowance"@en .
+ff:einkommen_neu-ao-bafoeg a ff:AnswerOption ; rdfs:label "BAföG"@de , "student support (BAföG)"@en .
+ff:einkommen_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente"@de , "standard retirement pension"@en .
+ff:einkommen_neu-ao-elterngeld a ff:AnswerOption ; rdfs:label "Elterngeld"@de , "parental benefit"@en .
+ff:einkommen_neu-ao-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutterschaftsgeld"@de , "maternity pay"@en .
+ff:einkommen_neu-ao-wohngeld a ff:AnswerOption ; rdfs:label "Wohngeld"@de , "housing benefit"@en .
+ff:einkommen_neu-ao-sonstige a ff:AnswerOption ; rdfs:label "Sonstige"@de , "other"@en .
 
 ff:einkommen_familie a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit ;
-    rdfs:label "Einkommen Familie" ;
-    schema:question "Wie beschreiben Sie das Einkommen Ihrer Familie?" ;
+    rdfs:label "Einkommen Familie"@de , "Family Income"@en ;
+    schema:question "Wie beschreiben Sie das Einkommen Ihrer Familie?"@de , "How do you describe your family's income?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:einkommen_familie ;
@@ -310,15 +320,15 @@ ff:einkommen_familie a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:einkommen_familie-ao-monatsbrutto-ueber-900-600 a ff:AnswerOption ; rdfs:label "Die Familie hat ein monatliches Brutto-Einkommen von mindestens 900 Euro (Gemeinsam erziehend) bzw. 600 Euro (Alleinerziehende)" .
-ff:einkommen_familie-ao-monatsbrutto-unter-900-600 a ff:AnswerOption ; rdfs:label "Die Familie hat kein monatliches Brutto-Einkommen von mindestens 900 Euro (Gemeinsam erziehend) bzw. 600 Euro (Alleinerziehende)" .
+ff:einkommen_familie-ao-monatsbrutto-ueber-900-600 a ff:AnswerOption ; rdfs:label "Die Familie hat ein monatliches Brutto-Einkommen von mindestens 900 Euro (Gemeinsam erziehend) bzw. 600 Euro (Alleinerziehende)"@de , "The family has a monthly gross income of at least 900 euros (joint parents) or 600 euros (single parents)."@en .
+ff:einkommen_familie-ao-monatsbrutto-unter-900-600 a ff:AnswerOption ; rdfs:label "Die Familie hat kein monatliches Brutto-Einkommen von mindestens 900 Euro (Gemeinsam erziehend) bzw. 600 Euro (Alleinerziehende)"@de , "The family does not have a monthly gross income of at least 900 euros (joint parents) or 600 euros (single parents)."@en .
 
 # Lebenssituation
 
 ff:lebenssituation a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:lebenssituation ;
-    rdfs:label "Lebenssituation" ;
-    schema:question "Wie ist Ihre Lebenssituation?" ;
+    rdfs:label "Lebenssituation"@de , "Living Situation"@en ;
+    schema:question "Wie ist Ihre Lebenssituation?"@de , "What is your living situation?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:lebenssituation ;
@@ -332,15 +342,17 @@ ff:lebenssituation a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:lebenssituation-ao-allein a ff:AnswerOption ; rdfs:label "alleinlebend" .
-ff:lebenssituation-ao-gemeinschaft a ff:AnswerOption ; rdfs:label "gemeinsam lebend (Ehe, Partnerschaft, eingetragene Lebenspartnerschaft), ggf. mit Kindern" .
-ff:lebenssituation-ao-allein-mit-kind a ff:AnswerOption ; rdfs:label "alleinerziehend mit mind. einem Kind" .
+ff:lebenssituation-ao-allein a ff:AnswerOption ; rdfs:label "alleinlebend"@de , "Single household"@en .
+ff:lebenssituation-ao-gemeinschaft a ff:AnswerOption ; rdfs:label "gemeinsam lebend (Ehe, Partnerschaft, eingetragene Lebenspartnerschaft), ggf. mit Kindern"@de , "Joint household (marriage, partnership, registered partnership), possibly with children"@en .
+ff:lebenssituation-ao-allein-mit-kind a ff:AnswerOption ; rdfs:label "alleinerziehend mit mind. einem Kind"@de , "Single parent with at least one child"@en .
 
 ff:lebenslage a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:lebenssituation ;
-    rdfs:label "Lebenslage" ;
-    schema:question "Befinden Sie sich in einer sozial schwierigen Lebenslage?" ;
-    rdfs:comment "Schwierige Lebenslagen oder Notsituationen sind zum Beispiel: Sie haben keine Wohnung mehr (Obdachlosigkeit), Sie haben ein Suchtproblem, Sie wissen nicht, wovon Sie leben sollen oder wurden ein Opfer von Gewalt in der Familie." ;
+    rdfs:label "Lebenslage"@de , "Living Situation"@en ;
+    schema:question "Befinden Sie sich in einer sozial schwierigen Lebenslage?"@de ,
+        "Are you in a difficult social situation?"@en ;
+    rdfs:comment "Schwierige Lebenslagen oder Notsituationen sind zum Beispiel: Sie haben keine Wohnung mehr (Obdachlosigkeit), Sie haben ein Suchtproblem, Sie wissen nicht, wovon Sie leben sollen oder wurden ein Opfer von Gewalt in der Familie."@de ,
+        "Difficult living situations or emergency situations are, for example: you no longer have a home (homelessness), you have an addiction problem, you do not know how to cover your living expenses, or you have been a victim of violence in the family."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:lebenslage ;
@@ -359,8 +371,8 @@ ff:lebenslage a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:krankenversicherung a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:gesundheit ;
-    rdfs:label "Krankenversicherung" ;
-    schema:question "Haben Sie eine Krankenversicherung?" ;
+    rdfs:label "Krankenversicherung"@de , "Health Insurance"@en ;
+    schema:question "Haben Sie eine Krankenversicherung?"@de , "Do you have health insurance?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:krankenversicherung ;
@@ -377,8 +389,8 @@ ff:krankenversicherung a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:pflegeversicherung a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:gesundheit ;
-    rdfs:label "Pflegeversicherung" ;
-    schema:question "Haben Sie eine Pflegeversicherung?" ;
+    rdfs:label "Pflegeversicherung"@de , "Nursing Care Insurance"@en ;
+    schema:question "Haben Sie eine Pflegeversicherung?"@de , "Do you have nursing care insurance?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:pflegeversicherung ;
@@ -395,9 +407,10 @@ ff:pflegeversicherung a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:pflege a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:gesundheit ;
-    rdfs:label "Pflege" ;
-    schema:question "Sind Sie pflegebedürftig?" ;
-    rdfs:comment "Die Pflegebedürftigkeit wird von einem Gutachter des Medizinischen Dienstes der Krankenversicherung (MDK) festgestellt. Nach der Prüfung entscheidet die Pflegekasse über Pflegebedürftigkeit und Pflegegrad." ;
+    rdfs:label "Pflege"@de , "Care"@en ;
+    schema:question "Sind Sie pflegebedürftig?"@de , "Are you in need of care?"@en ;
+    rdfs:comment "Die Pflegebedürftigkeit wird von einem Gutachter des Medizinischen Dienstes der Krankenversicherung (MDK) festgestellt. Nach der Prüfung entscheidet die Pflegekasse über Pflegebedürftigkeit und Pflegegrad."@de ,
+        "The need for care is determined by an expert from the health insurance's medical service (MDK). After the examination, the care fund (Pflegekasse) decides on the need for care and the degree of care."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:pflege ;
