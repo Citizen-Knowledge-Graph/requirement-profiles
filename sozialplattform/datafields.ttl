@@ -234,7 +234,7 @@ ff:kindergeld a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:erwerbsfaehig_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit ;
-    rdfs:label "Erwerbsfähig neu"@de , "Fit for Work"@en ;
+    rdfs:label "Erwerbsfähig"@de , "Fit for Work"@en ;
     schema:question "Sind Sie erwerbsfähig und können täglich mindestens 3 Stunden arbeiten?"@de ,
         "Are you fit for work and able to work at least 3 hours a day?"@en ;
     rdfs:comment "Sie sind erwerbsfähig, wenn Sie mindestens 3 Stunden am Tag normal arbeiten können. Wenn Sie es wegen längerer Krankheit oder Behinderung nicht schaffen, so lange zu arbeiten, geben Sie „nein“ an."@de ,
@@ -258,7 +258,7 @@ ff:erwerbsfaehig_neu-ao-nein-weniger-6-monate a ff:AnswerOption ; rdfs:label "ne
 
 ff:beruf_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit ;
-    rdfs:label "Beruf neu"@de , "Profession new"@en ;
+    rdfs:label "Beruf"@de , "Profession"@en ;
     schema:question "Wie ist Ihre berufliche Situation?"@de , "What is your professional situation?"@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
@@ -283,7 +283,7 @@ ff:beruf_neu-ao-eltern a ff:AnswerOption ; rdfs:label "Elternzeit"@de , "Parenta
 
 ff:einkommen_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit ;
-    rdfs:label "Einkommen neu"@de , "Income new"@en ;
+    rdfs:label "Einkommen"@de , "Income"@en ;
     schema:question "Wie erzielen Sie Ihr Einkommen? (Mehrfachnennung möglich)"@de ,
         "How do you earn your income? (multiple answers possible)"@en ;
     ff:objectConstraints [
