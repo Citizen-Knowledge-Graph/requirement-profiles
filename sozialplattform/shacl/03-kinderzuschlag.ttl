@@ -12,3 +12,58 @@ ff:kinderzuschlag a ff:RequirementProfile ;
         "If you are a low-earner and receive child benefit, you can also apply for the child allowance."@en ;
     ff:ineligbleGeneralExplanation "Wahrscheinlich haben Sie keinen Anspruch auf diese Leistung. Der Kinderzuschlag ist ein Zuschlag zum Kindergeld für Eltern, die genug verdienen, um für sich selbst zu sorgen, das Einkommen aber nicht oder nur knapp für die gesamte Familie reicht. Einkommen und Vermögen der Eltern und des Kindes werden auf den Kinderzuschlag teilweise angerechnet und reduzieren die Höhe. Mit dem Kinderzuschlag sind weitere Vergünstigungen möglich, z. B. Bildungs- und Teilhabeleistungen für die Kinder oder eine Befreiung von den KiTa-Gebühren."@de ,
         "You are probably not entitled to this benefit. The child allowance is a supplement to child benefit for parents who earn enough to take care of themselves, but the income is not or only just enough for the entire family. Income and assets of the parents and the child are partly offset against the child allowance and reduce the amount. Additional discounts are possible with the child allowance, e.g. education and participation services for the children or an exemption from the childcare fees."@en .
+
+ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:aufenthalt ;
+        sh:minCount 1 ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path ff:kinder ;
+        sh:minCount 1 ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path ff:lebenssituation ;
+        sh:minCount 1 ;
+        sh:not [
+            sh:hasValue ff:lebenssituation-ao-allein ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path ff:aufenthaltsort ;
+        sh:minCount 1 ;
+        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+    ] ;
+    sh:property [
+        sh:path ff:einkommen_familie ;
+        sh:minCount 1 ;
+        sh:hasValue ff:einkommen_familie-ao-monatsbrutto-ueber-900-600 ;
+    ] ;
+    sh:or ([
+        sh:property [
+            sh:path ff:kinder_18_25 ;
+            sh:minCount 1 ;
+            sh:hasValue true ;
+        ]
+    ] [
+        sh:property [
+            sh:path ff:kinder_unter_18 ;
+            sh:minCount 1 ;
+            sh:hasValue true ;
+        ]
+    ]) ;
+    sh:property [
+        sh:path ff:kindergeld ;
+        sh:minCount 1 ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path ff:einkommen_neu ;
+        sh:minCount 1 ;
+        sh:not [
+            sh:hasValue ff:einkommen_neu-ao-alg-ii ;
+        ] ;
+    ] .
