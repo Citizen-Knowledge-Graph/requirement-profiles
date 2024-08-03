@@ -6,7 +6,7 @@
 ff:hberufsausbildungsbeihilfe-bab a ff:RequirementProfile ;
     ff:leikaId "99007004017000" ;
     ff:title "Berufsausbildungsbeihilfe (BAB)"@de , "Vocational training allowance (BAB)"@en ;
-    ff:category ff:schule-studium-ausbildung ;
+    ff:category ff:schule-studium-ausbildung-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/berufsausbildungsbeihilfe-bab> ;
     ff:benefitInfo "Berufsausbildungsbeihilfe (BAB) ist ein finanzieller Zuschuss für junge Menschen in ihrer ersten Berufsausbildung. Sie hilft zum Beispiel dabei, Miete, Lebensmittel oder Fahrtkosten zu bezahlen."@de ,
         "Vocational training allowance, or Berufsausbildungsbeihilfe (BAB), is a form of financial assistance for young people who are in vocational training for the first time. It helps them pay for things like rent, food or transport costs."@en ;

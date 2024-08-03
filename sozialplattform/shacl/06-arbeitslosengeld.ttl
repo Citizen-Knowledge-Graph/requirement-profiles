@@ -6,7 +6,7 @@
 ff:arbeitslosengeld a ff:RequirementProfile ;
     ff:leikaId "99038001017000" ;
     ff:title "Arbeitslosengeld"@de , "Unemployment benefit"@en ;
-    ff:category ff:arbeitslosigkeit ;
+    ff:category ff:arbeitslosigkeit-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/arbeitslosengeld> ;
     ff:benefitInfo "Das Arbeitslosengeld (ALG) sichert Sie sozial ab, wenn Sie Ihre Arbeit oder Ihren Ausbildungsplatz verlieren. Es ersetzt einen Teil Ihres fehlenden Einkommens, damit Sie weiterhin Ihren Lebensunterhalt bestreiten können. Sie haben Anspruch auf diese Leistung, wenn Sie vor Ihrer Arbeitslosigkeit eine bestimmte Zeit pflichtversichert oder freiwillig versichert waren und monatlich Versicherungsbeiträge gezahlt haben."@de ,
         "Unemployment benefit, or ALG (from the German word Arbeitslosengeld), provides a social safety net in case you lose your job or training position. It replaces part of your missing income so that you can continue to pay your bills."@en ;

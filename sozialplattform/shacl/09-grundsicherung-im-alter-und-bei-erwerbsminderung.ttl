@@ -6,7 +6,7 @@
 ff:grundsicherung-im-alter-und-bei-erwerbsminderung a ff:RequirementProfile ;
     ff:leikaId "99107009017000" ;
     ff:title "Grundsicherung im Alter und bei Erwerbsminderung"@de , "Basic welfare for the elderly and people with reduced earnings capacity"@en ;
-    ff:category ff:sozialhilfe-grundsicherung, ff:alter-ruhestand ;
+    ff:category ff:sozialhilfe-grundsicherung-bc-kategorie, ff:alter-ruhestand-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/grundsicherung-im-alter-und-bei-erwerbsminderung> ;
     ff:benefitInfo "Sie sind im Rentenalter, aber Ihr Geld reicht nicht aus, um Ihren Lebensunterhalt zu bezahlen? Oder sind Sie zwar noch jünger, können aber aus gesundheitlichen Gründen dauerhaft nicht arbeiten? Dann können Sie die finanzielle „Grundsicherung im Alter und bei Erwerbsminderung“ beantragen."@de ,
         "Are you receiving your pension but don’t have enough money to get by? Or are you younger but unable to work for health-related reasons? If so, you may be entitled to claim basic financial welfare for the elderly and people with reduced earnings capacity."@en ;

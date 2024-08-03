@@ -6,7 +6,7 @@
 ff:buergergeld a ff:RequirementProfile ;
     ff:leikaId "99107108017000" ;
     ff:title "Bürgergeld"@de , "Citizen's benefit"@en ;
-    ff:category ff:arbeitslosigkeit, ff:leistungen-fuer-familien ;
+    ff:category ff:arbeitslosigkeit-bc-kategorie, ff:leistungen-fuer-familien-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/buergergeld> ;
     ff:benefitInfo "Das Bürgergeld (vorher ALG II) ist Teil der sogenannten Grundsicherung für Arbeitsuchende. Bürgergeld wird oft im Anschluss an das Arbeitslosengeld gezahlt, wenn weiterhin Unterstützung notwendig ist. Bürgergeld erhalten auch Personen, die noch nie gearbeitet oder ein geringes Einkommen haben. Für das Bürgergeld sind die Jobcenter zuständig."@de ,
         "If you are not currently employed and are not entitled to unemployment benefit, you may be entitled to unemployment benefit II. This also applies if you earn so little that you cannot meet your living costs."@en ;

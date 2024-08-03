@@ -6,7 +6,7 @@
 ff:bildung-und-teilhabe-bei-bezug-von-buergergeld a ff:RequirementProfile ;
     ff:leikaId "99107032017007" ;
     ff:title "Bildung und Teilhabe - bei Bezug von Bürgergeld"@de , "Education and participation - with citizen's benefit"@en ;
-    ff:category ff:arbeitslosigkeit, ff:sozialhilfe-grundsicherung, ff:schule-studium-ausbildung, ff:leistungen-fuer-familien ;
+    ff:category ff:arbeitslosigkeit-bc-kategorie, ff:sozialhilfe-grundsicherung-bc-kategorie, ff:schule-studium-ausbildung-bc-kategorie, ff:leistungen-fuer-familien-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/bildung-und-teilhabe> ;
     rdfs:seeAlso <https://sozialplattform.de/leistung/bildung-und-teilhabe-bei-bezug-von-buergergeld> ;
     ff:benefitInfo "In Deutschland sollen Kinder, Jugendliche und junge Erwachsene die gleichen Chancen haben. Wichtige Voraussetzungen für Chancengleichheit sind Bildung und die Teilnahme am sozialen und kulturellen Leben. Deswegen fördert der Staat Leistungen zur Bildung und Teilhabe, auch Bildungs- und Teilhabepaket genannt."@de ,

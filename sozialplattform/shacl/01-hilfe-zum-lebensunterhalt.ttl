@@ -7,7 +7,7 @@
 ff:hilfe-zum-lebensunterhalt a ff:RequirementProfile ;
     ff:leikaId "99107012017000" ;
     ff:title "Hilfe zum Lebensunterhalt"@de , "Cost-of-living assistance"@en ;
-    ff:category ff:sozialhilfe-grundsicherung, ff:leistungen-fuer-familien, ff:gesundheit-pflege ;
+    ff:category ff:sozialhilfe-grundsicherung-bc-kategorie, ff:leistungen-fuer-familien-bc-kategorie, ff:gesundheit-pflege-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/hilfe-zum-lebensunterhalt> ;
     ff:benefitInfo "Die „Hilfe zum Lebensunterhalt“ richtet sich an Menschen, die eine Zeit lang nicht oder nur wenig arbeiten können. Sie dient dazu grundlegende Bedürfnisse wie Essen, Kleidung und Miete zu bezahlen. Hilfe zum Lebensunterhalt erhalten Personen, für die andere staatliche Leistungen, wie etwa Rente oder Bürgergeld (früher ALG II), nicht infrage kommen."@de ,
         "If you are currently unable to work due to health reasons, you may be entitled to cost of living assistance. The prerequisite is that you are temporarily unable to earn your living yourself or with the help of other people, for example a partner or your family."@en ;

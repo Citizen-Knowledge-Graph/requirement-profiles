@@ -6,7 +6,7 @@
 ff:kinderzuschlag a ff:RequirementProfile ;
     ff:leikaId "99107016017000" ;
     ff:title "Kinderzuschlag"@de , "Child allowance"@en ;
-    ff:category ff:leistungen-fuer-familien ;
+    ff:category ff:leistungen-fuer-familien-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/kinderzuschlag> ;
     ff:benefitInfo "Wenn Sie ein geringes Einkommen haben und Kindergeld beziehen, können Sie zusätzlich den Kinderzuschlag, abgekürzt auch KiZ genannt, beantragen."@de ,
         "If you are a low-earner and receive child benefit, you can also apply for the child allowance."@en ;
