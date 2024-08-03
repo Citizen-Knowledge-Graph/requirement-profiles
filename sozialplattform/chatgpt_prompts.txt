@@ -93,6 +93,13 @@ Does this make sense? Can I share more JSON definitions for you to transform the
 
 
 ------------------------------------------------------------
+ADDING ENGLISH TRANSLATIONS AND LANGUAGE TAGS
+------------------------------------------------------------
+
+I used the German version of a JSON file to transform the data fields into SHACL. Now I would like to add the English translations also. Would it work for you, if I give you SHACL shapes and the English JSON and you can add "string"@en triples? You would have to focus on these predicates: rdfs:label, schema:question and rdfs:comment. However, please only do the rdfs:label of ff:AnswerOption triples. And under no circumstances invent anything yourself, just copy paste things into the right places, ok? And please also add @de to the German strings also.
+
+
+------------------------------------------------------------
 BENEFIT RULES
 ------------------------------------------------------------
 
