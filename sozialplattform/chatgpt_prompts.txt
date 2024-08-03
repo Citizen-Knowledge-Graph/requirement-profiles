@@ -90,3 +90,112 @@ ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "innerhalb Deutsch
 -----
 
 Does this make sense? Can I share more JSON definitions for you to transform them to SHACL following the examples I gave you?
+
+
+------------------------------------------------------------
+BENEFIT RULES
+------------------------------------------------------------
+
+I would like your help in translating rules from a JSON format to a SHACL format. I have done this transformation once manually and would like you to apply the same pattern to more JSON rules. However, to interpret this correctly, I need to supply you with a definition file of the data fields in use. I uploaded it together with this message.
+
+This is the example transformation:
+
+JSON:
+
+[
+    {
+        "questionKey": "Aufenthaltsort",
+        "type": "singleSelect",
+        "operator": "equals",
+        "expectedValue": "innerhalb",
+        "rules": []
+    },
+    {
+        "questionKey": "Aufenthaltsort",
+        "type": "singleSelect",
+        "operator": "equalsNot",
+        "expectedValue": "außerhalb",
+        "rules": []
+    },
+    {
+        "questionKey": "Geburtsdatum",
+        "type": "date",
+        "modifier": "Pensionable",
+        "operator": "equals",
+        "expectedValue": "false",
+        "rules": []
+    },
+    {
+        "questionKey": "Erwerbsfähig_neu",
+        "type": "singleOption",
+        "operator": "equalsNot",
+        "expectedValue": "nein >6 Monate",
+        "rules": []
+    },
+    {
+        "questionKey": "Erwerbsfähig_neu",
+        "type": "singleOption",
+        "operator": "equals",
+        "expectedValue": "nein <6 Monate",
+        "rules": []
+    },
+    {
+        "questionKey": "Beruf_neu",
+        "type": "singleOption",
+        "operator": "equalsNot",
+        "expectedValue": "ALG",
+        "rules": []
+    },
+    {
+        "questionKey": "Einkommen_neu",
+        "type": "multiOption",
+        "operator": "containsNot",
+        "expectedValue": "ALG",
+        "rules": []
+    },
+    {
+        "questionKey": "Einkommen_neu",
+        "type": "multiOption",
+        "operator": "containsNot",
+        "expectedValue": "ALG II",
+        "rules": []
+    }
+]
+
+---
+
+SHACL:
+
+ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:aufenthaltsort ;
+        sh:minCount 1 ;
+        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+    ] ;
+    sh:property [
+        sh:path ff:pensionable ;
+        sh:minCount 1 ;
+        sh:hasValue false ;
+    ] ;
+    sh:property [
+        sh:path ff:erwerbsfaehig_neu ;
+        sh:minCount 1 ;
+        sh:hasValue ff:erwerbsfaehig_neu-ao-nein-weniger-6-monate ;
+    ] ;
+    sh:property [
+        sh:path ff:beruf_neu ;
+        sh:minCount 1 ;
+        sh:not [
+            sh:hasValue ff:beruf_neu-ao-alg ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path ff:einkommen_neu ;
+        sh:minCount 1 ;
+        sh:not [
+            sh:in (ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-alg-ii) ;
+        ] ;
+    ] .
+
+Does this make sense? Can I provide you with the next set of JSON rules for you to transform it to SHACL?
