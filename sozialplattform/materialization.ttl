@@ -21,7 +21,7 @@ ff:CalculateAgeFromBirthdate a ff:MaterializationRule, ff:SparqlRule ;
 ff:PensionableFromBirthdate a ff:MaterializationRule, ff:SparqlRule ;
     rdfs:label "Feststellung der Pensionsberechtigung basierend auf dem Geburtsdatum"@de, "Determining qualification for pension from the birthdate"@en ;
     ff:input ff:geburtsdatum ;
-    ff:output ff:isPensionable ;
+    ff:output ff:pensionable ;
     ff:sparqlConstructQuery """
         PREFIX ff: <https://foerderfunke.org/default#>
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>

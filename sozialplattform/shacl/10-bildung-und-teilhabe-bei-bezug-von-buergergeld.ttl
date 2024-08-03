@@ -5,7 +5,11 @@
 
 ff:bildung-und-teilhabe-bei-bezug-von-buergergeld a ff:RequirementProfile ;
     ff:leikaId "99107032017007" ;
-    ff:title "Bildung und Teilhabe - bei Bezug von Bürgergeld" ;
+    ff:title "Bildung und Teilhabe - bei Bezug von Bürgergeld"@de , "Education and participation - with citizen's benefit"@en ;
     ff:category ff:arbeitslosigkeit, ff:sozialhilfe-grundsicherung, ff:schule-studium-ausbildung, ff:leistungen-fuer-familien ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/bildung-und-teilhabe> ;
-    rdfs:seeAlso <https://sozialplattform.de/leistung/bildung-und-teilhabe-bei-bezug-von-buergergeld> .
+    rdfs:seeAlso <https://sozialplattform.de/leistung/bildung-und-teilhabe-bei-bezug-von-buergergeld> ;
+    ff:benefitInfo "In Deutschland sollen Kinder, Jugendliche und junge Erwachsene die gleichen Chancen haben. Wichtige Voraussetzungen für Chancengleichheit sind Bildung und die Teilnahme am sozialen und kulturellen Leben. Deswegen fördert der Staat Leistungen zur Bildung und Teilhabe, auch Bildungs- und Teilhabepaket genannt."@de ,
+        "In Germany, children, teens and young adults are supposed to have equal opportunities. Education and participation in social and cultural activities are important factors in ensuring equal opportunity. For this reason, the state provides benefits to support education and participation. This is also known as the education and participation package."@en ;
+    ff:ineligbleGeneralExplanation "Wahrscheinlich haben Sie keinen Anspruch auf diese Leistung. Verschiedene Leistungen für Bildung und Teilhabe sollen Kindern und Jugendlichen aus bedürftigen Familien ermöglichen, besser am sozialen und kulturellen Leben in der Schule und Freizeit teilzunehmen. Die Leistungen können Sie zusätzlich zu anderen Leistungen, wie z.B. Bürgergeld (früher ALG II), Sozialhilfe, Kinderzuschlag oder Wohngeld, bekommen."@de ,
+        "You are probably not entitled to this benefit. Various services for education and participation are intended to enable children and young people from needy families to participate better in social and cultural life at school and in their free time. You can receive the benefits in addition to other benefits, such as unemployment benefit II, social assistance, child allowance or housing benefit."@en .
