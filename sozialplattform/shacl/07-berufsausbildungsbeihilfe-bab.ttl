@@ -12,3 +12,33 @@ ff:hberufsausbildungsbeihilfe-bab a ff:RequirementProfile ;
         "Vocational training allowance, or Berufsausbildungsbeihilfe (BAB), is a form of financial assistance for young people who are in vocational training for the first time. It helps them pay for things like rent, food or transport costs."@en ;
     ff:ineligbleGeneralExplanation "Wahrscheinlich haben Sie keinen Anspruch auf diese Leistung. Sie müssen bestimmte Voraussetzungen erfüllen, damit Sie Anspruch auf Berufsausbildungsbeihilfe haben. Einer der folgenden Fälle sollte auf Sie zutreffen, damit Ihr Antrag erfolgreich ist: Sie nehmen an einer berufsvorbereitenden Bildungsmaßnahme (BvB) teil – vielleicht auch, um sich nachträglich auf einen Hauptschulabschluss oder gleichwertigen Schulabschluss vorzubereiten. Sie machen eine betriebliche oder außerbetriebliche Berufsausbildung in einem anerkannten Ausbildungsberuf. Ihr Ausbildungsbetrieb ist zu weit von Ihren Eltern entfernt, um zuhause wohnen zu bleiben. Sie machen eine betriebliche oder außerbetriebliche Berufsausbildung in einem anerkannten Ausbildungsberuf. Außerdem sind Sie über 18 Jahre alt oder verheiratet beziehungsweise leben mit Ihrer Partnerin oder Ihrem Partner zusammen. Sie machen eine betriebliche oder außerbetriebliche Berufsausbildung in einem anerkannten Ausbildungsberuf. Sie haben mindestens ein Kind und leben nicht in der Wohnung Ihrer Eltern. Trifft einer der folgenden Fälle auf Sie zu, haben Sie keinen Anspruch auf finanzielle Unterstützung in Form von BAB: Sie machen eine schulische Ausbildung (zum Beispiel zur Physiotherapeutin beziehungsweise zum Physiotherapeut). Sie erhalten bereits Leistungen von einer anderen Behörde, die mit der BAB vergleichbar sind."@de ,
         "You are probably not entitled to this benefit. You have to meet certain requirements in order to be entitled to a vocational training grant. One of the following cases should apply to you for your application to be successful: You are taking part in a pre-vocational training program – perhaps also in order to prepare for a lower secondary school certificate or an equivalent school certificate. You are doing in-company or external vocational training in a recognized training occupation. Your training company is too far away from your parents to stay at home. You are doing in-company or external vocational training in a recognized training occupation. In addition, you are over 18 years old or married or live with your partner. You are doing in-company or external vocational training in a recognized training occupation. You have at least one child and do not live in your parents' home. If one of the following applies to you, you are not entitled to financial support in the form of BAB: They are doing school-based training (e.g. to become a physiotherapist). You are already receiving services from another authority that are comparable to BAB."@en .
+
+ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
+    sh:targetClass ff:Citizen ;
+    sh:property [
+        sh:path ff:pensionable ;
+        sh:minCount 1 ;
+        sh:hasValue false ;
+    ] ;
+    sh:property [
+        sh:path ff:aufenthaltsort ;
+        sh:minCount 1 ;
+        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+    ] ;
+    sh:property [
+        sh:path ff:pflege ;
+        sh:minCount 1 ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path ff:beruf_neu ;
+        sh:minCount 1 ;
+        sh:hasValue ff:beruf_neu-ao-ausbildung ;
+    ] ;
+    sh:property [
+        sh:path ff:einkommen_neu ;
+        sh:minCount 1 ;
+        sh:not [
+            sh:in (ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-bafoeg ff:einkommen_neu-ao-rente) ;
+        ] ;
+    ] .

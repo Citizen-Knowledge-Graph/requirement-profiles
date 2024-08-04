@@ -103,7 +103,7 @@ ff:aufenthalt a ff:DataField, ff:SozialleistungsfinderDataField ;
         sh:datatype xsd:boolean ;
     ] ;
     ff:usageConstraints [
-    a sh:NodeShape ;
+        a sh:NodeShape ;
         sh:targetSubjectsOf ff:aufenthalt ;
         sh:property [
             sh:path ff:aufenthalt ;

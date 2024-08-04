@@ -21,12 +21,21 @@ ff:mainPerson a ff:Citizen ;
 #    ff:kindergeld false .
 
 #   # ff:kinderzuschlag
-    ff:aufenthalt true ;
+#    ff:aufenthalt true ;
+#    ff:kinder true ;
+#    ff:lebenssituation ff:lebenssituation-ao-gemeinschaft ;
+#    ff:aufenthaltsort ff:aufenthaltsort-ao-innerhalb ;
+#    ff:einkommen_familie ff:einkommen_familie-ao-monatsbrutto-ueber-900-600 ;
+#    ff:kinder_unter_18 true ;
+#    ff:kinder_18_25 false ;
+#    ff:kindergeld true ;
+#    ff:einkommen_neu ff:einkommen_neu-ao-soz .
+
+#   # ff:bildung-und-teilhabe-bei-bezug-von-buergergeld
     ff:kinder true ;
-    ff:lebenssituation ff:lebenssituation-ao-gemeinschaft ;
+    ff:lebenssituation ff:lebenssituation-ao-gemeinschaft;
     ff:aufenthaltsort ff:aufenthaltsort-ao-innerhalb ;
-    ff:einkommen_familie ff:einkommen_familie-ao-monatsbrutto-ueber-900-600 ;
+    ff:kinder_18_25 true ;
     ff:kinder_unter_18 true ;
-    ff:kinder_18_25 false ;
-    ff:kindergeld true ;
-    ff:einkommen_neu ff:einkommen_neu-ao-soz .
+    ff:einkommen_neu ff:einkommen_neu-ao-alg-ii ;
+    ff:einkommen_neu ff:einkommen_neu-ao-wohngeld .
