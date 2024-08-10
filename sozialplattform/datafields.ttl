@@ -7,35 +7,35 @@
 # BENEFIT CATEGORIES
 
 ff:arbeitslosigkeit-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Arbeitslosigkeit & Arbeitsuche" ;
+    rdfs:label "Arbeitslosigkeit & Arbeitsuche"@de, "Unemployment & Job Search"@en ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/arbeitslosigkeit> .
 
 ff:sozialhilfe-grundsicherung-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Sozialhilfe & Grundsicherung" ;
+    rdfs:label "Sozialhilfe & Grundsicherung"@de, "Social & Basic welfare"@en ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/sozialhilfe-grundsicherung> .
 
 ff:wohnen-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Wohnen" ;
+    rdfs:label "Wohnen"@de, "Housing"@en ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/wohnen> .
 
 ff:schule-studium-ausbildung-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Schule, Studium, Ausbildung" ;
+    rdfs:label "Schule, Studium, Ausbildung"@de, "Vocational Training & Studies"@en ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/schule-studium-ausbildung> .
 
 ff:leistungen-fuer-familien-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Leistungen für Familien" ;
+    rdfs:label "Leistungen für Familien"@de, "Family & Children"@en ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/leistungen-fuer-familien> .
 
 ff:migration-asyl-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Migration & Asyl" ;
+    rdfs:label "Migration & Asyl"@de, "Migration & Asylum"@en ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/migration-asyl> .
 
 ff:alter-ruhestand-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Alter und Ruhestand" ;
+    rdfs:label "Alter und Ruhestand"@de, "Aging & Retirement"@en ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/alter-ruhestand> .
 
 ff:gesundheit-pflege-bc-kategorie a ff:BenefitCategory ;
-    rdfs:label "Gesundheit & Pflege" ;
+    rdfs:label "Gesundheit & Pflege"@de, "Health & Care"@en ;
     rdfs:seeAlso <https://sozialplattform.de/gesundheit-pflege> .
 
 # DATAFIELD CATEGORIES
