@@ -17,43 +17,53 @@ ff:bildung-und-teilhabe-bei-bezug-von-buergergeld a ff:RequirementProfile ;
 ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
     sh:property [
+        sh:path ff:kinder_unter_18 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ff:kinder_18_25 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ff:einkommen_neu ;
+        sh:minCount 2 ;
+    ] ;
+    sh:property [
         sh:path ff:kinder ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:lebenssituation ;
         sh:minCount 1 ;
         sh:not [
-            sh:hasValue ff:lebenssituation-ao-allein ;
+            sh:in (ff:lebenssituation-ao-allein) ;
         ] ;
     ] ;
     sh:property [
         sh:path ff:aufenthaltsort ;
         sh:minCount 1 ;
-        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+        sh:in (ff:aufenthaltsort-ao-innerhalb) ;
     ] ;
     sh:or ([
         sh:property [
             sh:path ff:kinder_18_25 ;
-            sh:minCount 1 ;
-            sh:hasValue true ;
+            sh:in (true) ;
         ]
     ] [
         sh:property [
             sh:path ff:kinder_unter_18 ;
-            sh:minCount 1 ;
-            sh:hasValue true ;
+            sh:in (true) ;
         ]
     ]) ;
     sh:and ([
         sh:property [
             sh:path ff:einkommen_neu ;
-            sh:hasValue ff:einkommen_neu-ao-alg-ii ;
+            sh:in (ff:einkommen_neu-ao-alg-ii) ;
         ]
     ] [
         sh:property [
             sh:path ff:einkommen_neu ;
-            sh:hasValue ff:einkommen_neu-ao-wohngeld ;
+            sh:in (ff:einkommen_neu-ao-wohngeld) ;
         ]
     ]) .

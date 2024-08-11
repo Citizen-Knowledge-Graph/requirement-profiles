@@ -18,22 +18,22 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:property [
         sh:path ff:pensionable ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:aufenthaltsort ;
         sh:minCount 1 ;
-        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+        sh:in (ff:aufenthaltsort-ao-innerhalb) ;
     ] ;
     sh:property [
         sh:path ff:erwerbsfaehig_neu ;
         sh:minCount 1 ;
-        sh:hasValue ff:erwerbsfaehig_neu-ao-nein-greater-6-monate ;
+        sh:in (ff:erwerbsfaehig_neu-ao-nein-greater-6-monate) ;
     ] ;
     sh:property [
         sh:path ff:beruf_neu ;
         sh:minCount 1 ;
-        sh:hasValue ff:beruf_neu-ao-rente ;
+        sh:in (ff:beruf_neu-ao-rente) ;
     ] ;
     sh:property [
         sh:path ff:einkommen_neu ;

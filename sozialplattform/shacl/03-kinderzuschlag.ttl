@@ -16,54 +16,60 @@ ff:kinderzuschlag a ff:RequirementProfile ;
 ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
     sh:property [
+        sh:path ff:kinder_unter_18 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ff:kinder_18_25 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:aufenthalt ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:kinder ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:lebenssituation ;
         sh:minCount 1 ;
         sh:not [
-            sh:hasValue ff:lebenssituation-ao-allein ;
+            sh:in (ff:lebenssituation-ao-allein) ;
         ] ;
     ] ;
     sh:property [
         sh:path ff:aufenthaltsort ;
         sh:minCount 1 ;
-        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+        sh:in (ff:aufenthaltsort-ao-innerhalb) ;
     ] ;
     sh:property [
         sh:path ff:einkommen_familie ;
         sh:minCount 1 ;
-        sh:hasValue ff:einkommen_familie-ao-monatsbrutto-ueber-900-600 ;
+        sh:in (ff:einkommen_familie-ao-monatsbrutto-ueber-900-600) ;
     ] ;
     sh:or ([
         sh:property [
             sh:path ff:kinder_18_25 ;
-            sh:minCount 1 ;
-            sh:hasValue true ;
+            sh:in (true) ;
         ]
     ] [
         sh:property [
             sh:path ff:kinder_unter_18 ;
-            sh:minCount 1 ;
-            sh:hasValue true ;
+            sh:in (true) ;
         ]
     ]) ;
     sh:property [
         sh:path ff:kindergeld ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:einkommen_neu ;
         sh:minCount 1 ;
         sh:not [
-            sh:hasValue ff:einkommen_neu-ao-alg-ii ;
+            sh:in (ff:einkommen_neu-ao-alg-ii) ;
         ] ;
     ] .

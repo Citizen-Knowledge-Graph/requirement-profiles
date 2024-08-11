@@ -3,7 +3,7 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:hberufsausbildungsbeihilfe-bab a ff:RequirementProfile ;
+ff:berufsausbildungsbeihilfe-bab a ff:RequirementProfile ;
     ff:leikaId "99007004017000" ;
     ff:title "Berufsausbildungsbeihilfe (BAB)"@de , "Vocational training allowance (BAB)"@en ;
     ff:category ff:schule-studium-ausbildung-bc-kategorie ;
@@ -18,22 +18,22 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:property [
         sh:path ff:pensionable ;
         sh:minCount 1 ;
-        sh:hasValue false ;
+        sh:in (false) ;
     ] ;
     sh:property [
         sh:path ff:aufenthaltsort ;
         sh:minCount 1 ;
-        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+        sh:in (ff:aufenthaltsort-ao-innerhalb) ;
     ] ;
     sh:property [
         sh:path ff:pflege ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:beruf_neu ;
         sh:minCount 1 ;
-        sh:hasValue ff:beruf_neu-ao-ausbildung ;
+        sh:in (ff:beruf_neu-ao-ausbildung) ;
     ] ;
     sh:property [
         sh:path ff:einkommen_neu ;

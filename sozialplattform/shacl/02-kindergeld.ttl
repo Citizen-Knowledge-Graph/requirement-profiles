@@ -16,31 +16,37 @@ ff:kindergeld a ff:RequirementProfile ;
 ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
     sh:property [
+        sh:path ff:kinder_unter_18 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ff:kinder_18_25 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:kinder ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:pensionable ;
         sh:minCount 1 ;
-        sh:hasValue false ;
+        sh:in (false) ;
     ] ;
     sh:property [
         sh:path ff:aufenthaltsort ;
         sh:minCount 1 ;
-        sh:hasValue ff:aufenthaltsort-ao-innerhalb ;
+        sh:in (ff:aufenthaltsort-ao-innerhalb) ;
     ] ;
     sh:or ([
         sh:property [
             sh:path ff:kinder_18_25 ;
-            sh:minCount 1 ;
-            sh:hasValue true ;
+            sh:in (true) ;
         ]
     ] [
         sh:property [
             sh:path ff:kinder_unter_18 ;
-            sh:minCount 1 ;
-            sh:hasValue true ;
+            sh:in (true) ;
         ]
     ]) ;
     sh:property [
@@ -60,5 +66,5 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:property [
         sh:path ff:kindergeld ;
         sh:minCount 1 ;
-        sh:hasValue false ;
+        sh:in (false) ;
     ] .

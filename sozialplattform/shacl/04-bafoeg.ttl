@@ -23,29 +23,29 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:property [
         sh:path ff:lebenslage ;
         sh:minCount 1 ;
-        sh:hasValue false ;
+        sh:in (false) ;
     ] ;
     sh:property [
         sh:path ff:krankenversicherung ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:pflegeversicherung ;
         sh:minCount 1 ;
-        sh:hasValue true ;
+        sh:in (true) ;
     ] ;
     sh:property [
         sh:path ff:erwerbsfaehig_neu ;
         sh:minCount 1 ;
         sh:not [
-            sh:hasValue ff:erwerbsfaehig_neu-ao-nein-greater-6-monate ;
+            sh:in (ff:erwerbsfaehig_neu-ao-nein-greater-6-monate) ;
         ] ;
     ] ;
     sh:property [
         sh:path ff:beruf_neu ;
         sh:minCount 1 ;
-        sh:hasValue ff:beruf_neu-ao-ausbildung ;
+        sh:in (ff:beruf_neu-ao-ausbildung) ;
     ] ;
     sh:property [
         sh:path ff:einkommen_neu ;
