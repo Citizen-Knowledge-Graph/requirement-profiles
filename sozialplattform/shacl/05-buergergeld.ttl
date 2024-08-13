@@ -26,6 +26,10 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:in (ff:aufenthaltsort-ao-innerhalb) ;
     ] ;
     sh:property [
+        sh:path ff:geburtsdatum ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:hasAge ;
         sh:minCount 1 ;
         sh:minInclusive 15 ;

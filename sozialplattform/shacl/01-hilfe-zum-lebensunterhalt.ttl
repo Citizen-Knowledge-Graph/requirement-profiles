@@ -22,6 +22,10 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:in (ff:aufenthaltsort-ao-innerhalb) ;
     ] ;
     sh:property [
+        sh:path ff:geburtsdatum ; # find a way to not have to declare this explicitly? reverse materialization logic? TODO
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:pensionable ;
         sh:minCount 1 ;
         sh:in (false) ;

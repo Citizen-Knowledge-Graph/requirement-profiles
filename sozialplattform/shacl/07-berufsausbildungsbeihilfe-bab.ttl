@@ -16,6 +16,10 @@ ff:berufsausbildungsbeihilfe-bab a ff:RequirementProfile ;
 ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
     sh:property [
+        sh:path ff:geburtsdatum ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:pensionable ;
         sh:minCount 1 ;
         sh:in (false) ;

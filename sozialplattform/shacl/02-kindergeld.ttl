@@ -29,6 +29,10 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:in (true) ;
     ] ;
     sh:property [
+        sh:path ff:geburtsdatum ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:pensionable ;
         sh:minCount 1 ;
         sh:in (false) ;
