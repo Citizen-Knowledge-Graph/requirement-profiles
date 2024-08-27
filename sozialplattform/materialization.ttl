@@ -75,3 +75,18 @@ ff:Year1961 ff:hasPensionAgeYears 66 ; ff:hasPensionAgeMonths 4 ; ff:appliesToBi
 ff:Year1962 ff:hasPensionAgeYears 66 ; ff:hasPensionAgeMonths 6 ; ff:appliesToBirthYear 1962 .
 ff:Year1963 ff:hasPensionAgeYears 66 ; ff:hasPensionAgeMonths 8 ; ff:appliesToBirthYear 1963 .
 ff:Year1964 ff:hasPensionAgeYears 66 ; ff:hasPensionAgeMonths 10 ; ff:appliesToBirthYear 1964 .
+
+ff:NoKidsImpliesNoKidsInAgeRanges a ff:MaterializationRule, ff:SparqlRule ;
+    rdfs:label "Wenn jemand keine Kinder hat, hat er auch keine Kinder in diesen beiden Altersspannen"@de, "If someone has no children, they also have no children in these two age ranges"@en ;
+    ff:input ff:kinder ;
+    ff:output ff:kinder_unter_18 ;
+    ff:output ff:kinder_18_25 ;
+    ff:sparqlConstructQuery """
+        PREFIX ff: <https://foerderfunke.org/default#>
+        CONSTRUCT {
+            ?person ff:kinder_unter_18 false .
+            ?person ff:kinder_18_25 false .
+        } WHERE {
+            ?person ff:kinder false .
+        }
+    """ .
