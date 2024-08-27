@@ -90,3 +90,21 @@ ff:NoKidsImpliesNoKidsInAgeRanges a ff:MaterializationRule, ff:SparqlRule ;
             ?person ff:kinder false .
         }
     """ .
+
+ff:KidsInAgeRangesMeansHavingKids a ff:MaterializationRule, ff:SparqlRule ;
+    rdfs:label "Wenn jemand Kinder in Altersspannen hat, hat die Person Kinder"@de, "If someone has children in age ranges, the person has children"@en ;
+    ff:input ff:kinder_unter_18 ;
+    ff:input ff:kinder_18_25 ;
+    ff:output ff:kinder ;
+    ff:sparqlConstructQuery """
+        PREFIX ff: <https://foerderfunke.org/default#>
+        CONSTRUCT {
+            ?person ff:kinder true .
+        } WHERE {
+            {
+                ?person ff:kinder_unter_18 true .
+            } UNION {
+                ?person ff:kinder_18_25 true .
+            }
+        }
+    """ .
