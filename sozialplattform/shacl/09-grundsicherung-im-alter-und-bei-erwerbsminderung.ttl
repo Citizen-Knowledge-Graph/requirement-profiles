@@ -32,7 +32,7 @@ ff:MainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:property [
         sh:path ff:erwerbsfaehig_neu ;
         sh:minCount 1 ;
-        sh:in (ff:erwerbsfaehig_neu-ao-nein-greater-6-monate) ;
+        sh:in (ff:erwerbsfaehig_neu-ao-nein-ueber-6-monate) ;
     ] ;
     sh:property [
         sh:path ff:beruf_neu ;
