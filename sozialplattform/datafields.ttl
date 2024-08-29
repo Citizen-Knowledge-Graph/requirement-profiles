@@ -93,7 +93,7 @@ ff:staatsbuergerschaft-ao-3rd a ff:AnswerOption ; rdfs:label "Drittstaat (Nicht-
 
 ff:aufenthalt a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:persoenliche-angaben-df-kategorie;
-    rdfs:label "Aufenthalt"@de , "Residence"@en ;
+    rdfs:label "Aufenthaltsberechtigung"@de , "Right of residence"@en ;
     schema:question "Sind Sie in Deutschland aufenthaltsberechtigt?"@de , "Are you entitled to stay in Germany?"@en ;
     rdfs:comment "Wenn Sie Ausländer:in sind und eine Aufenthaltsberechtigung haben (diese wurden zwischen 1991 und 2004 ausgestellt) oder eine Niederlassungsberechtigung (seit 2005), klicken Sie „ja“ an. Wenn Sie das nicht haben, klicken Sie „nein“ an."@de ,
         "If you are a foreigner and have a residence permit (these were issued between 1991 and 2004) or a settlement permit (since 2005), click \"yes\". If you do not have one, click \"no\"."@en ;
@@ -113,7 +113,7 @@ ff:aufenthalt a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:persoenliche-angaben-df-kategorie;
-    rdfs:label "Aufenthaltsort"@de , "Residence"@en ;
+    rdfs:label "Aufenthaltsort"@de , "Actual Residence"@en ;
     schema:question "Wo ist Ihr tatsächlicher Aufenthaltsort an dem Sie erreichbar sind?"@de ,
         "Where is your actual residence where you can be reached?"@en ;
     rdfs:comment "Das ist der Ort, wo Sie sich wirklich aufhalten. Es ist egal, ob Sie dort gemeldet sind oder das Recht haben, hier zu leben. Das kann auch eine Pflegeeinrichtung, ein Frauenhaus, ein Stadtteil oder Ähnliches sein."@de ,
