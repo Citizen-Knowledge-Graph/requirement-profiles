@@ -131,8 +131,8 @@ ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:aufenthaltsort-ao-ausserhalb a ff:AnswerOption ; rdfs:label "außerhalb Deutschlands"@de , "outside Germany"@en .
-ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "innerhalb Deutschlands"@de , "inside Germany"@en .
+ff:aufenthaltsort-ao-ausserhalb a ff:AnswerOption ; rdfs:label "Außerhalb Deutschlands"@de , "Outside Germany"@en .
+ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "Innerhalb Deutschlands"@de , "Inside Germany"@en .
 
 # Kinder
 
@@ -253,8 +253,8 @@ ff:erwerbsfaehig_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
         ] ;
     ] .
 ff:erwerbsfaehig_neu-ao-ja a ff:AnswerOption ; rdfs:label "ja"@de , "yes"@en .
-ff:erwerbsfaehig_neu-ao-nein-ueber-6-monate a ff:AnswerOption ; rdfs:label "nein, dauerhaft erwerbsunfähig (über 6 Monate)"@de , "no, permanently unable to work (more than 6 months)"@en .
-ff:erwerbsfaehig_neu-ao-nein-weniger-6-monate a ff:AnswerOption ; rdfs:label "nein, temporär erwerbsunfähig (weniger als 6 Monate)"@de , "no, temporarily unable to work (less than 6 months)"@en .
+ff:erwerbsfaehig_neu-ao-nein-ueber-6-monate a ff:AnswerOption ; rdfs:label "Nein, dauerhaft erwerbsunfähig (über 6 Monate)"@de , "No, permanently unable to work (more than 6 months)"@en .
+ff:erwerbsfaehig_neu-ao-nein-weniger-6-monate a ff:AnswerOption ; rdfs:label "Nein, temporär erwerbsunfähig (weniger als 6 Monate)"@de , "No, temporarily unable to work (less than 6 months)"@en .
 
 ff:beruf_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit-df-kategorie ;
@@ -273,9 +273,9 @@ ff:beruf_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:beruf_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "selbständig in einer Beschäftigung von mehr als 15 Stunden pro Woche"@de , "Self-employed, working more than 15 hours per week"@en .
-ff:beruf_neu-ao-soz a ff:AnswerOption ; rdfs:label "berufstätig in einer sozialversicherungspflichtigen Beschäftigung"@de , "employed in a job subject to social security contributions"@en .
-ff:beruf_neu-ao-alg a ff:AnswerOption ; rdfs:label "arbeitslos"@de , "unemployed"@en .
+ff:beruf_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "Selbständig in einer Beschäftigung von mehr als 15 Stunden pro Woche"@de , "Self-employed, working more than 15 hours per week"@en .
+ff:beruf_neu-ao-soz a ff:AnswerOption ; rdfs:label "Berufstätig in einer sozialversicherungspflichtigen Beschäftigung"@de , "Employed in a job subject to social security contributions"@en .
+ff:beruf_neu-ao-alg a ff:AnswerOption ; rdfs:label "Arbeitslos"@de , "Unemployed"@en .
 ff:beruf_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Schule/Ausbildung/Studium"@de , "School/vocational training/studies"@en .
 ff:beruf_neu-ao-bfd a ff:AnswerOption ; rdfs:label "Bundesfreiwilligendienst"@de , "Federal voluntary service"@en .
 ff:beruf_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente/Pension"@de , "Standard old-age pension/retirement"@en .
@@ -291,17 +291,17 @@ ff:einkommen_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
         sh:targetObjectsOf ff:einkommen_neu ;
         sh:in (ff:einkommen_neu-ao-selbstaendig ff:einkommen_neu-ao-soz ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-alg-ii ff:einkommen_neu-ao-ausbildung ff:einkommen_neu-ao-bafoeg ff:einkommen_neu-ao-rente ff:einkommen_neu-ao-elterngeld ff:einkommen_neu-ao-mutterschaftsgeld ff:einkommen_neu-ao-wohngeld ff:einkommen_neu-ao-sonstige) ;
     ] .
-ff:einkommen_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "selbstständige Arbeit in einer Beschäftigung von mehr als 15 Stunden pro Woche"@de , "self-employed work of more than 15 hours per week"@en .
-ff:einkommen_neu-ao-soz a ff:AnswerOption ; rdfs:label "sozialversicherungspflichtige Beschäftigung"@de , "employment subject to social security contributions"@en .
-ff:einkommen_neu-ao-alg a ff:AnswerOption ; rdfs:label "Arbeitslosengeld"@de , "unemployment benefit"@en .
-ff:einkommen_neu-ao-alg-ii a ff:AnswerOption ; rdfs:label "Bürgergeld (früher ALG II)"@de , "citizen's income (formerly unemployment benefit II)"@en .
-ff:einkommen_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Ausbildungsvergütung"@de , "training allowance"@en .
-ff:einkommen_neu-ao-bafoeg a ff:AnswerOption ; rdfs:label "BAföG"@de , "student support (BAföG)"@en .
-ff:einkommen_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente"@de , "standard retirement pension"@en .
-ff:einkommen_neu-ao-elterngeld a ff:AnswerOption ; rdfs:label "Elterngeld"@de , "parental benefit"@en .
-ff:einkommen_neu-ao-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutterschaftsgeld"@de , "maternity pay"@en .
-ff:einkommen_neu-ao-wohngeld a ff:AnswerOption ; rdfs:label "Wohngeld"@de , "housing benefit"@en .
-ff:einkommen_neu-ao-sonstige a ff:AnswerOption ; rdfs:label "Sonstige"@de , "other"@en .
+ff:einkommen_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "Selbstständige Arbeit in einer Beschäftigung von mehr als 15 Stunden pro Woche"@de , "Self-employed work of more than 15 hours per week"@en .
+ff:einkommen_neu-ao-soz a ff:AnswerOption ; rdfs:label "Sozialversicherungspflichtige Beschäftigung"@de , "Employment subject to social security contributions"@en .
+ff:einkommen_neu-ao-alg a ff:AnswerOption ; rdfs:label "Arbeitslosengeld"@de , "Unemployment benefit"@en .
+ff:einkommen_neu-ao-alg-ii a ff:AnswerOption ; rdfs:label "Bürgergeld (früher ALG II)"@de , "Citizen's income (formerly unemployment benefit II)"@en .
+ff:einkommen_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Ausbildungsvergütung"@de , "Training allowance"@en .
+ff:einkommen_neu-ao-bafoeg a ff:AnswerOption ; rdfs:label "BAföG"@de , "Student support (BAföG)"@en .
+ff:einkommen_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente"@de , "Standard retirement pension"@en .
+ff:einkommen_neu-ao-elterngeld a ff:AnswerOption ; rdfs:label "Elterngeld"@de , "Parental benefit"@en .
+ff:einkommen_neu-ao-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutterschaftsgeld"@de , "Maternity pay"@en .
+ff:einkommen_neu-ao-wohngeld a ff:AnswerOption ; rdfs:label "Wohngeld"@de , "Housing benefit"@en .
+ff:einkommen_neu-ao-sonstige a ff:AnswerOption ; rdfs:label "Sonstige"@de , "Other"@en .
 
 ff:einkommen_familie a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit-df-kategorie ;
@@ -342,9 +342,9 @@ ff:lebenssituation a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:lebenssituation-ao-allein a ff:AnswerOption ; rdfs:label "alleinlebend"@de , "Single household"@en .
-ff:lebenssituation-ao-gemeinschaft a ff:AnswerOption ; rdfs:label "gemeinsam lebend (Ehe, Partnerschaft, eingetragene Lebenspartnerschaft), ggf. mit Kindern"@de , "Joint household (marriage, partnership, registered partnership), possibly with children"@en .
-ff:lebenssituation-ao-allein-mit-kind a ff:AnswerOption ; rdfs:label "alleinerziehend mit mind. einem Kind"@de , "Single parent with at least one child"@en .
+ff:lebenssituation-ao-allein a ff:AnswerOption ; rdfs:label "Alleinlebend"@de , "Single household"@en .
+ff:lebenssituation-ao-gemeinschaft a ff:AnswerOption ; rdfs:label "Gemeinsam lebend (Ehe, Partnerschaft, eingetragene Lebenspartnerschaft), ggf. mit Kindern"@de , "Joint household (marriage, partnership, registered partnership), possibly with children"@en .
+ff:lebenssituation-ao-allein-mit-kind a ff:AnswerOption ; rdfs:label "Alleinerziehend mit mind. einem Kind"@de , "Single parent with at least one child"@en .
 
 ff:lebenslage a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:lebenssituation-df-kategorie ;
