@@ -17,7 +17,7 @@ ff:FoerderFunkeDataProduct a dprod:DataProduct ;
     dprod:inputDataset ff:UserProfileDataset, ff:RequirementProfilesDataset ;
     dprod:outputDataset ff:MatchingResultsDataset .
 
-ff:UserProfilsDataset a dcat:Dataset ;
+ff:UserProfileDataset a dcat:Dataset ;
     dct:title "User Profile"@en ;
     dct:description "The user profile in RDF format."@en ;
     dprod:informationSensitivityClassification ff:SensitivityClassification-PersonalData .
