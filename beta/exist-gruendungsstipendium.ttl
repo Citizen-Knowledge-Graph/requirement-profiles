@@ -2,15 +2,15 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:exist_gruendungsfoerderung a ff:RequirementProfile ;
+ff:exist-gruendungsstipendium a ff:RequirementProfile ;
     ff:title "Exist Gründerstipendium"@de , "Exist Founders Grant"@en ;
     ff:category ff:founders-support ;
     rdfs:seeAlso <https://www.exist.de/EXIST/Navigation/DE/Gruendungsfoerderung/EXIST-Gruendungsstipendium/exist-gruendungsstipendium.html> ;
     ff:benefitInfo "Das EXIST-Gründerstipendium ist ein Förderprogramm der deutschen Regierung, das Studierende, Absolvent:innen und Wissenschaftler:innen von Hochschulen und Forschungseinrichtungen bei der Gründung innovativer Startups durch finanzielle Unterstützung und Coaching für bis zu ein Jahr fördert."@de ,
         "The EXIST Gründerstipendium is a German government grant that supports students, graduates, and scientists from universities and research institutions in founding innovative startups by providing financial support and coaching for up to one year."@en ;
-    ff:hasMainPersonShape ff:exist_gruendungsfoerderungMainPersonShape .
+    ff:hasMainPersonShape ff:exist-gruendungsstipendiumMainPersonShape .
 
-ff:exist_gruendungsfoerderungMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
+ff:exist-gruendungsstipendiumMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
 
     sh:property [
