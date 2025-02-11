@@ -23,8 +23,8 @@ ff:exist-gruendungsstipendiumMainPersonShape a sh:NodeShape, ff:EligibilityConst
         sh:path ff:graduation_status ;
         sh:minCount 1 ;
         sh:in (  
-            ff:graduation_status-currently-enrolled
-            ff:graduation_status-graduated-at-most-5-years-ago
+            ff:graduation_status-currently-enrolled-or-working
+            ff:graduation_status-left-at-most-5-years-ago
         ) ;
     ] ;
     sh:property [
