@@ -436,6 +436,8 @@ ff:hasAge a ff:DataField, ff:MaterializableDataField ; rdfs:label "Age"@en, "Alt
 
 ##############################
 # Updated Graduation Status field for EXIST Gründerstipendium
+##############################
+
 ff:interested_in_founding a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:gruendung-df-kategorie ;
     rdfs:label "Interested in Founding"@en, "Interesse an Gründung"@de ;
