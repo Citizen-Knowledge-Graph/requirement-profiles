@@ -428,27 +428,6 @@ ff:pflege a ff:DataField, ff:SozialleistungsfinderDataField ;
 ff:pensionable a ff:DataField, ff:MaterializableDataField ; rdfs:label "Pensionable"@en, "Rentenberechtigt"@de .
 ff:hasAge a ff:DataField, ff:MaterializableDataField ; rdfs:label "Age"@en, "Alter"@de .
 
-ff:pflege a ff:DataField, ff:SozialleistungsfinderDataField ;
-    schema:category ff:gesundheit-df-kategorie ;
-    rdfs:label "Pflege"@de , "Care"@en ;
-    schema:question "Sind Sie pflegebedürftig?"@de , "Are you in need of care?"@en ;
-    rdfs:comment "Die Pflegebedürftigkeit wird von einem Gutachter des Medizinischen Dienstes der Krankenversicherung (MDK) festgestellt. Nach der Prüfung entscheidet die Pflegekasse über Pflegebedürftigkeit und Pflegegrad."@de ,
-        "The need for care is determined by an expert from the health insurance's medical service (MDK). After the examination, the care fund (Pflegekasse) decides on the need for care and the degree of care."@en ;
-    ff:objectConstraints [
-        a sh:PropertyShape ;
-        sh:targetObjectsOf ff:pflege ;
-        sh:datatype xsd:boolean ;
-    ] ;
-    ff:usageConstraints [
-    a sh:NodeShape ;
-        sh:targetSubjectsOf ff:pflege ;
-        sh:property [
-            sh:path ff:pflege ;
-            sh:maxCount 1 ;
-        ] ;
-    ] .
-
-
 
 ##############################
 # Updated Graduation Status field for EXIST Gründerstipendium

@@ -67,6 +67,9 @@ ff:exist_gruendungsfoerderungMainPersonShape a sh:NodeShape, ff:EligibilityConst
         sh:path ff:studies_status ;
         sh:minCount 1 ;
         sh:not [
-            sh:in ( ff:studies_status-less-than-half ) ;
+            sh:in ( 
+                ff:studies_status-less-than-half, 
+                ff:studies_status-no-academic-studies 
+            ) ;
         ] ;
     ] .
