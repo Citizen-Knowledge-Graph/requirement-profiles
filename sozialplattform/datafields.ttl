@@ -580,7 +580,7 @@ ff:secondary_activity a ff:DataField, ff:SozialleistungsfinderDataField ;
         sh:in (
             ff:secondary_activity-no-secondary
             ff:secondary_activity-less-than-20
-            ff:secondary_activity-mehr-als-20-stunden
+            ff:secondary_activity-more-than-20
         )
     ] ;
     ff:usageConstraints [
@@ -606,7 +606,7 @@ ff:studies_status a ff:DataField, ff:SozialleistungsfinderDataField ;
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:studies_status ;
         sh:in ( 
-            ff:studies_status-weniger-als-haelfte
+            ff:studies_status-less-than-half
             ff:studies_status-more-than-half
             ff:studies_status-completed
             ff:studies_status-no-academic-studies
