@@ -23,7 +23,7 @@ ff:exist_gruendungsfoerderungMainPersonShape a sh:NodeShape, ff:EligibilityConst
         sh:path ff:graduation_status ;
         sh:minCount 1 ;
         sh:in (  
-            ff:graduation_status-currently-enrolled,
+            ff:graduation_status-currently-enrolled
             ff:graduation_status-graduated-at-most-5-years-ago
         ) ;
     ] ;
@@ -58,7 +58,7 @@ ff:exist_gruendungsfoerderungMainPersonShape a sh:NodeShape, ff:EligibilityConst
         sh:path ff:composition_founding_team ;
         sh:minCount 1 ;
         sh:in ( 
-            ff:composition_founding_team-only-academic-degrees, 
+            ff:composition_founding_team-only-academic-degrees
             ff:composition_founding_team-at-most-one-non-academic-degree 
         ) ;
     ] ;
@@ -74,7 +74,7 @@ ff:exist_gruendungsfoerderungMainPersonShape a sh:NodeShape, ff:EligibilityConst
         sh:minCount 1 ;
         sh:not [
             sh:in ( 
-                ff:studies_status-less-than-half, 
+                ff:studies_status-less-than-half
                 ff:studies_status-no-academic-studies 
             ) ;
         ] ;
