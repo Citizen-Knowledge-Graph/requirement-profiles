@@ -458,16 +458,19 @@ ff:interested_in_founding a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:graduation_status a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:education-df-kategorie ;
-    rdfs:label "Graduation Status"@en, "Abschlussstatus"@de ;
-    schema:question "What is your graduation status?"@en, "Wie ist Ihr Abschlussstatus?"@de ;
+    rdfs:label "University or Research Institution Status"@en, "Universitäts- oder Forschungseinrichtungsstatus"@de ;
+    schema:question "Are you currently enrolled at a university or working at a research institution?"@en, 
+                    "Sind Sie derzeit an einer Universität eingeschrieben oder arbeiten Sie an einer Forschungseinrichtung?"@de ;
+    rdfs:comment "Some grants require applicants to be currently affiliated with a university or research institution or to have been in the past."@en,
+                 "Einige Förderprogramme setzen voraus, dass Antragstellende aktuell mit einer Universität oder Forschungseinrichtung verbunden sind oder dies in der Vergangenheit waren."@de .
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:graduation_status ;
         sh:in ( 
-            ff:graduation_status-currently-enrolled
-            ff:graduation_status-graduated-at-most-5-years-ago
-            ff:graduation_status-graduated-more-than-5-years-ago
-            ff:graduation_status-no-academic-enrollment
+            ff:graduation_status-currently-enrolled-or-working
+            ff:graduation_status-left-at-most-5-years-ago
+            ff:graduation_status-left-more-than-5-years-ago
+            ff:graduation_status-never-enrolled
         )
     ] ;
     ff:usageConstraints [
@@ -477,12 +480,19 @@ ff:graduation_status a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:path ff:graduation_status ;
             sh:maxCount 1 ;
         ]
-    ] .
-ff:graduation_status-currently-enrolled a ff:AnswerOption ; rdfs:label "Currently Enrolled"@en, "Derzeit eingeschrieben"@de .
-ff:graduation_status-graduated-at-most-5-years-ago a ff:AnswerOption ; rdfs:label "Graduated at most 5 years ago"@en, "Absolviert vor höchstens 5 Jahren"@de .
-ff:graduation_status-graduated-more-than-5-years-ago a ff:AnswerOption ; rdfs:label "Graduated more than 5 years ago"@en, "Absolviert vor mehr als 5 Jahren"@de .
-ff:graduation_status-no-academic-enrollment a ff:AnswerOption ; rdfs:label "No academic enrollment"@en, "Kein akademischer Status"@de .
-
+    ] ;
+ff:graduation_status-currently-enrolled-or-working a ff:AnswerOption ; 
+    rdfs:label "I am currently enrolled at a university or working at a research institution"@en, 
+               "Ich bin derzeit an einer Universität eingeschrieben oder arbeite an einer Forschungseinrichtung"@de .
+ff:graduation_status-left-at-most-5-years-ago a ff:AnswerOption ; 
+    rdfs:label "I left my university or research institution within the last 5 years"@en, 
+               "Ich habe meine Universität oder Forschungseinrichtung innerhalb der letzten 5 Jahre verlassen"@de .
+ff:graduation_status-left-more-than-5-years-ago a ff:AnswerOption ; 
+    rdfs:label "I left my university or research institution more than 5 years ago"@en, 
+               "Ich habe meine Universität oder Forschungseinrichtung vor mehr als 5 Jahren verlassen"@de .
+ff:graduation_status-never-enrolled a ff:AnswerOption ; 
+    rdfs:label "I was never enrolled at a university or employed at a research institution"@en, 
+               "Ich war nie an einer Universität eingeschrieben oder an einer Forschungseinrichtung beschäftigt"@de .
 
 ff:institute_location a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:education-df-kategorie ;
