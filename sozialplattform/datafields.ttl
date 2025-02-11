@@ -427,3 +427,215 @@ ff:pflege a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:pensionable a ff:DataField, ff:MaterializableDataField ; rdfs:label "Pensionable"@en, "Rentenberechtigt"@de .
 ff:hasAge a ff:DataField, ff:MaterializableDataField ; rdfs:label "Age"@en, "Alter"@de .
+
+ff:pflege a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gesundheit-df-kategorie ;
+    rdfs:label "Pflege"@de , "Care"@en ;
+    schema:question "Sind Sie pflegebedürftig?"@de , "Are you in need of care?"@en ;
+    rdfs:comment "Die Pflegebedürftigkeit wird von einem Gutachter des Medizinischen Dienstes der Krankenversicherung (MDK) festgestellt. Nach der Prüfung entscheidet die Pflegekasse über Pflegebedürftigkeit und Pflegegrad."@de ,
+        "The need for care is determined by an expert from the health insurance's medical service (MDK). After the examination, the care fund (Pflegekasse) decides on the need for care and the degree of care."@en ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:pflege ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+    a sh:NodeShape ;
+        sh:targetSubjectsOf ff:pflege ;
+        sh:property [
+            sh:path ff:pflege ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+
+
+##############################
+# Updated Graduation Status field for EXIST Gründerstipendium
+ff:graduation_status a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Graduation Status"@en, "Abschlussstatus"@de ;
+    schema:question "What is your graduation status?"@en, "Wie ist Ihr Abschlussstatus?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:graduation_status ;
+        sh:in ( 
+            ff:graduation_status-currently-enrolled,
+            ff:graduation_status-graduated-at-most-5-years-ago,
+            ff:graduation_status-graduated-more-than-5-years-ago,
+            ff:graduation_status-no-academic-enrollment
+        )
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:graduation_status ;
+        sh:property [
+            sh:path ff:graduation_status ;
+            sh:maxCount 1 ;
+        ]
+    ] .
+ff:graduation_status-currently-enrolled a ff:AnswerOption ; rdfs:label "Currently Enrolled"@en, "Derzeit eingeschrieben"@de .
+ff:graduation_status-graduated-at-most-5-years-ago a ff:AnswerOption ; rdfs:label "Graduated at most 5 years ago"@en, "Absolviert vor höchstens 5 Jahren"@de .
+ff:graduation_status-graduated-more-than-5-years-ago a ff:AnswerOption ; rdfs:label "Graduated more than 5 years ago"@en, "Absolviert vor mehr als 5 Jahren"@de .
+ff:graduation_status-no-academic-enrollment a ff:AnswerOption ; rdfs:label "No academic enrollment"@en, "Kein akademischer Status"@de .
+
+
+ff:institute_location a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Institute Location"@en, "Institutsort"@de ;
+    schema:question "Where is your institute located?"@en, "Wo befindet sich Ihr Institut?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:institute_location ;
+        sh:in ( ff:institute_location-germany ff:institute_location-outside-germany )
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:institute_location ;
+        sh:property [
+            sh:path ff:institute_location ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:institute_location-germany a ff:AnswerOption ; rdfs:label "Germany"@en, "Deutschland"@de .
+ff:institute_location-outside-germany a ff:AnswerOption ; rdfs:label "Outside Germany"@en, "Außerhalb Deutschlands"@de .
+
+
+ff:scholarship a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Scholarship"@en, "Stipendium"@de ;
+    schema:question "Do you receive a scholarship?"@en, "Erhalten Sie ein Stipendium?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:scholarship ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:scholarship ;
+        sh:property [
+            sh:path ff:scholarship ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:founding_status a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Startup Founding State"@en, "Gründung Status"@de ;
+    schema:question "Has the startup already been founded?"@en, "Ist Ihr Unternehmen bereits gegründet?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:founding_status ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:founding_status ;
+        sh:property [
+            sh:path ff:founding_status ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:composition_founding_team a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Startup Team Composition"@en, "Zusammensetzung Gründungsteam"@de ;
+    schema:question "What is the composition of your startup team?"@en, "Wie setzt sich Ihr Gründungsteam zusammen?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:composition_founding_team ;
+        sh:in (
+            ff:composition_founding_team-only-academic-degrees
+            ff:composition_founding_team-at-most-one-non-academic-degree
+            ff:composition_founding_team-more-than-one-non-academic-degree
+            ff:composition_founding_team-at-least-one-non-degree
+        )
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:composition_founding_team ;
+        sh:property [
+            sh:path ff:composition_founding_team ;
+            sh:maxCount 1 ;
+        ]
+    ] .
+ff:composition_founding_team-only-academic-degrees a ff:AnswerOption ;
+    rdfs:label "Ausschließlicher akademische Abschlüsse"@de, "Only academic degrees"@en .
+ff:composition_founding_team-at-most-one-non-academic-degree a ff:AnswerOption ;
+    rdfs:label "Maximal ein nicht-akademischer Abschluss"@de, "At most one non-academic degree"@en .
+ff:composition_founding_team-more-than-one-non-academic-degree a ff:AnswerOption ;
+    rdfs:label "Mehr als ein nicht-akademischer Abschluss"@de, "More than one non-academic degree"@en .
+ff:composition_founding_team-at-least-one-non-degree a ff:AnswerOption ;
+    rdfs:label "Mindestens eine Person ohne Berufsabschluss"@de, "At least one person without a professional degree"@en .
+
+
+ff:secondary_activity a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Secondary Activities (paid)"@en, "Nebentätigkeiten (bezahlt)"@de ;
+    schema:question "How many hours do you spend on paid secondary activities?"@en, "Wie viele Stunden verbringen Sie mit bezahlten Nebentätigkeiten?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:secondary_activity ;
+        sh:in (
+            ff:secondary_activity-no-secondary
+            ff:secondary_activity-less-than-20
+            ff:secondary_activity-mehr-als-20-stunden
+        )
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:secondary_activity ;
+        sh:property [
+            sh:path ff:secondary_activity ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:secondary_activity-no-secondary a ff:AnswerOption ;
+    rdfs:label "No secondary activities"@en, "Keine Nebentätigkeiten"@de .
+ff:secondary_activity-less-than-20 a ff:AnswerOption ;
+    rdfs:label "Less than 20 hours"@en, "Weniger als 20 Stunden"@de .
+ff:secondary_activity-more-than-20 a ff:AnswerOption ;
+    rdfs:label "More than 20 hours"@en, "Mehr als 20 Stunden"@de .
+
+    
+ff:studies_status a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Study Performance"@en, "Studienleistungen"@de ;
+    schema:question "How far along are you in your studies?"@en, "Wie weit sind Sie mit Ihrem Studium fortgeschritten?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:studies_status ;
+        sh:in ( 
+            ff:studies_status-weniger-als-haelfte
+            ff:studies_status-more-than-half
+            ff:studies_status-completed
+            ff:studies_status-no-academic-studies
+        )
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:studies_status ;
+        sh:property [
+            sh:path ff:studies_status ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:studies_status-less-than-half a ff:AnswerOption ;
+    rdfs:label "Less than half"@en, "Weniger als Hälfte"@de .
+ff:studies_status-more-than-half a ff:AnswerOption ;
+    rdfs:label "More than half"@en, "Mehr als die Hälfte"@de .
+ff:studies_status-completed a ff:AnswerOption ;
+    rdfs:label "Completed"@en, "Abgeschlossen"@de .
+ff:studies_status-no-academic-studies a ff:AnswerOption ;
+    rdfs:label "No academic studies"@en, "Kein akademisches Studium"@de .
+
+
+ff:academic_institution_support a ff:DataField, ff:SozialleistungsfinderDataField ;
+    rdfs:label "Academic Institution Support for Founding Teams"@en, "Unterstützung akademischer Einrichtungen für Gründungsteams"@de ;
+    schema:question "Does your academic institution provide a dedicated contact point and support for founding teams?"@en, "Bietet Ihre akademische Einrichtung einen dedizierten Ansprechpartner und Unterstützung für Gründungsteams?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:academic_institution_support ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:academic_institution_support ;
+        sh:property [
+            sh:path ff:academic_institution_support ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
