@@ -462,7 +462,7 @@ ff:graduation_status a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:question "Are you currently enrolled at a university or working at a research institution?"@en, 
                     "Sind Sie derzeit an einer Universität eingeschrieben oder arbeiten Sie an einer Forschungseinrichtung?"@de ;
     rdfs:comment "Some grants require applicants to be currently affiliated with a university or research institution or to have been in the past."@en,
-                 "Einige Förderprogramme setzen voraus, dass Antragstellende aktuell mit einer Universität oder Forschungseinrichtung verbunden sind oder dies in der Vergangenheit waren."@de .
+                 "Einige Förderprogramme setzen voraus, dass Antragstellende aktuell mit einer Universität oder Forschungseinrichtung verbunden sind oder dies in der Vergangenheit waren."@de ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:graduation_status ;
@@ -480,7 +480,7 @@ ff:graduation_status a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:path ff:graduation_status ;
             sh:maxCount 1 ;
         ]
-    ] ;
+    ] .
 ff:graduation_status-currently-enrolled-or-working a ff:AnswerOption ; 
     rdfs:label "I am currently enrolled at a university or working at a research institution"@en, 
                "Ich bin derzeit an einer Universität eingeschrieben oder arbeite an einer Forschungseinrichtung"@de .
