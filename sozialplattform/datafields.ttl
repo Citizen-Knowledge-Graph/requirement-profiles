@@ -38,6 +38,9 @@ ff:gesundheit-pflege-bc-kategorie a ff:BenefitCategory ;
     rdfs:label "Gesundheit & Pflege"@de, "Health & Care"@en ;
     rdfs:seeAlso <https://sozialplattform.de/gesundheit-pflege> .
 
+ff:selbstaendigkeit-gruendung a ff:BenefitCategory ;
+    rdfs:label "Selbständigkeit & Gründung"@de, "Self-employment & Founding"@en .
+
 # DATAFIELD CATEGORIES
 
 ff:persoenliche-angaben-df-kategorie a ff:DatafieldCategory ; rdfs:label "Persönliche Angaben"@de, "Personal information"@en .
@@ -45,6 +48,8 @@ ff:kinder-df-kategorie a ff:DatafieldCategory ; rdfs:label "Kinder"@de, "Childre
 ff:erwerbstaetigkeit-df-kategorie a ff:DatafieldCategory ; rdfs:label "Erwerbstätigkeit"@de, "Employment"@en .
 ff:lebenssituation-df-kategorie a ff:DatafieldCategory ; rdfs:label "Lebenssituation"@de, "Living situation"@en .
 ff:gesundheit-df-kategorie a ff:DatafieldCategory ; rdfs:label "Gesundheit"@de, "Health"@en .
+ff:gruendung-df-kategorie a ff:DatafieldCategory ; rdfs:label "Gründung"@de, "Founding"@en .
+ff:education-df-kategorie a ff:DatafieldCategory ; rdfs:label "Ausbildung"@de, "Education"@en .
 
 # DATAFIELDS
 
@@ -431,7 +436,26 @@ ff:hasAge a ff:DataField, ff:MaterializableDataField ; rdfs:label "Age"@en, "Alt
 
 ##############################
 # Updated Graduation Status field for EXIST Gründerstipendium
+ff:interested_in_founding a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Interested in Founding"@en, "Interesse an Gründung"@de ;
+    schema:question "Are you interested in founding a startup?"@en, "Sind Sie an der Gründung eines Startups interessiert?"@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:interested_in_founding ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:interested_in_founding ;
+        sh:property [
+            sh:path ff:interested_in_founding ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
 ff:graduation_status a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:education-df-kategorie ;
     rdfs:label "Graduation Status"@en, "Abschlussstatus"@de ;
     schema:question "What is your graduation status?"@en, "Wie ist Ihr Abschlussstatus?"@de ;
     ff:objectConstraints [
@@ -459,6 +483,7 @@ ff:graduation_status-no-academic-enrollment a ff:AnswerOption ; rdfs:label "No a
 
 
 ff:institute_location a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:education-df-kategorie ;
     rdfs:label "Institute Location"@en, "Institutsort"@de ;
     schema:question "Where is your institute located?"@en, "Wo befindet sich Ihr Institut?"@de ;
     ff:objectConstraints [
@@ -479,6 +504,7 @@ ff:institute_location-outside-germany a ff:AnswerOption ; rdfs:label "Outside Ge
 
 
 ff:scholarship a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:education-df-kategorie ;
     rdfs:label "Scholarship"@en, "Stipendium"@de ;
     schema:question "Do you receive a scholarship?"@en, "Erhalten Sie ein Stipendium?"@de ;
     ff:objectConstraints [
@@ -496,6 +522,7 @@ ff:scholarship a ff:DataField, ff:SozialleistungsfinderDataField ;
     ] .
 
 ff:founding_status a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
     rdfs:label "Startup Founding State"@en, "Gründung Status"@de ;
     schema:question "Has the startup already been founded?"@en, "Ist Ihr Unternehmen bereits gegründet?"@de ;
     ff:objectConstraints [
@@ -513,6 +540,7 @@ ff:founding_status a ff:DataField, ff:SozialleistungsfinderDataField ;
     ] .
 
 ff:composition_founding_team a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
     rdfs:label "Startup Team Composition"@en, "Zusammensetzung Gründungsteam"@de ;
     schema:question "What is the composition of your startup team?"@en, "Wie setzt sich Ihr Gründungsteam zusammen?"@de ;
     ff:objectConstraints [
@@ -603,6 +631,7 @@ ff:studies_status-no-academic-studies a ff:AnswerOption ;
 
 
 ff:academic_institution_support a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
     rdfs:label "Academic Institution Support for Founding Teams"@en, "Unterstützung akademischer Einrichtungen für Gründungsteams"@de ;
     schema:question "Does your academic institution provide a dedicated contact point and support for founding teams?"@en, "Bietet Ihre akademische Einrichtung einen dedizierten Ansprechpartner und Unterstützung für Gründungsteams?"@de ;
     ff:objectConstraints [
