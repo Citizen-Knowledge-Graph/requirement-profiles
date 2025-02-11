@@ -462,9 +462,9 @@ ff:graduation_status a ff:DataField, ff:SozialleistungsfinderDataField ;
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:graduation_status ;
         sh:in ( 
-            ff:graduation_status-currently-enrolled,
-            ff:graduation_status-graduated-at-most-5-years-ago,
-            ff:graduation_status-graduated-more-than-5-years-ago,
+            ff:graduation_status-currently-enrolled
+            ff:graduation_status-graduated-at-most-5-years-ago
+            ff:graduation_status-graduated-more-than-5-years-ago
             ff:graduation_status-no-academic-enrollment
         )
     ] ;
