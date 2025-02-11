@@ -496,8 +496,11 @@ ff:graduation_status-never-enrolled a ff:AnswerOption ;
 
 ff:institute_location a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:education-df-kategorie ;
-    rdfs:label "Institute Location"@en, "Institutsort"@de ;
-    schema:question "Where is your institute located?"@en, "Wo befindet sich Ihr Institut?"@de ;
+    rdfs:label "University or Research Institution Location"@en, "Standort der Universität oder Forschungseinrichtung"@de ;
+    schema:question "Where is your university or research institution located?"@en, 
+                    "Wo befindet sich Ihre Universität oder Forschungseinrichtung?"@de ;
+    rdfs:comment "Some grants are specifically available for individuals affiliated with universities or research institutions in Germany."@en,
+                 "Einige Förderprogramme richten sich speziell an Personen, die mit Universitäten oder Forschungseinrichtungen in Deutschland verbunden sind."@de ;                    
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:institute_location ;
@@ -511,14 +514,20 @@ ff:institute_location a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:institute_location-germany a ff:AnswerOption ; rdfs:label "Germany"@en, "Deutschland"@de .
-ff:institute_location-outside-germany a ff:AnswerOption ; rdfs:label "Outside Germany"@en, "Außerhalb Deutschlands"@de .
-
+ff:institute_location-germany a ff:AnswerOption ; 
+    rdfs:label "My university or research institution is located in Germany"@en, 
+               "Meine Universität oder Forschungseinrichtung befindet sich in Deutschland"@de .
+ff:institute_location-outside-germany a ff:AnswerOption ; 
+    rdfs:label "My university or research institution is located outside Germany"@en, 
+               "Meine Universität oder Forschungseinrichtung befindet sich außerhalb Deutschlands"@de .
 
 ff:scholarship a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:education-df-kategorie ;
     rdfs:label "Scholarship"@en, "Stipendium"@de ;
-    schema:question "Do you receive a scholarship?"@en, "Erhalten Sie ein Stipendium?"@de ;
+    schema:question "Do you currently receive a scholarship?"@en, 
+                    "Erhalten Sie derzeit ein Stipendium?"@de ;
+    rdfs:comment "This question includes all types of scholarships. However, some grants specifically consider scholarships that provide financial support for daily living expenses, such as rent, food, and other personal costs."@en,
+                 "Diese Frage umfasst alle Arten von Stipendien. Einige Förderprogramme berücksichtigen jedoch speziell Stipendien, die finanzielle Unterstützung für die täglichen Lebenshaltungskosten wie Miete, Lebensmittel und sonstige persönliche Ausgaben bieten."@de ;                    
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:scholarship ;
