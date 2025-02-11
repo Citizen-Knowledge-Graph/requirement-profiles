@@ -12,7 +12,6 @@ ff:exist-gruendungsstipendium a ff:RequirementProfile ;
 
 ff:exist-gruendungsstipendiumMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
-
     sh:property [
         sh:path ff:interested_in_founding ;
         sh:minCount 1 ;
