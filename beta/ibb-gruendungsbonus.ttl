@@ -1,0 +1,64 @@
+@prefix ff: <https://foerderfunke.org/default#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ff:ibb-gruendungsbonus a ff:RequirementProfile ;
+    ff:title "IBB Gründungsbonus"@de , "IBB Gründungsbonus"@en ;
+    ff:benefitInfo "Der IBB Gründungsbonus unterstützt innovative Startups in Berlin durch finanzielle Zuschüsse und Beratung. Ziel ist es, nachhaltige und innovative Geschäftsmodelle zu fördern, die einen positiven Beitrag zur Wirtschaft leisten."@de ,
+        "The IBB Gründungsbonus supports innovative startups in Berlin through financial grants and consulting. The goal is to promote sustainable and innovative business models that contribute positively to the economy."@en ;
+    rdfs:seeAlso <https://example.com/ibb-gruendungsbonus> ;
+    ff:hasMainPersonShape ff:ibb-gruendungsbonusMainPersonShape .
+
+ff:ibb-gruendungsbonusMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
+    sh:targetClass ff:Applicant ;
+    sh:property [
+        sh:path ff:bankAccountGermany ;
+        sh:description "The applicant must have a bank account in Germany."@en ;
+        sh:minCount 1 ;
+        sh:in ( true ) ;
+    ] ;
+    sh:property [
+        sh:path ff:companyAge ;
+        sh:description "The company must not be older than 18 months at the time of electronic application submission."@en ;
+        sh:datatype xsd:integer ;
+        sh:maxInclusive 18 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ff:industry ;
+        sh:description "Companies in construction, gastronomy, hospitality (except ecological innovation), and retail (except sustainable products) are excluded."@en ;
+        sh:minCount 1 ;
+        sh:not [ sh:in ( ff:industry-ao-construction ff:industry-ao-gastronomy ff:industry-ao-hospitality ff:industry-ao-retail ) ] ;
+    ] ;
+    sh:property [
+        sh:path ff:foundingCompleted ;
+        sh:description "The founding of the company must be completed at the time of application."@en ;
+        sh:minCount 1 ;
+        sh:in ( true ) ;
+    ] ;
+    sh:property [
+        sh:path ff:headquartersLocation ;
+        sh:description "The applicant must have their headquarters in Berlin at the time of application."@en ;
+        sh:minCount 1 ;
+        sh:in ( ff:headquarters-ao-berlin ) ;
+    ] ;
+    sh:property [
+        sh:path ff:legalEntity ;
+        sh:description "The applicant must be a legally independent entity focused on generating profit."@en ;
+        sh:minCount 1 ;
+        sh:in ( true ) ;
+    ] ;
+    sh:property [
+        sh:path ff:majorityShares ;
+        sh:description "The founders must hold more than 50% of the company shares and perform key management roles."@en ;
+        sh:minCount 1 ;
+        sh:in ( true ) ;
+    ] ;
+    sh:property [
+        sh:path ff:noDoubleFunding ;
+        sh:description "Funding is not allowed if other public funding is used or intended for the same eligible expenses."@en ;
+        sh:minCount 1 ;
+        sh:in ( true ) ;
+    ] .
