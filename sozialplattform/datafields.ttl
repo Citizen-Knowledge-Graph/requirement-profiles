@@ -696,3 +696,191 @@ ff:academic_institution_support a ff:DataField, ff:SozialleistungsfinderDataFiel
             sh:maxCount 1 ;
         ]
     ] .
+
+##############################
+# Updated fields for IBB Gründungsbonus
+##############################
+
+ff:bank_account_germany a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Bank Account in Germany"@en, "Bankkonto in Deutschland"@de ;
+    schema:question "Does your startup have a bank account in Germany?"@en, 
+                    "Hat Ihr Startup ein Bankkonto in Deutschland?"@de ;
+    rdfs:comment "Some funding programs require startups to have a bank account in Germany to receive financial support or grants. This question helps determine eligibility for grants that are specifically available to companies with a German bank account."@en,
+                    "Einige Förderprogramme setzen voraus, dass Startups ein Bankkonto in Deutschland haben, um finanzielle Unterstützung oder Fördermittel zu erhalten. Diese Frage hilft dabei, die Förderfähigkeit für Förderungen zu bestimmen, die speziell für Unternehmen mit einem deutschen Bankkonto verfügbar sind."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:bank_account_germany ;
+        sh:datatype xsd:boolean ;
+        sh:in ( true ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:bank_account_germany ;
+        sh:property [
+            sh:path ff:bank_account_germany ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:company_age a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Company Age"@en, "Alter des Unternehmens"@de ;
+    schema:question "When was your startup founded?"@en, 
+                    "Wann wurde Ihr Unternehmen gegründet?"@de ;
+    rdfs:comment "The age of your startup can be relevant for funding opportunities that target early-stage ventures or require companies to be founded within a specific timeframe. Some grants are specifically available for startups founded less than 18 months ago or for companies that are not yet established."@en,
+                    "Das Alter Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die sich an junge Unternehmen richten oder voraussetzen, dass Unternehmen innerhalb eines bestimmten Zeitraums gegründet wurden. Einige Förderungen sind speziell für Startups verfügbar, die vor weniger als 18 Monaten gegründet wurden oder für Unternehmen, die noch nicht etabliert sind."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:company_age ;
+        sh:in ( 
+            ff:company_age-less-than-18-months
+            ff:company_age-more-than-18-months
+            ff:company_age-not-yet-founded
+        )
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:company_age ;
+        sh:property [
+            sh:path ff:company_age ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:company_age-less-than-18-months a ff:AnswerOption ;
+    rdfs:label "Less than 18 months ago"@en, 
+               "Vor weniger als 18 Monaten"@de .
+ff:company_age-more-than-18-months a ff:AnswerOption ;
+    rdfs:label "More than 18 months ago"@en, 
+               "Vor mehr als 18 Monaten"@de .
+ff:company_age-not-yet-founded a ff:AnswerOption ;
+    rdfs:label "Not yet founded"@en, 
+               "Noch nicht gegründet"@de .
+            
+ff:headquarters_location a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Headquarters Location"@en, "Hauptsitz des Unternehmens"@de ;
+    schema:question "Where is your company headquartered?"@en, "Wo befindet sich der Hauptsitz Ihres Unternehmens?"@de ;
+    rdfs:comment "The location of your company's headquarters can be relevant for funding opportunities that require startups to be based in specific regions or countries. Some grants are specifically available for companies headquartered in Germany or in certain regions within the country."@en,
+                 "Der Standort des Hauptsitzes Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die voraussetzen, dass Startups in bestimmten Regionen oder Ländern ansässig sind. Einige Förderungen sind speziell für Unternehmen mit Hauptsitz in Deutschland oder in bestimmten Regionen innerhalb des Landes verfügbar."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:headquarters_location ;
+        sh:in ( 
+            ff:headquarters-ao-berlin 
+            ff:headquarters-ao-outside-berlin
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:headquarters_location ;
+        sh:property [
+            sh:path ff:headquarters_location ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:headquarters-ao-berlin a ff:AnswerOption ;
+    rdfs:label "Berlin"@en, "Berlin"@de .
+ff:headquarters-ao-outside-berlin a ff:AnswerOption ;
+    rdfs:label "Outside Berlin"@en, "Außerhalb von Berlin"@de .
+
+
+ff:industry a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Industry"@en, "Branche"@de ;
+    schema:question "What industry does your company operate in?"@en, "In welcher Branche ist Ihr Unternehmen tätig?"@de ;
+    rdfs:comment "The industry in which your company operates can be relevant for funding opportunities that target specific sectors or require startups to be active in certain industries. Some grants are specifically available for companies in the construction, gastronomy, or retail sectors, among others."@en,
+                 "Die Branche, in der Ihr Unternehmen tätig ist, kann für Fördermöglichkeiten relevant sein, die auf bestimmte Sektoren abzielen oder voraussetzen, dass Startups in bestimmten Branchen aktiv sind. Einige Förderungen sind speziell für Unternehmen im Bauwesen, in der Gastronomie oder im Einzelhandel verfügbar, unter anderem."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:industry ;
+        sh:in ( 
+            ff:industry-ao-construction 
+            ff:industry-ao-gastronomy 
+            ff:industry-ao-hospitality-non-ecological
+            ff:industry-ao-retail-non-sustainable
+            ff:industry-ao-other
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:industry ;
+        sh:property [
+            sh:path ff:industry ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+ff:industry-ao-construction a ff:AnswerOption ;
+    rdfs:label "Construction"@en, "Bauwesen"@de .
+ff:industry-ao-gastronomy a ff:AnswerOption ;
+    rdfs:label "Gastronomy"@en, "Gastronomie"@de .
+ff:industry-ao-hospitality-non-ecological a ff:AnswerOption ;
+    rdfs:label "Hospitality (non-ecological)"@en, "Gastgewerbe (nicht-ökologisch)"@de .
+ff:industry-ao-retail-non-sustainable a ff:AnswerOption ;
+    rdfs:label "Retail (non-sustainable)"@en, "Einzelhandel (nicht-nachhaltig)"@de .
+ff:industry-ao-other a ff:AnswerOption ;
+    rdfs:label "Other"@en, "Sonstige"@de .
+
+ff:profit_oriented a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Legal Entity"@en, "Rechtsform des Unternehmens"@de ;
+    schema:question "Is your company profit-oriented?"@en, "Ist Ihr Unternehmen gewinnorientiert?"@de ;
+    rdfs:comment "The profit orientation of your company can be relevant for funding opportunities that target social enterprises, non-profit organizations, or companies with a specific legal status. Some grants are specifically available for profit-oriented companies, while others support social entrepreneurship or non-profit initiatives."@en,
+                 "Die Gewinnorientierung Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die sich an soziale Unternehmen, gemeinnützige Organisationen oder Unternehmen mit einem spezifischen Rechtsstatus richten. Einige Förderungen sind speziell für gewinnorientierte Unternehmen verfügbar, während andere soziales Unternehmertum oder gemeinnützige Initiativen unterstützen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:legal_entity ;
+        sh:datatype xsd:boolean ;
+        sh:in ( true ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:legal_entity ;
+        sh:property [
+            sh:path ff:legal_entity ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:majority_shares a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Majority Shares"@en, "Mehrheitliche Geschäftsanteile"@de ;
+    schema:question "Do the founders hold more than 50% of the company shares and perform key management roles?"@en, "Halten die Gründer*innen mehr als 50% der Geschäftsanteile und übernehmen zentrale Managementaufgaben?"@de ;
+    rdfs:comment "The distribution of shares among founders can be relevant for funding opportunities that require majority ownership or specific roles within the company. Some grants are specifically available for startups where the founders hold more than 50% of the shares and are actively involved in key management functions."@en,
+                 "Die Verteilung der Geschäftsanteile unter den Gründer*innen kann für Fördermöglichkeiten relevant sein, die eine Mehrheitsbeteiligung oder spezifische Rollen innerhalb des Unternehmens voraussetzen. Einige Förderungen sind speziell für Startups verfügbar, bei denen die Gründer*innen mehr als 50% der Anteile halten und aktiv an zentralen Managementfunktionen beteiligt sind."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:majority_shares ;
+        sh:datatype xsd:boolean ;
+        sh:in ( true ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:majority_shares ;
+        sh:property [
+            sh:path ff:majority_shares ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+
+ff:no_double_funding a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "No Double Funding"@en, "Keine Doppelförderung"@de ;
+    schema:question "Are you receiving or planning to receive other public funding for the same eligible expenses?"@en, "Erhalten Sie oder planen Sie andere öffentliche Fördermittel für die gleichen förderfähigen Kosten?"@de ;
+    rdfs:comment "Some funding programs require startups to disclose any other public funding they are receiving or planning to receive for the same eligible expenses. This question helps prevent double funding and ensures that grants are used efficiently and effectively."@en,
+                 "Einige Förderprogramme verlangen von Startups, alle anderen öffentlichen Fördermittel offenzulegen, die sie erhalten oder erhalten möchten, um die gleichen förderfähigen Kosten zu decken. Diese Frage hilft, Doppelförderung zu vermeiden und sicherzustellen, dass Fördermittel effizient und effektiv eingesetzt werden."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:no_double_funding ;
+        sh:datatype xsd:boolean ;
+        sh:in ( true ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:no_double_funding ;
+        sh:property [
+            sh:path ff:no_double_funding ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
