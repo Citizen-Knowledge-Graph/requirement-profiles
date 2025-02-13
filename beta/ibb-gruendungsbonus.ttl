@@ -27,8 +27,7 @@ ff:ibb-gruendungsbonusMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     ] ;
     sh:property [
         sh:path ff:company_age ;
-        sh:datatype xsd:integer ;
-        sh:maxInclusive 18 ;
+        sh:in ( ff:company_age-less-than-18-months );
         sh:minCount 1 ;
     ] ;
     sh:property [
