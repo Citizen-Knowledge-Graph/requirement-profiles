@@ -42,7 +42,7 @@ ff:selbstaendigkeit-gruendung a ff:BenefitCategory ;
     rdfs:label "Selbständigkeit & Gründung"@de, "Self-employment & Founding"@en .
 
 ff:wohnungsbau-modernisierung a ff:BenefitCategory ;
-    rdfs:label "Wohnungsbau & Modernisierung"@de, "Housing & Modernization"@en ;
+    rdfs:label "Wohnungsbau & Modernisierung"@de, "Housing & Modernization"@en .
 
 # DATAFIELD CATEGORIES
 
