@@ -41,6 +41,9 @@ ff:gesundheit-pflege-bc-kategorie a ff:BenefitCategory ;
 ff:selbstaendigkeit-gruendung a ff:BenefitCategory ;
     rdfs:label "Selbständigkeit & Gründung"@de, "Self-employment & Founding"@en .
 
+ff:wohnungsbau-modernisierung a ff:BenefitCategory ;
+    rdfs:label "Wohnungsbau & Modernisierung"@de, "Housing & Modernization"@en ;
+
 # DATAFIELD CATEGORIES
 
 ff:persoenliche-angaben-df-kategorie a ff:DatafieldCategory ; rdfs:label "Persönliche Angaben"@de, "Personal information"@en .
@@ -50,6 +53,7 @@ ff:lebenssituation-df-kategorie a ff:DatafieldCategory ; rdfs:label "Lebenssitua
 ff:gesundheit-df-kategorie a ff:DatafieldCategory ; rdfs:label "Gesundheit"@de, "Health"@en .
 ff:gruendung-df-kategorie a ff:DatafieldCategory ; rdfs:label "Gründung"@de, "Founding"@en .
 ff:education-df-kategorie a ff:DatafieldCategory ; rdfs:label "Ausbildung"@de, "Education"@en .
+ff:wohnungsbau-df-kategorie a ff:DatafieldCategory ; rdfs:label "Wohnungsbau & Modernisierung"@de, "Housing & Modernization"@en .
 
 # DATAFIELDS
 
@@ -884,3 +888,95 @@ ff:no_double_funding a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
+
+
+ff:investment_location a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Investment Location"@en, "Investitionsstandort"@de ;
+    schema:question "Where is the location of the planned investment?"@en, "Wo befindet sich der Standort der geplanten Investition?"@de ;
+    rdfs:comment "This field specifies the geographical location of the investment project, which may be a condition for funding eligibility."@en,
+                 "Dieses Feld gibt den geografischen Standort des Investitionsprojekts an, der eine Voraussetzung für die Förderfähigkeit sein kann."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:investment_location ;
+        sh:in ( 
+            ff:location-berlin 
+            ff:location-outside-berlin
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:investment_location ;
+        sh:property [
+            sh:path ff:investment_location ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:location-berlin a ff:AnswerOption ; rdfs:label "Berlin"@en, "Berlin"@de .
+ff:location-outside-berlin a ff:AnswerOption ; rdfs:label "Outside Berlin"@en, "Außerhalb von Berlin"@de .
+
+ff:organization_type a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Organization Type"@en, "Organisationstyp"@de ;
+    schema:question "What type of organization would be applying for funding?"@en, "Welche Art von Organisation beantragt die Förderung?"@de ;
+    rdfs:comment "This field identifies the type of organization that is applying for funding, such as housing cooperatives, private or public investors."@en,
+                 "Dieses Feld gibt an, welche Art von Organisation die Förderung beantragt, z. B. Wohnungsgenossenschaften, private oder öffentliche Investoren."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:organization_type ;
+        sh:in (
+            ff:organization_type-communal
+            ff:organization_type-private-company
+            ff:organization_type-cooperative
+            ff:organization_type-landlord
+            ff:organization_type-investor
+            ff:organization_type-other
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:organization_type ;
+        sh:property [
+            sh:path ff:organization_type ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:organization_type-communal a ff:AnswerOption ; rdfs:label "Communal housing company"@en, "Kommunales Wohnungsunternehmen"@de .
+ff:organization_type-private-company a ff:AnswerOption ; rdfs:label "Private housing company"@en, "Privates Wohnungsunternehmen"@de .
+ff:organization_type-cooperative a ff:AnswerOption ; rdfs:label "Housing cooperative"@en, "Wohnungsgenossenschaft"@de .
+ff:organization_type-landlord a ff:AnswerOption ; rdfs:label "Landlord"@en, "Vermieter:in"@de .
+ff:organization_type-investor a ff:AnswerOption ; rdfs:label "Investor"@en, "Investor:in"@de .
+ff:organization_type-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
+
+ff:project_type a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Project Type"@en, "Projektart"@de ;
+    schema:question "What type of housing project is planned?"@en, "Welche Art von Wohnprojekt ist geplant?"@de ;
+    rdfs:comment "This field describes the type of project to be funded, such as barrier reduction, living comfort improvement, or burglary protection."@en,
+                 "Dieses Feld beschreibt die Art des zu fördernden Projekts, z. B. Barrierenabbau, Wohnkomfortverbesserung oder Einbruchschutz."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:project_type ;
+        sh:in (
+            ff:project_type-barrier-reduction
+            ff:project_type-living-comfort
+            ff:project_type-burglary-protection
+            ff:project_type-other
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:project_type ;
+        sh:property [
+            sh:path ff:project_type ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:project_type-barrier-reduction a ff:AnswerOption ;rdfs:label "Barrier reduction"@en, "Barrierenabbau"@de .
+ff:project_type-living-comfort a ff:AnswerOption ; rdfs:label "Increased living comfort"@en, "Erhöhter Wohnkomfort"@de .
+ff:project_type-burglary-protection a ff:AnswerOption ; rdfs:label "Burglary protection"@en, "Einbruchschutz"@de .
+ff:project_type-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
