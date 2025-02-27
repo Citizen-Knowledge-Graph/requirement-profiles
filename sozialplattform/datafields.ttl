@@ -889,6 +889,30 @@ ff:no_double_funding a ff:DataField, ff:SozialleistungsfinderDataField ;
         ] ;
     ] .
 
+##############################
+# Updated fields for IBB Wohnungsbau
+##############################
+
+ff:interested_in_housing a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Interest in Housing Construction"@en, "Interesse am Wohnungsbau"@de ;
+    schema:question "Are you interested in housing construction projects?"@en, "Sind Sie an Wohnungsbau-Projekten interessiert?"@de ;
+    rdfs:comment "This question helps identify individuals or organizations interested in housing construction projects, which may be eligible for funding opportunities or grants supporting residential development."@en,
+                 "Diese Frage hilft dabei, Personen oder Organisationen zu identifizieren, die an Wohnungsbau-Projekten interessiert sind und möglicherweise für Fördermöglichkeiten oder Zuschüsse zur Unterstützung des Wohnungsbau-Projekts infrage kommen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:interested_in_housing ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:interested_in_housing ;
+        sh:property [
+            sh:path ff:interested_in_housing ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
 
 ff:investment_location a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:wohnungsbau-df-kategorie ;
