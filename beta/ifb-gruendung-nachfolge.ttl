@@ -49,7 +49,6 @@ ff:ifb-gruendung-nachfolgeMainPersonShape a sh:NodeShape, ff:EligibilityConstrai
             ] ;
         ]
     ) ;
-    sh:message "Der Antragsteller muss entweder bereits ein Unternehmen gegründet haben oder eine Unternehmensgründung planen. (Quelle: 'Die Förderung richtet sich an Existenzgründer:innen sowie kleine und mittlere Unternehmen (KMU), die nicht länger als fünf Jahre am Markt aktiv sind')."@de ;
 
     sh:property [
         sh:minCount 1 ;
