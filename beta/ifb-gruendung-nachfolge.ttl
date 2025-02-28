@@ -38,7 +38,7 @@ ff:ifb-gruendung-nachfolgeMainPersonShape a sh:NodeShape, ff:EligibilityConstrai
 
     sh:property [
         sh:path ff:company_age ;
-        sh:in (ff:company_age-less-than-18-months ff:company_age-less-than-5-years) ;
+        sh:not [ sh:in (ff:company_age-more-than-5-years) ; ];
         sh:message "Das Unternehmen darf nicht älter als fünf Jahre sein. (Quelle: 'Gefördert werden kleine und mittlere Unternehmen, die nicht länger als fünf Jahre bestehen')."@de ;
     ] ;
     sh:property [
