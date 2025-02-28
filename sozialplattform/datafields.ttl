@@ -1046,8 +1046,7 @@ ff:number_of_employees a ff:DataField, ff:SozialleistungsfinderDataField ;
     rdfs:label "Number of Employees"@en, "Anzahl der Beschäftigten"@de ;
     schema:question "How many employees does your company have?"@en, "Wie viele Beschäftigte hat Ihr Unternehmen?"@de ;
     rdfs:comment "The number of employees in your company can be relevant for funding opportunities that target small and medium-sized enterprises (SMEs) or require a minimum number of staff members. Some grants are specifically available for companies with fewer than 50 employees or for micro-enterprises with less than 10 employees."@en,
-                 "Die Anzahl der Beschäftigten in Ihrem Unternehmen kann für Fördermöglichkeiten relevant sein, die sich an kleine und mittlere Unternehmen (KMU) richten oder eine Mindestanzahl von Mitarbeitenden voraussetzen. Einige Förderungen sind speziell für Unternehmen mit weniger als 50 Beschäftigten oder für Kleinstunternehmen mit weniger
-                 als 10 Beschäftigten verfügbar."@de ;
+                 "Die Anzahl der Beschäftigten in Ihrem Unternehmen kann für Fördermöglichkeiten relevant sein, die sich an kleine und mittlere Unternehmen (KMU) richten oder eine Mindestanzahl von Mitarbeitenden voraussetzen. Einige Förderungen sind speziell für Unternehmen mit weniger als 50 Beschäftigten oder für Kleinstunternehmen mit weniger als 10 Beschäftigten verfügbar."@de ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:number_of_employees ;
