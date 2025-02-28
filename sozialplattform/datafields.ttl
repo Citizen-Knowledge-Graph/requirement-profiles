@@ -740,6 +740,8 @@ ff:company_age a ff:DataField, ff:SozialleistungsfinderDataField ;
         sh:in ( 
             ff:company_age-less-than-18-months
             ff:company_age-more-than-18-months
+            ff:company_age-less-than-5-years
+            ff:company_age-more-than-5-years
             ff:company_age-not-yet-founded
         )
     ] ;
@@ -751,15 +753,12 @@ ff:company_age a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:company_age-less-than-18-months a ff:AnswerOption ;
-    rdfs:label "Less than 18 months ago"@en, 
-               "Vor weniger als 18 Monaten"@de .
-ff:company_age-more-than-18-months a ff:AnswerOption ;
-    rdfs:label "More than 18 months ago"@en, 
-               "Vor mehr als 18 Monaten"@de .
-ff:company_age-not-yet-founded a ff:AnswerOption ;
-    rdfs:label "Not yet founded"@en, 
-               "Noch nicht gegründet"@de .
+ff:company_age-less-than-18-months a ff:AnswerOption ; rdfs:label "Less than 18 months ago"@en, "Vor weniger als 18 Monaten"@de .
+ff:company_age-more-than-18-months a ff:AnswerOption ; rdfs:label "More than 18 months ago"@en, "Vor mehr als 18 Monaten"@de .
+ff:company_age-less-than-5-years a ff:AnswerOption ; rdfs:label "Less than 5 years ago"@en, "Vor weniger als 5 Jahren"@de .
+ff:company_age-more-than-5-years a ff:AnswerOption ; rdfs:label "More than 5 years ago"@en, "Vor mehr als 5 Jahren"@de .
+ff:company_age-not-yet-founded a ff:AnswerOption ; rdfs:label "Not yet founded"@en, "Noch nicht gegründet"@de .
+
             
 ff:headquarters_location a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:gruendung-df-kategorie ;
@@ -772,7 +771,8 @@ ff:headquarters_location a ff:DataField, ff:SozialleistungsfinderDataField ;
         sh:targetObjectsOf ff:headquarters_location ;
         sh:in ( 
             ff:headquarters-ao-berlin 
-            ff:headquarters-ao-outside-berlin
+            ff:headquarters-ao-hamburg
+            ff:headquarters-ao-other
         ) ;
     ] ;
     ff:usageConstraints [
@@ -783,11 +783,9 @@ ff:headquarters_location a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:headquarters-ao-berlin a ff:AnswerOption ;
-    rdfs:label "Berlin"@en, "Berlin"@de .
-ff:headquarters-ao-outside-berlin a ff:AnswerOption ;
-    rdfs:label "Outside Berlin"@en, "Außerhalb von Berlin"@de .
-
+ff:headquarters-ao-berlin a ff:AnswerOption ; rdfs:label "Berlin"@en, "Berlin"@de .
+ff:headquarters-ao-hamburg a ff:AnswerOption ; rdfs:label "Hamburg"@en, "Hamburg"@de .
+ff:headquarters-ao-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
 
 ff:industry a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:gruendung-df-kategorie ;
@@ -803,6 +801,14 @@ ff:industry a ff:DataField, ff:SozialleistungsfinderDataField ;
             ff:industry-ao-gastronomy 
             ff:industry-ao-hospitality-non-ecological
             ff:industry-ao-retail-non-sustainable
+            ff:industry-ao-healthcare
+            ff:industry-ao-renewable-energy
+            ff:industry-ao-creative-industries
+            ff:industry-ao-logistics
+            ff:industry-ao-tourism
+            ff:industry-ao-food-industry
+            ff:industry-ao-trade
+            ff:industry-ao-manufacturing
             ff:industry-ao-other
         ) ;
     ] ;
@@ -814,16 +820,20 @@ ff:industry a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-ff:industry-ao-construction a ff:AnswerOption ;
-    rdfs:label "Construction"@en, "Bauwesen"@de .
-ff:industry-ao-gastronomy a ff:AnswerOption ;
-    rdfs:label "Gastronomy"@en, "Gastronomie"@de .
-ff:industry-ao-hospitality-non-ecological a ff:AnswerOption ;
-    rdfs:label "Hospitality (non-ecological)"@en, "Gastgewerbe (nicht-ökologisch)"@de .
-ff:industry-ao-retail-non-sustainable a ff:AnswerOption ;
-    rdfs:label "Retail (non-sustainable)"@en, "Einzelhandel (nicht-nachhaltig)"@de .
-ff:industry-ao-other a ff:AnswerOption ;
-    rdfs:label "Other"@en, "Sonstige"@de .
+ff:industry-ao-construction a ff:AnswerOption ; rdfs:label "Construction"@en, "Bauwesen"@de .
+ff:industry-ao-gastronomy a ff:AnswerOption ; rdfs:label "Gastronomy"@en, "Gastronomie"@de .
+ff:industry-ao-hospitality-non-ecological a ff:AnswerOption ; rdfs:label "Hospitality (non-ecological)"@en, "Gastgewerbe (nicht-ökologisch)"@de .
+ff:industry-ao-retail-non-sustainable a ff:AnswerOption ; rdfs:label "Retail (non-sustainable)"@en, "Einzelhandel (nicht-nachhaltig)"@de .
+ff:industry-ao-healthcare a ff:AnswerOption ; rdfs:label "Healthcare"@en, "Gesundheitswesen"@de .
+ff:industry-ao-renewable-energy a ff:AnswerOption ; rdfs:label "Renewable Energy"@en, "Erneuerbare Energien"@de .
+ff:industry-ao-creative-industries a ff:AnswerOption ; rdfs:label "Creative Industries"@en, "Kreativwirtschaft"@de .
+ff:industry-ao-logistics a ff:AnswerOption ; rdfs:label "Logistics"@en, "Logistik"@de .
+ff:industry-ao-tourism a ff:AnswerOption ; rdfs:label "Tourism"@en, "Tourismus"@de .
+ff:industry-ao-food-industry a ff:AnswerOption ; rdfs:label "Food Industry"@en, "Lebensmittelindustrie"@de .
+ff:industry-ao-trade a ff:AnswerOption ; rdfs:label "Trade"@en, "Handel"@de .
+ff:industry-ao-manufacturing a ff:AnswerOption ; rdfs:label "Manufacturing"@en, "Produktion"@de .
+ff:industry-ao-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
 
 ff:profit_oriented a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:gruendung-df-kategorie ;
@@ -1004,3 +1014,184 @@ ff:project_type-barrier-reduction a ff:AnswerOption ;rdfs:label "Barrier reducti
 ff:project_type-living-comfort a ff:AnswerOption ; rdfs:label "Increased living comfort"@en, "Erhöhter Wohnkomfort"@de .
 ff:project_type-burglary-protection a ff:AnswerOption ; rdfs:label "Burglary protection"@en, "Einbruchschutz"@de .
 ff:project_type-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
+
+##############################
+# Updated fields for IFB Gründung und Nachfolge
+##############################
+
+ff:interested_in_succession a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Interest in Business Succession"@en, "Interesse an Unternehmensnachfolge"@de ;
+    schema:question "Are you interested in business succession or taking over an existing company?"@en, "Sind Sie an einer Unternehmensnachfolge oder der Übernahme eines bestehenden Unternehmens interessiert?"@de ;
+    rdfs:comment "This question helps identify individuals or organizations interested in business succession or taking over existing companies, which may be eligible for funding opportunities or grants supporting the transfer of ownership."@en,
+                 "Diese Frage hilft dabei, Personen oder Organisationen zu identifizieren, die an einer Unternehmensnachfolge oder der Übernahme bestehender Unternehmen interessiert sind und möglicherweise für Fördermöglichkeiten oder Zuschüsse zur Unterstützung des Eigentumsübergangs infrage kommen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:interested_in_succession ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:interested_in_succession ;
+        sh:property [
+            sh:path ff:interested_in_succession ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+    
+
+ff:number_of_employees a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Number of Employees"@en, "Anzahl der Beschäftigten"@de ;
+    schema:question "How many employees does your company have?"@en, "Wie viele Beschäftigte hat Ihr Unternehmen?"@de ;
+    rdfs:comment "The number of employees in your company can be relevant for funding opportunities that target small and medium-sized enterprises (SMEs) or require a minimum number of staff members. Some grants are specifically available for companies with fewer than 50 employees or for micro-enterprises with less than 10 employees."@en,
+                 "Die Anzahl der Beschäftigten in Ihrem Unternehmen kann für Fördermöglichkeiten relevant sein, die sich an kleine und mittlere Unternehmen (KMU) richten oder eine Mindestanzahl von Mitarbeitenden voraussetzen. Einige Förderungen sind speziell für Unternehmen mit weniger als 50 Beschäftigten oder für Kleinstunternehmen mit weniger
+                 als 10 Beschäftigten verfügbar."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:number_of_employees ;
+        sh:in (
+            ff:number_of_employees-less-than-250
+            ff:number_of_employees-250-or-more
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:number_of_employees ;
+        sh:property [
+            sh:path ff:number_of_employees ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:number_of_employees-less-than-250 a ff:AnswerOption ; rdfs:label "Less than 250 employees"@en, "Weniger als 250 Beschäftigte"@de .
+ff:number_of_employees-250-or-more a ff:AnswerOption ; rdfs:label "250 or more employees"@en, "250 oder mehr Beschäftigte"@de .
+
+ff:annual_turnover a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Annual Turnover"@en, "Jahresumsatz"@de ;
+    schema:question "What is the annual turnover of your company?"@en, "Wie hoch ist der Jahresumsatz Ihres Unternehmens?"@de ;
+    rdfs:comment "The annual turnover of your company can be relevant for funding opportunities that target specific revenue brackets or require a minimum level of financial performance. Some grants are specifically available for companies with an annual turnover below a certain threshold or for startups with limited revenue."@en,
+                 "Der Jahresumsatz Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die auf bestimmte Umsatzklassen abzielen oder eine Mindestleistung finanzieller Art voraussetzen. Einige Förderungen sind speziell für Unternehmen mit einem Jahresumsatz unterhalb einer bestimmten Schwelle oder für Startups mit begrenzten Einnahmen verfügbar."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:annual_turnover ;
+        sh:in (
+            ff:annual_turnover-less-than-50-million
+            ff:annual_turnover-50-million-or-more
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:annual_turnover ;
+        sh:property [
+            sh:path ff:annual_turnover ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:annual_turnover-less-than-50-million a ff:AnswerOption ; rdfs:label "Less than 50 million euros"@en, "Weniger als 50 Millionen Euro"@de .
+ff:annual_turnover-50-million-or-more a ff:AnswerOption ; rdfs:label "50 million euros or more"@en, "50 Millionen Euro oder mehr"@de .
+
+
+ff:balance_sheet_total a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Balance Sheet Total"@en, "Bilanzsumme"@de ;
+    schema:question "What is the balance sheet total of your company?"@en, "Wie hoch ist die Bilanzsumme Ihres Unternehmens?"@de ;
+    rdfs:comment "The balance sheet total of your company can be relevant for funding opportunities that target specific asset levels or require a minimum financial standing. Some grants are specifically available for companies with a balance sheet total below a certain threshold or for startups with limited assets."@en,
+                 "Die Bilanzsumme Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die auf bestimmte Vermögenswerte abzielen oder eine Mindestfinanzlage voraussetzen. Einige Förderungen sind speziell für Unternehmen mit einer Bilanzsumme unterhalb einer bestimmten Schwelle oder für Startups mit begrenzten Vermögenswerten verfügbar."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:balance_sheet_total ;
+        sh:in (
+            ff:balance_sheet_total-less-than-43-million
+            ff:balance_sheet_total-43-million-or-more
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:balance_sheet_total ;
+        sh:property [
+            sh:path ff:balance_sheet_total ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:balance_sheet_total-less-than-43-million a ff:AnswerOption ; rdfs:label "Less than 43 million euros"@en, "Weniger als 43 Millionen Euro"@de .
+ff:balance_sheet_total-43-million-or-more a ff:AnswerOption ; rdfs:label "43 million euros or more"@en, "43 Millionen Euro oder mehr"@de .
+
+ff:business_activity a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Business Activity"@en, "Geschäftstätigkeit"@de ;
+    schema:question "What is the main business activity of your company?"@en, "Was ist die Hauptgeschäftstätigkeit Ihres Unternehmens?"@de ;
+    rdfs:comment "The main business activity of your company can be relevant for funding opportunities that target specific sectors or require companies to be active in certain industries. Some grants are specifically available for companies in the manufacturing, services, or technology sectors, among others."@en,
+                 "Die Hauptgeschäftstätigkeit Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die auf bestimmte Sektoren abzielen oder voraussetzen, dass Unternehmen in bestimmten Branchen aktiv sind. Einige Förderungen sind speziell für Unternehmen im Bereich Produktion, Dienstleistungen oder Technologie verfügbar, unter anderem."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:business_activity ;
+        sh:in (
+            ff:business_activity-primary-agriculture
+            ff:business_activity-other
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:business_activity ;
+        sh:property [
+            sh:path ff:business_activity ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:business_activity-primary-agriculture a ff:AnswerOption ; rdfs:label "Primary agriculture"@en, "Primärlandwirtschaft"@de .
+ff:business_activity-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
+ff:financial_difficulty a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Financial Difficulty"@en, "Finanzielle Schwierigkeiten"@de ;
+    schema:question "Is your company currently experiencing financial difficulties?"@en, "Hat Ihr Unternehmen derzeit finanzielle Schwierigkeiten?"@de ;
+    rdfs:comment "This question helps identify companies that are facing financial challenges and may be in need of support or funding to overcome difficulties. Some grants are specifically available for companies experiencing financial hardship or seeking assistance to stabilize their financial situation."@en,
+                 "Diese Frage hilft dabei, Unternehmen zu identifizieren, die mit finanziellen Herausforderungen konfrontiert sind und möglicherweise Unterstützung oder Fördermittel benötigen, um Schwierigkeiten zu überwinden. Einige Förderungen sind speziell für Unternehmen verfügbar, die finanzielle Schwierigkeiten haben oder Hilfe zur Stabilisierung ihrer finanziellen Situation suchen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:financial_difficulty ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:financial_difficulty ;
+        sh:property [
+            sh:path ff:financial_difficulty ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:de_minimis_aid a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "De Minimis Aid"@en, "De-minimis-Beihilfe"@de ;
+    schema:question "Has your company fully utilized the de minimis aid threshold in the past three fiscal years?"@en, 
+                    "Hat Ihr Unternehmen den De-minimis-Beihilfen-Schwellenwert in den letzten drei Geschäftsjahren vollständig ausgeschöpft?"@de ;
+    rdfs:comment "De minimis aid refers to small amounts of state aid that can be granted to companies without prior approval from the European Commission. This question helps determine whether your company has received de minimis aid in the past three fiscal years, as this may affect eligibility for certain grants or funding programs."@en,
+                 "De-minimis-Beihilfen beziehen sich auf geringe staatliche Beihilfen, die Unternehmen ohne vorherige Genehmigung der Europäischen Kommission gewährt werden können. Diese Frage hilft festzustellen, ob Ihr Unternehmen in den letzten drei Geschäftsjahren De-minimis-Beihilfen erhalten hat, da dies die Förderfähigkeit für bestimmte Zuschüsse oder Förderprogramme beeinflussen kann."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:de_minimis_aid ;
+        sh:in (
+            ff:de_minimis_aid-no
+            ff:de_minimis_aid-yes
+            ff:de_minimis_aid-unsure
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:de_minimis_aid ;
+        sh:property [
+            sh:path ff:de_minimis_aid ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:de_minimis_aid-no a ff:AnswerOption ; rdfs:label "No"@en, "Nein"@de .
+ff:de_minimis_aid-yes a ff:AnswerOption ; rdfs:label "Yes"@en, "Ja"@de .
+ff:de_minimis_aid-unsure a ff:AnswerOption ; rdfs:label "Unsure"@en, "Unsicher"@de .
