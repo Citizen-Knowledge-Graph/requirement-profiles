@@ -3,15 +3,15 @@
 @prefix ff: <https://foerderfunke.org/default#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ff:hamburg-kredit-grundung-nachfolge a ff:RequirementProfile ;
+ff:ifb-gruendung-nachfolge a ff:RequirementProfile ;
     ff:title "Hamburg-Kredit Gründung und Nachfolge III 2025"@de , "Hamburg-Kredit Gründung und Nachfolge III 2025"@en ;
     ff:category ff:selbstaendigkeit-gruendung ;
     ff:benefitInfo "Der Hamburg-Kredit Gründung und Nachfolge III 2025 unterstützt Existenzgründungen und Unternehmensnachfolgen in Hamburg durch langfristige Finanzierung von Investitionen und Betriebsmitteln. Das Programm bietet günstige Darlehenskonditionen und Zuschüsse für Handwerksbetriebe, die Ausbildungsplätze schaffen."@de ,
         "The Hamburg-Kredit Gründung und Nachfolge III 2025 supports business start-ups and successions in Hamburg through long-term financing of investments and working capital. The program offers favorable loan conditions and grants for craft businesses that create training positions."@en ;
     rdfs:seeAlso <https://www.ifbhh.de/programme/gruender-and-unternehmen/gruenden-und-nachfolgen/unternehmen-gruenden/hamburg-kredit-gruendung-und-nachfolge> ;
-    ff:hasMainPersonShape ff:hamburg-kredit-grundung-nachfolgeMainPersonShape .
+    ff:hasMainPersonShape ff:ifb-gruendung-nachfolgeMainPersonShape .
 
-ff:hamburg-kredit-grundung-nachfolgeMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
+ff:ifb-gruendung-nachfolgeMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
 
     sh:or (
