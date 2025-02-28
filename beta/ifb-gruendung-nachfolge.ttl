@@ -111,6 +111,6 @@ ff:ifb-gruendung-nachfolgeMainPersonShape a sh:NodeShape, ff:EligibilityConstrai
     sh:property [
         sh:path ff:de_minimis_aid ;
         sh:minCount 1 ;
-        sh:in (ff:de_minimis_aid-ao-no ff:de_minimis_aid-ao-i-dont-know) ;
+        sh:in (ff:de_minimis_aid-no ff:de_minimis_aid-unsure) ;
         sh:message "Nur Unternehmen, die die De-minimis-Förderung nicht vollständig ausgeschöpft haben oder nicht wissen, ob sie die Grenze erreicht haben, sind förderfähig. (Quelle: 'Unternehmen, die die zulässige De-minimis-Grenze gemäß EU-Verordnung überschreiten, sind nicht förderfähig')."@de ;
     ] .
