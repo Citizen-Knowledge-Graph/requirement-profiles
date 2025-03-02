@@ -740,7 +740,6 @@ ff:company_age a ff:DataField, ff:SozialleistungsfinderDataField ;
         sh:in ( 
             ff:company_age-less-than-12-months
             ff:company_age-less-than-18-months
-            ff:company_age-more-than-18-months
             ff:company_age-less-than-5-years
             ff:company_age-more-than-5-years
             ff:company_age-not-yet-founded
