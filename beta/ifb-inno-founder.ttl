@@ -8,12 +8,12 @@ ff:ifb-inno-founder a ff:RequirementProfile ;
     ff:category ff:selbstaendigkeit-gruendung ;
     ff:benefitInfo "InnoFounder unterstützt innovative Startups in Hamburg mit einem nicht rückzahlbaren Zuschuss für Lebensunterhalt und Gründungskosten."@de ,
         "InnoFounder supports innovative startups in Hamburg with a non-repayable grant for living expenses and startup costs."@en ;
-    rdfs:seeAlso <https://www.innovationsstarter.com> ;
+    rdfs:seeAlso <https://innovationsstarter.com/innofounder/> ;
     ff:hasMainPersonShape ff:ifb-inno-founderMainPersonShape .
 
 ff:ifb-inno-founderMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
-
+    
     sh:property [
         sh:path ff:interested_in_founding ;
         sh:minCount 1 ;
@@ -38,58 +38,50 @@ ff:ifb-inno-founderMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     ) ;
     
     sh:property [
-        sh:path ff:company_age ;
-        sh:minCount 1 ;
-        sh:maxInclusive 1 ;
-        sh:datatype xsd:integer ;
-        sh:message "Das Unternehmen darf nicht älter als ein Jahr sein."@de ;
-    ] ;
-
-    sh:property [
         sh:minCount 1 ;
         sh:path ff:company_age ;
         sh:not [ sh:in (ff:company_age-less-than-1-year) ; ];
-        sh:message "Das Unternehmen darf nicht älter als ein Jahr sein. (Quelle: 'Gefördert werden kleine und mittlere Unternehmen, die nicht länger als fünf Jahre bestehen')."@de ;
+        sh:message "Das Unternehmen darf nicht älter als ein Jahr sein. (Quelle: Abschnitt 2, Antragsberechtigte - 'juristische Personen, die weniger als ein Jahr bestehen...')"@de ;
     ] ;
     
     sh:property [
         sh:path ff:number_of_employees ;
         sh:minCount 1 ;
         sh:in (ff:number_of_employees-less-than-5) ;
-        sh:message "Das Unternehmen darf maximal fünf Vollzeitäquivalente Beschäftigte haben."@de ;
+        sh:message "Das Unternehmen darf maximal fünf Vollzeitäquivalente Beschäftigte haben. (Quelle: Abschnitt 2, Antragsberechtigte - '... in der Regel weniger als fünf Mitarbeitende (in Vollzeitäquivalenten inkl. tätigen Gründerinnen und Gründern)...')"@de ;
     ] ;
     
     sh:property [
         sh:path ff:annual_turnover ;
         sh:minCount 1 ;
         sh:in (ff:annual_turnover-less-than-500K) ;
-        sh:message "Der Jahresumsatz oder die Jahresbilanzsumme darf 500.000 € nicht übersteigen."@de ;
+        sh:message "Der Jahresumsatz oder die Jahresbilanzsumme darf 500.000 € nicht übersteigen. (Quelle: Abschnitt 2, Antragsberechtigte - 'deren Jahresumsatz oder Jahresbilanzsumme 500.000 € nicht übersteigt.')"@de ;
     ] ;
     
     sh:property [
         sh:path ff:headquarters_location ;
         sh:minCount 1 ;
         sh:in ( ff:headquarters-ao-hamburg ) ;
-        sh:message "Der Unternehmenssitz muss sich in Hamburg befinden."@de ;
+        sh:message "Der Unternehmenssitz muss sich in Hamburg befinden. (Quelle: Abschnitt 3, Zuwendungsvoraussetzungen - 'die Projektaktivitäten im Wesentlichen in Hamburg durchgeführt werden und der geplante bzw. bestehende Unternehmenssitz Hamburg ist.')"@de ;
     ] ;
     
     sh:property [
-        sh:path ff:founder_residence ;
+        sh:path ff:location_founding_team ;
         sh:minCount 1 ;
-        sh:datatype xsd:boolean ;
-        sh:message "Mindestens die Hälfte der Gründerinnen und Gründer müssen ihren Hauptwohnsitz in Hamburg haben."@de ;
+        sh:in ( ff:location_founding_team-hamburg ) ;
+        sh:message "Mindestens die Hälfte der Gründerinnen und Gründer müssen ihren Hauptwohnsitz in Hamburg haben. (Quelle: Abschnitt 3, Zuwendungsvoraussetzungen - 'Bei natürlichen Personen muss sich der Hauptwohnsitz mindestens der Hälfte der für die Förderung vorgesehenen Gründerpersonen in Hamburg befinden.')"@de ;
     ] ;
     
     sh:property [
         sh:path ff:financial_difficulty ;
         sh:minCount 1 ;
         sh:in ( false ) ;
-        sh:message "Unternehmen in finanziellen Schwierigkeiten gemäß Art. 2 Nr. 18 AGVO sind ausgeschlossen."@de ;
+        sh:message "Unternehmen in finanziellen Schwierigkeiten gemäß Art. 2 Nr. 18 AGVO sind ausgeschlossen. (Quelle: Abschnitt 3, Zuwendungsvoraussetzungen - 'von der Förderung ausgenommen sind jedoch Unternehmen in Schwierigkeiten.')"@de ;
     ] ;
     
     sh:property [
         sh:path ff:de_minimis_aid ;
         sh:minCount 1 ;
         sh:in (ff:de_minimis_aid-no ff:de_minimis_aid-unsure) ;
-        sh:message "Unternehmen, die die zulässige De-minimis-Grenze überschritten haben, sind nicht förderfähig."@de ;
+        sh:message "Unternehmen, die die zulässige De-minimis-Grenze überschritten haben, sind nicht förderfähig. (Quelle: Abschnitt 7.2, Beihilferechtliche Grundlagen - 'Die Gewährung der Fördermittel erfolgt unter den Voraussetzungen der De-minimis-Verordnung ... und unterliegt den Beschränkungen des Beihilfenrechts.')"@de ;
     ] .

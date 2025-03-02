@@ -738,6 +738,7 @@ ff:company_age a ff:DataField, ff:SozialleistungsfinderDataField ;
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:company_age ;
         sh:in ( 
+            ff:company_age-less-than-12-months
             ff:company_age-less-than-18-months
             ff:company_age-more-than-18-months
             ff:company_age-less-than-5-years
@@ -753,6 +754,7 @@ ff:company_age a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
+ff:company_age-less-than-12-months a ff:AnswerOption ; rdfs:label "Less than 12 months ago"@en, "Vor weniger als 12 Monaten"@de .
 ff:company_age-less-than-18-months a ff:AnswerOption ; rdfs:label "Less than 18 months ago"@en, "Vor weniger als 18 Monaten"@de .
 ff:company_age-more-than-18-months a ff:AnswerOption ; rdfs:label "More than 18 months ago"@en, "Vor mehr als 18 Monaten"@de .
 ff:company_age-less-than-5-years a ff:AnswerOption ; rdfs:label "Less than 5 years ago"@en, "Vor weniger als 5 Jahren"@de .
@@ -1051,6 +1053,7 @@ ff:number_of_employees a ff:DataField, ff:SozialleistungsfinderDataField ;
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:number_of_employees ;
         sh:in (
+            ff:number_of_employees-less-than-5
             ff:number_of_employees-less-than-250
             ff:number_of_employees-250-or-more
         ) ;
@@ -1064,6 +1067,7 @@ ff:number_of_employees a ff:DataField, ff:SozialleistungsfinderDataField ;
         ] ;
     ] .
 
+ff:number_of_employees-less-than-5 a ff:AnswerOption ; rdfs:label "Less than 5 employees"@en, "Weniger als 5 Beschäftigte"@de .
 ff:number_of_employees-less-than-250 a ff:AnswerOption ; rdfs:label "Less than 250 employees"@en, "Weniger als 250 Beschäftigte"@de .
 ff:number_of_employees-250-or-more a ff:AnswerOption ; rdfs:label "250 or more employees"@en, "250 oder mehr Beschäftigte"@de .
 
@@ -1077,6 +1081,7 @@ ff:annual_turnover a ff:DataField, ff:SozialleistungsfinderDataField ;
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:annual_turnover ;
         sh:in (
+            ff:annual_turnover-less-than-500K
             ff:annual_turnover-less-than-50-million
             ff:annual_turnover-50-million-or-more
         ) ;
@@ -1089,7 +1094,7 @@ ff:annual_turnover a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
-
+ff:annual_turnover-less-than-500K a ff:AnswerOption ; rdfs:label "Less than 500,000 euros"@en, "Weniger als 500.000 Euro"@de .
 ff:annual_turnover-less-than-50-million a ff:AnswerOption ; rdfs:label "Less than 50 million euros"@en, "Weniger als 50 Millionen Euro"@de .
 ff:annual_turnover-50-million-or-more a ff:AnswerOption ; rdfs:label "50 million euros or more"@en, "50 Millionen Euro oder mehr"@de .
 
@@ -1194,3 +1199,31 @@ ff:de_minimis_aid a ff:DataField, ff:SozialleistungsfinderDataField ;
 ff:de_minimis_aid-no a ff:AnswerOption ; rdfs:label "No"@en, "Nein"@de .
 ff:de_minimis_aid-yes a ff:AnswerOption ; rdfs:label "Yes"@en, "Ja"@de .
 ff:de_minimis_aid-unsure a ff:AnswerOption ; rdfs:label "Unsure"@en, "Unsicher"@de .
+
+ff:location_founding_team a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Location of Founding Team"@en, "Standort des Gründungsteams"@de ;
+    schema:question "Where is the location of the founding team?"@en, "Wo befindet sich der Standort des Gründungsteams?"@de ;
+    rdfs:comment "The location is corresponds to the location where at least half of the founding team is based. The location of the founding team can be relevant for funding opportunities that require startups to be based in specific regions or countries. Some grants are specifically available for companies founded in Germany or in certain regions within the country."@en,
+                 "Der Standort entspricht dem Ort, an dem sich mindestens die Hälfte des Gründungsteams befindet. Der Standort des Gründungsteams kann für Fördermöglichkeiten relevant sein, die voraussetzen, dass Startups in bestimmten Regionen oder Ländern ansässig sind. Einige Förderungen sind speziell für Unternehmen verfügbar, die in Deutschland oder in bestimmten Regionen innerhalb des Landes gegründet wurden."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:location_founding_team ;
+        sh:in (
+            ff:location_founding_team-berlin
+            ff:location_founding_team-hamburg
+            ff:location_founding_team-other
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:location_founding_team ;
+        sh:property [
+            sh:path ff:location_founding_team ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:location_founding_team-berlin a ff:AnswerOption ; rdfs:label "Berlin"@en, "Berlin"@de .
+ff:location_founding_team-hamburg a ff:AnswerOption ; rdfs:label "Hamburg"@en, "Hamburg"@de .
+ff:location_founding_team-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
