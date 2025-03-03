@@ -1226,3 +1226,58 @@ ff:location_founding_team a ff:DataField, ff:SozialleistungsfinderDataField ;
 ff:location_founding_team-berlin a ff:AnswerOption ; rdfs:label "Berlin"@en, "Berlin"@de .
 ff:location_founding_team-hamburg a ff:AnswerOption ; rdfs:label "Hamburg"@en, "Hamburg"@de .
 ff:location_founding_team-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
+
+##############################
+# Updated fields for ILB 
+##############################
+
+ff:headquarters_country a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Headquarters Country"@en, "Hauptsitzland"@de ;
+    schema:question "In which country is your company headquartered?"@en, "In welchem Land befindet sich der Hauptsitz Ihres Unternehmens?"@de ;
+    rdfs:comment "The location of your company's headquarters can be relevant for funding opportunities that require startups to be based in specific regions or countries. Some grants are specifically available for companies headquartered in Germany or in certain regions within the country."@en,
+                 "Der Standort des Hauptsitzes Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die voraussetzen, dass Startups in bestimmten Regionen oder Ländern ansässig sind. Einige Förderungen sind speziell für Unternehmen mit Hauptsitz in Deutschland oder in bestimmten Regionen innerhalb des Landes verfügbar."@de ;
+    ff:objectConstraints [  
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:headquarters_country ;
+        sh:in (
+            ff:headquarters_country-germany
+            ff:headquarters_country-eu
+            ff:headquarters_country-other
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:headquarters_country ;
+        sh:property [
+            sh:path ff:headquarters_country ;
+            sh:maxCount 1 ;
+        ] ;
+    ] . 
+
+ff:headquarters_country-germany a ff:AnswerOption ; rdfs:label "Germany"@en, "Deutschland"@de .
+ff:headquarters_country-eu a ff:AnswerOption ; rdfs:label "EU"@en, "EU"@de .
+ff:headquarters_country-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
+ff:business_activity_location a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:gruendung-df-kategorie ;
+    rdfs:label "Business Activity Location"@en, "Standort der Geschäftstätigkeit"@de ;
+    schema:question "Do you have or plan significant business activities in one of the following regions?"@en, "Haben Sie oder planen Sie bedeutende Geschäftstätigkeiten in einer der folgenden Regionen?"@de ;
+    rdfs:comment "The location of your company's business activities can be relevant for funding opportunities that require startups to be based in specific regions or countries. Some grants are specifically available for companies with business activities in Germany or in certain regions within the country."@en,
+                 "Der Standort der Geschäftstätigkeiten Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die voraussetzen, dass Startups in bestimmten Regionen oder Ländern ansässig sind. Einige Förderungen sind speziell für Unternehmen mit Geschäftstätigkeiten in Deutschland oder in bestimmten Regionen innerhalb des Landes verfügbar."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:business_activity_location ;
+        sh:in (
+            ff:business_activity_location-berlin
+            ff:business_activity_location-hamburg
+            ff:business_activity_location-brandenburg
+            ff:business_activity_location-other
+        ) ;
+    ] .
+
+ff:business_activity_location-berlin a ff:AnswerOption ; rdfs:label "Berlin"@en, "Berlin"@de .
+ff:business_activity_location-hamburg a ff:AnswerOption ; rdfs:label "Hamburg"@en, "Hamburg"@de .
+ff:business_activity_location-brandenburg a ff:AnswerOption ; rdfs:label "Brandenburg"@en, "Brandenburg"@de .
+ff:business_activity_location-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
