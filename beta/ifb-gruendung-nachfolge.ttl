@@ -79,7 +79,7 @@ ff:ifb-gruendung-nachfolgeMainPersonShape a sh:NodeShape, ff:EligibilityConstrai
     sh:property [
         sh:path ff:number_of_employees ;
         sh:minCount 1 ;
-        sh:in (ff:number_of_employees-less-than-250) ;
+        sh:not[ sh:in (ff:number_of_employees-250-or-more) ; ];
         sh:message "Das Unternehmen darf nicht mehr als 249 Mitarbeiter haben. (Quelle: 'Ein KMU hat weniger als 250 Mitarbeiter gemäß Empfehlung 2003/361/EG')."@de ;
     ] ;
     sh:property [
