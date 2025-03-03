@@ -40,7 +40,7 @@ ff:ifb-inno-founderMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:property [
         sh:minCount 1 ;
         sh:path ff:company_age ;
-        sh:not [ sh:in (ff:company_age-more-than-5-years) ; ] ;
+        sh:in (ff:company_age-less-than-12-months ff:company_age-not-yet-founded) ;
         sh:message "Das Unternehmen darf nicht älter als ein Jahr sein. (Quelle: Abschnitt 2, Antragsberechtigte - 'juristische Personen, die weniger als ein Jahr bestehen...')"@de ;
     ] ;
     

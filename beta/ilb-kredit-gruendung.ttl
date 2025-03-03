@@ -38,10 +38,9 @@ ff:ilb-kredit-gruendungMainPersonShape a sh:NodeShape, ff:EligibilityConstraint 
     ) ;
     
     sh:property [
-        sh:path ff:company_age ;
         sh:minCount 1 ;
-        sh:maxInclusive 5 ;
-        sh:datatype xsd:integer ;
+        sh:path ff:company_age ;
+        sh:not [ sh:in (ff:company_age-more-than-5-years) ; ] ;
         sh:message "Das Unternehmen darf nicht älter als fünf Jahre sein. (Quelle: Merkblatt Brandenburg-Kredit Gründung - 'Die ILB fördert mit dem Brandenburg-Kredit Gründung unter der Voraussetzung, dass Sie als Antragsteller sich innerhalb der ersten 5 Jahre nach Aufnahme der Geschäftstätigkeit befinden.')"@de ;
     ] ;
     
