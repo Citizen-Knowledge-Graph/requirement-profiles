@@ -54,14 +54,14 @@ ff:ilb-kredit-gruendungMainPersonShape a sh:NodeShape, ff:EligibilityConstraint 
     sh:property [
         sh:path ff:annual_turnover ;
         sh:minCount 1 ;
-        sh:in (ff:annual_turnover-less-than-50-million) ;
+        sh:not [ sh:in (ff:annual_turnover-50-million-or-more) ; ];
         sh:message "Der Jahresumsatz darf 50 Mio. EUR nicht überschreiten. (Quelle: 'Ein KMU darf einen maximalen Jahresumsatz von 50 Mio. EUR haben gemäß Empfehlung 2003/361/EG')."@de ;
     ] ;
 
     sh:property [
         sh:path ff:balance_sheet_total ;
         sh:minCount 1 ;
-        sh:in (ff:balance_sheet_total-less-than-43-million) ;
+        sh:not [ sh:in (ff:balance_sheet_total-43-million-or-more) ; ];
         sh:message "Die Jahresbilanzsumme darf 43 Mio. EUR nicht überschreiten. (Quelle: 'Ein KMU darf eine maximale Jahresbilanzsumme von 43 Mio. EUR haben gemäß Empfehlung 2003/361/EG')."@de ;
     ] ;
 
