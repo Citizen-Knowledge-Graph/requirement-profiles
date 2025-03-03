@@ -12,7 +12,7 @@ ff:ilb-kredit-gruendung a ff:RequirementProfile ;
     ff:hasMainPersonShape ff:ilb-kredit-gruendungMainPersonShape .
 
 ff:ilb-kredit-gruendungMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
-    sh:targetClass ff:Applicant ;
+    sh:targetClass ff:Citizen ;
 
     sh:property [
         sh:path ff:interested_in_founding ;
