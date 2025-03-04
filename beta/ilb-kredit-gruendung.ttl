@@ -75,7 +75,7 @@ ff:ilb-kredit-gruendungMainPersonShape a sh:NodeShape, ff:EligibilityConstraint 
     sh:property [
         sh:path ff:headquarters_country ;
         sh:minCount 1 ;
-        sh:in ( ff:headquarters-germany ) ;
+        sh:in ( ff:headquarters_country-germany ) ;
         sh:message "Der Unternehmenssitz muss sich in Deutschland befinden. (Quelle: Merkblatt Brandenburg-Kredit Gründung - 'Für Vorhaben im Land Brandenburg sind antragsberechtigt: … mit Unternehmenssitz in Deutschland – für Vorhaben in Brandenburg..')"@de ;
     ] ;
     
