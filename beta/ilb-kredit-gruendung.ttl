@@ -6,6 +6,7 @@
 ff:ilb-kredit-gruendung a ff:RequirementProfile ;
     ff:title "Brandenburg-Kredit Gründung"@de , "Brandenburg Start-up Credit"@en ;
     ff:category ff:selbstaendigkeit-gruendung ;
+    ff:validationStage ff:preliminary-validation ;
     ff:benefitInfo "Der Brandenburg-Kredit Gründung unterstützt junge Unternehmen in Brandenburg mit zinsgünstigen Krediten für Investitionen und Betriebsmittel."@de ,
         "The Brandenburg Start-up Credit supports young businesses in Brandenburg with low-interest loans for investments and working capital."@en ;
     rdfs:seeAlso <https://www.ilb.de> ;

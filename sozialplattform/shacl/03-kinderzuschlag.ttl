@@ -8,6 +8,7 @@ ff:kinderzuschlag a ff:RequirementProfile ;
     ff:title "Kinderzuschlag"@de , "Child allowance"@en ;
     ff:category ff:leistungen-fuer-familien-bc-kategorie ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/kinderzuschlag> ;
+    ff:validationStage ff:preliminary-validation ;
     ff:benefitInfo "Wenn Sie ein geringes Einkommen haben und Kindergeld beziehen, können Sie zusätzlich den Kinderzuschlag, abgekürzt auch KiZ genannt, beantragen."@de ,
         "If you are a low-earner and receive child benefit, you can also apply for the child allowance."@en ;
     ff:ineligibleGeneralExplanation "Wahrscheinlich haben Sie keinen Anspruch auf diese Leistung. Der Kinderzuschlag ist ein Zuschlag zum Kindergeld für Eltern, die genug verdienen, um für sich selbst zu sorgen, das Einkommen aber nicht oder nur knapp für die gesamte Familie reicht. Einkommen und Vermögen der Eltern und des Kindes werden auf den Kinderzuschlag teilweise angerechnet und reduzieren die Höhe. Mit dem Kinderzuschlag sind weitere Vergünstigungen möglich, z. B. Bildungs- und Teilhabeleistungen für die Kinder oder eine Befreiung von den KiTa-Gebühren."@de ,

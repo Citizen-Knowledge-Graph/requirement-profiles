@@ -55,6 +55,11 @@ ff:gruendung-df-kategorie a ff:DatafieldCategory ; rdfs:label "Gründung"@de, "F
 ff:education-df-kategorie a ff:DatafieldCategory ; rdfs:label "Ausbildung"@de, "Education"@en .
 ff:wohnungsbau-df-kategorie a ff:DatafieldCategory ; rdfs:label "Wohnungsbau & Modernisierung"@de, "Housing & Modernization"@en .
 
+# VALIDATION STAGES
+
+ff:preliminary-validation a ff:ValidationStage ; rdfs:label "Vorbehaltliches Ergebnis"@de, "Preliminary result"@en .
+ff:complete-validation a ff:ValidationStage ; rdfs:label "Abschließendes Ergebnis"@de, "Final result"@en .
+
 # DATAFIELDS
 
 # Persönliche Angaben

@@ -6,6 +6,7 @@
 ff:ifb-inno-founder a ff:RequirementProfile ;
     ff:title "InnoFounder - Förderprogramm für innovative und wissensbasierte Gründungsvorhaben"@de , "InnoFounder - Funding Program for Innovative and Knowledge-Based Startups"@en ;
     ff:category ff:selbstaendigkeit-gruendung ;
+    ff:validationStage ff:preliminary-validation ;
     ff:benefitInfo "InnoFounder unterstützt innovative Startups in Hamburg mit einem nicht rückzahlbaren Zuschuss für Lebensunterhalt und Gründungskosten."@de ,
         "InnoFounder supports innovative startups in Hamburg with a non-repayable grant for living expenses and startup costs."@en ;
     rdfs:seeAlso <https://innovationsstarter.com/innofounder/> ;

@@ -7,6 +7,7 @@
 ff:ibb-altersgerecht-wohnen a ff:RequirementProfile ;
     ff:title "IBB Altersgerecht Wohnen"@de , "IBB Age-Appropriate Living"@en ;
     ff:category ff:wohnungsbau-modernisierung ;
+    ff:validationStage ff:preliminary-validation ;
     ff:benefitInfo "Das Förderprogramm 'IBB Altersgerecht Wohnen' unterstützt Vermieter:innen und Investor:innen bei der Finanzierung von Modernisierungsmaßnahmen zur Barrierereduzierung, Erhöhung des Wohnkomforts und Einbruchschutz in Berlin. Ziel ist es, altersgerechtes Wohnen zu fördern und die Lebensqualität in Wohngebäuden zu verbessern."@de ,
         "The 'IBB Altersgerecht Wohnen' funding program supports landlords and investors in financing modernization measures for barrier reduction, increased living comfort, and burglary protection in Berlin. The goal is to promote age-appropriate living and improve the quality of life in residential buildings."@en ;
     rdfs:seeAlso <https://www.ibb.de/de/foerderprogramme/ibb-altersgerecht-wohnen.html> ;

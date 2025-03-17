@@ -7,6 +7,7 @@ ff:kindergeld a ff:RequirementProfile ;
     ff:leikaId "99041008017000" ;
     ff:title "Kindergeld"@de , "Child benefit"@en ;
     ff:category ff:leistungen-fuer-familien-bc-kategorie ;
+    ff:validationStage ff:complete-validation ;
     rdfs:seeAlso <https://sozialplattform.de/inhalt/kindergeld> ;
     ff:benefitInfo "Das Kindergeld ist eine staatliche Förderung, die Eltern und Erziehungsberechtigte ab der Geburt des ersten Kindes beantragen können. Damit soll die Grundversorgung eines Kindes gesichert werden. Kindergeld wird mindestens bis zum 18. und höchstens bis zum 25. Geburtstag eines Kindes gezahlt. Alle Familien erhalten Kindergeld, unabhängig davon, wie viel sie verdienen."@de ,
         "Parents and guardians are entitled to receive child benefit from the state starting with their first child. Find out here whether you qualify for child benefit and how you can apply."@en ;
