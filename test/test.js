@@ -3,7 +3,15 @@ import { fileURLToPath } from "url"
 import fs, { promises as fsPromise } from "fs"
 import { describe } from "mocha"
 import { strictEqual } from "node:assert"
-import { Parser, Store } from "n3"
+import { Parser } from "n3"
+import Validator from "shacl-engine/Validator.js"
+import rdf from "rdf-ext"
+import formatsPretty from "@rdfjs/formats/pretty.js"
+
+const parser = new Parser({ factory: rdf })
+rdf.formats.import(formatsPretty)
+
+const debug = true
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..")
 const SHACL_DIR_1 = `${ROOT}/sozialplattform/shacl`
@@ -60,7 +68,6 @@ describe("Turtle files integrity", function () {
 
     describe("files should have valid Turtle syntax", function () {
         it("should be parseable and contain quads", async function () {
-            const parser = new Parser()
             const parse = (content) => {
                 let count = 0
                 return new Promise((resolve, reject) => {
@@ -87,46 +94,64 @@ describe("Turtle files integrity", function () {
 
 
 describe("Content-related tests on Turtle files", function () {
-    let shaclFileContents = {}
-    let datafieldsFileContent = ""
-    let materializationFileContent = ""
+    let datasets = {
+        shacl: {},
+        datafields: {},
+        materialization: {}
+    }
 
     before(async function () {
         try {
-            for (const file of (await fsPromise.readdir(SHACL_DIR_1))) shaclFileContents[file] = await fsPromise.readFile(`${SHACL_DIR_1}/${file}`, "utf8")
-            for (const file of (await fsPromise.readdir(SHACL_DIR_2))) shaclFileContents[file] = await fsPromise.readFile(`${SHACL_DIR_2}/${file}`, "utf8")
-            datafieldsFileContent = await fsPromise.readFile(DATAFIELDS_FILE, "utf8")
-            materializationFileContent = await fsPromise.readFile(MATERIALIZATION_FILE, "utf8")
+            const buildDs = async (file) => {
+                let str = await fsPromise.readFile(file, "utf8")
+                return { file: file, str: str, ds: rdf.dataset(parser.parse(str)) }
+            }
+            for (const file of (await fsPromise.readdir(SHACL_DIR_1))) datasets.shacl[file] = await buildDs(`${SHACL_DIR_1}/${file}`)
+            for (const file of (await fsPromise.readdir(SHACL_DIR_2))) datasets.shacl[file] = await buildDs(`${SHACL_DIR_2}/${file}`)
+            datasets.datafields = await buildDs(DATAFIELDS_FILE)
+            datasets.materialization = await buildDs(MATERIALIZATION_FILE)
         } catch (error) {
             throw new Error(`Failed to read file contents: ${error.message}`)
         }
     })
 
     it("should have file contents ready", function () {
-        strictEqual(Object.keys(shaclFileContents).length > 0, true, "No SHACL files found")
-        strictEqual(datafieldsFileContent.length > 0, true, "Datafields file is empty")
-        strictEqual(materializationFileContent.length > 0, true, "Materialization file is empty")
+        strictEqual(Object.keys(datasets.shacl).length > 0, true, "No SHACL files found")
+        strictEqual(Object.keys(datasets.datafields).length > 0, true, "Datafields file is empty")
+        strictEqual(Object.keys(datasets.materialization).length > 0, true, "Materialization file is empty")
     })
 
     describe("Assertions on requirement profiles alone", function () {
-        const store = new Store()
-        const parser = new Parser()
+        describe("SHACL assertions on requirement profiles", function () {
+            // one it() per file, otherwise the test stops at first error TODO
+            it("sh:minCount should be on each PropertyShape", async function () {
+                let shacl = `
+                    @prefix sh: <http://www.w3.org/ns/shacl#> .
+                    @prefix ff: <https://foerderfunke.org/default#> .
+                    ff:EnsureMinCountOnPropertyShapes a sh:NodeShape ;
+                        sh:targetObjectsOf sh:property ;
+                        sh:property [
+                            a sh:PropertyShape ;
+                            sh:path sh:minCount ;
+                            sh:minCount 1 ;
+                        ] .`
+                let shapeDs = rdf.dataset(parser.parse(shacl))
+                let validator = new Validator(shapeDs, { factory: rdf })
 
-        before(async function () {
-            const parse = (content) => {
-                return new Promise((resolve, reject) => {
-                    parser.parse(content, (err, quad) => {
-                        if (err) reject(err)
-                        if (quad) store.add(quad)
-                        else resolve()
-                    })
-                })
-            }
-            for (let content of Object.values(shaclFileContents)) await parse(content)
-        })
-
-        it("store should not be empty", function () {
-            strictEqual(store.countQuads() > 0, true, "Store is empty")
+                for (let entry of Object.values(datasets.shacl)) {
+                    let result = await validator.validate({ dataset: entry.ds })
+                    if (!result.conforms && debug) {
+                        let turtle = await rdf.io.dataset.toText("text/turtle", result.dataset, { prefixes: [
+                                ["ff", rdf.namedNode("https://foerderfunke.org/default#")],
+                                ["sh", rdf.namedNode("http://www.w3.org/ns/shacl#")],
+                                ["xsd", rdf.namedNode("http://www.w3.org/2001/XMLSchema#")],
+                                ["rdf", rdf.namedNode("http://www.w3.org/1999/02/22-rdf-syntax-ns#")]]
+                        })
+                        console.log(`Validation report for file ${entry.file}`, turtle)
+                    }
+                    strictEqual(result.conforms, true, `PropertyShapes without sh:minCount exist in ${entry.file}`)
+                }
+            })
         })
 
         // TODO
