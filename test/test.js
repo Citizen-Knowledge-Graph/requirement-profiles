@@ -34,10 +34,11 @@ describe("Turtle files integrity", function () {
             })
         })
 
-        it("should be readable as string", async function () {
+        it("should be readable as string and not be empty", async function () {
             for (const file of turtleFiles) {
                 let content = await fsPromise.readFile(file, "utf8")
                 strictEqual(typeof content, "string", `File ${file} is not readable as a string`)
+                strictEqual(content.length > 0, true, `File ${file} is empty`)
             }
         })
 
