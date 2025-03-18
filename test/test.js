@@ -3,7 +3,7 @@ import { fileURLToPath } from "url"
 import fs, { promises as fsPromise } from "fs"
 import { describe } from "mocha"
 import { strictEqual } from "node:assert"
-import { Parser } from "n3"
+import { Parser, Store } from "n3"
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..")
 const SHACL_DIR_1 = `${ROOT}/sozialplattform/shacl`
@@ -86,6 +86,49 @@ describe("Turtle files integrity", function () {
 })
 
 
-describe("Tests on requirement profiles", function () {
-    // TODO
+describe("Content-related tests on Turtle files", function () {
+    let shaclFileContents = {}
+    let datafieldsFileContent = ""
+    let materializationFileContent = ""
+
+    before(async function () {
+        try {
+            for (const file of (await fsPromise.readdir(SHACL_DIR_1))) shaclFileContents[file] = await fsPromise.readFile(`${SHACL_DIR_1}/${file}`, "utf8")
+            for (const file of (await fsPromise.readdir(SHACL_DIR_2))) shaclFileContents[file] = await fsPromise.readFile(`${SHACL_DIR_2}/${file}`, "utf8")
+            datafieldsFileContent = await fsPromise.readFile(DATAFIELDS_FILE, "utf8")
+            materializationFileContent = await fsPromise.readFile(MATERIALIZATION_FILE, "utf8")
+        } catch (error) {
+            throw new Error(`Failed to read file contents: ${error.message}`)
+        }
+    })
+
+    it("should have file contents ready", function () {
+        strictEqual(Object.keys(shaclFileContents).length > 0, true, "No SHACL files found")
+        strictEqual(datafieldsFileContent.length > 0, true, "Datafields file is empty")
+        strictEqual(materializationFileContent.length > 0, true, "Materialization file is empty")
+    })
+
+    describe("Assertions on requirement profiles alone", function () {
+        const store = new Store()
+        const parser = new Parser()
+
+        before(async function () {
+            const parse = (content) => {
+                return new Promise((resolve, reject) => {
+                    parser.parse(content, (err, quad) => {
+                        if (err) reject(err)
+                        if (quad) store.add(quad)
+                        else resolve()
+                    })
+                })
+            }
+            for (let content of Object.values(shaclFileContents)) await parse(content)
+        })
+
+        it("store should not be empty", function () {
+            strictEqual(store.countQuads() > 0, true, "Store is empty")
+        })
+
+        // TODO
+    })
 })
