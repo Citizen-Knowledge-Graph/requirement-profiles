@@ -27,6 +27,12 @@ describe("Turtle files integrity", function () {
         strictEqual(turtleFiles.length > 0, true, "No turtle files found")
     })
 
+    it("should have .ttl extension", function () {
+        turtleFiles.forEach((file) => {
+            strictEqual(file.toLowerCase().endsWith(".ttl"), true, `File ${file} does not have a .ttl extension`)
+        })
+    })
+
     describe("files should exist and be readable", function () {
         it("should exist", function () {
             turtleFiles.forEach((file) => {
