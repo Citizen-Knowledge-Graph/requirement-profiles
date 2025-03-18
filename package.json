@@ -4,6 +4,7 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "^11.1.0"
+    "mocha": "^11.1.0",
+    "n3": "^1.24.2"
   }
 }

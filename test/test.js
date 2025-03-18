@@ -3,6 +3,7 @@ import { fileURLToPath } from "url"
 import fs, { promises as fsPromise } from "fs"
 import { describe } from "mocha"
 import { strictEqual } from "node:assert"
+import { Parser } from "n3"
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..")
 const SHACL_DIR_1 = `${ROOT}/sozialplattform/shacl`
@@ -51,7 +52,29 @@ describe("Turtle files integrity", function () {
     })
 
     describe("files should have valid Turtle syntax", function () {
-        // TODO
+        it("should be parseable and contain quads", async function () {
+            const parser = new Parser()
+            const parse = (content) => {
+                let count = 0
+                return new Promise((resolve, reject) => {
+                    parser.parse(content, (err, quad) => {
+                        if (err) reject(err)
+                        if (quad) count ++
+                        else resolve(count)
+                    })
+                })
+            }
+            for (const file of turtleFiles) {
+                let content = await fsPromise.readFile(file, "utf8")
+                let count = 0
+                try {
+                    count = await parse(content)
+                } catch (err) {
+                    throw new Error(`Invalid Turtle syntax in ${file}: ${err.message}`)
+                }
+                strictEqual(count > 0, true, `No parseable quads in ${file}`)
+            }
+        })
     })
 })
 
