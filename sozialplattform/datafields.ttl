@@ -447,6 +447,7 @@ ff:bezogene_leistungen a ff:DataField, ff:SozialleistungsfinderDataField ;
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:sozialleistungen ;
         sh:in (
+            ff:bezogene_leistungen-keine
             ff:bezogene_leistungen-arbeitslosengeld
             ff:bezogene_leistungen-buergergeld
             ff:bezogene_leistungen-asylblg
@@ -460,6 +461,7 @@ ff:bezogene_leistungen a ff:DataField, ff:SozialleistungsfinderDataField ;
             ff:bezogene_leistungen-grundsicherung
         ) ;
     ] .
+ff:bezogene_leistungen-keine a ff:AnswerOption ; rdfs:label "Keine"@de , "None"@en .
 ff:bezogene_leistungen-arbeitslosengeld a ff:AnswerOption ; rdfs:label "Arbeitslosengeld"@de , "Unemployment benefit"@en .
 ff:bezogene_leistungen-buergergeld a ff:AnswerOption ; rdfs:label "Bürgergeld (früher ALG II)"@de , "Citizen's income (formerly unemployment benefit II)"@en .
 ff:bezogene_leistungen-asylblg a ff:AnswerOption ; rdfs:label "Asylbewerberleistungen (AsylbLG)"@de , "Asylum seeker benefits (AsylbLG)"@en .
