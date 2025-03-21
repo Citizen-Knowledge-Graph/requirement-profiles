@@ -447,7 +447,17 @@ ff:bezogene_leistungen a ff:DataField, ff:SozialleistungsfinderDataField ;
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:sozialleistungen ;
         sh:in (
-
+            ff:bezogene_leistungen-arbeitslosengeld
+            ff:bezogene_leistungen-buergergeld
+            ff:bezogene_leistungen-asylblg
+            ff:bezogene_leistungen-bafoeg
+            ff:bezogene_leistungen-wohngeld
+            ff:bezogene_leistungen-kinderzuschlag
+            ff:bezogene_leistungen-elterngeld
+            ff:bezogene_leistungen-rente
+            ff:bezogene_leistungen-mutterschaftsgeld
+            ff:bezogene_leistungen-erwerbsminderungsrente
+            ff:bezogene_leistungen-grundsicherung
         ) ;
     ] .
 ff:bezogene_leistungen-arbeitslosengeld a ff:AnswerOption ; rdfs:label "Arbeitslosengeld"@de , "Unemployment benefit"@en .
