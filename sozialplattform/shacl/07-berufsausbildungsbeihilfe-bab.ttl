@@ -45,6 +45,6 @@ ff:berufsausbildungsbeihilfe-babMainPersonShape a sh:NodeShape, ff:EligibilityCo
         sh:path ff:einkommen_neu ;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-bafoeg ff:einkommen_neu-ao-rente) ;
+            sh:in (ff:bezogene_leistungen-arbeitslosengeld ff:bezogene_leistungen-bafoeg ff:bezogene_leistungen-rente) ;
         ] ;
     ] .

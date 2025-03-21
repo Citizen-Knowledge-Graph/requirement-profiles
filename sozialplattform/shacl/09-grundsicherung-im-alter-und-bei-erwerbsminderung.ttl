@@ -42,9 +42,16 @@ ff:grundsicherung-im-alter-und-bei-erwerbsminderungMainPersonShape a sh:NodeShap
         sh:in (ff:beruf_neu-ao-rente) ;
     ] ;
     sh:property [
-        sh:path ff:einkommen_neu ;
+        sh:path ff:einkommen_neu;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-ausbildung ff:einkommen_neu-ao-bafoeg) ;
+            sh:in (ff:einkommen_neu-ao-ausbildung) ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path ff:bezogene_leistungen;
+        sh:minCount 1 ;
+        sh:not [
+            sh:in (ff:bezogene_leistungen-arbeitslosengeld ff:einkommen_neu-ao-ausbildung ff:bezogene_leistungen-bafoeg) ;
         ] ;
     ] .

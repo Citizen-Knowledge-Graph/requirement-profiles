@@ -44,9 +44,9 @@ ff:wohngeldMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         ] ;
     ] ;
     sh:property [
-        sh:path ff:einkommen_neu ;
+        sh:path ff:bezogene_leistungen ;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:einkommen_neu-ao-wohngeld ff:einkommen_neu-ao-bafoeg ff:einkommen_neu-ao-alg-ii) ;
+            sh:in (ff:bezogene_leistungen-wohngeld ff:bezogene_leistungen-bafoeg ff:bezogene_leistungen-buergergeld) ;
         ] ;
     ] .

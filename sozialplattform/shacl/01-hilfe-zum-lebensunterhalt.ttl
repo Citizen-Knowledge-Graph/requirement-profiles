@@ -45,9 +45,9 @@ ff:hilfe-zum-lebensunterhaltMainPersonShape a sh:NodeShape, ff:EligibilityConstr
         ] ;
     ] ;
     sh:property [
-        sh:path ff:einkommen_neu ;
+        sh:path ff:bezogene_leistungen ;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-alg-ii) ;
+            sh:in (ff:bezogene_leistungen-arbeitslosengeld ff:bezogene_leistungen-buergergeld) ;
         ] ;
     ] .

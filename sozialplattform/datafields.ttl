@@ -307,15 +307,9 @@ ff:einkommen_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
     ] .
 ff:einkommen_neu-ao-selbstaendig a ff:AnswerOption ; rdfs:label "Selbstständige Arbeit in einer Beschäftigung von mehr als 15 Stunden pro Woche"@de , "Self-employed work of more than 15 hours per week"@en .
 ff:einkommen_neu-ao-soz a ff:AnswerOption ; rdfs:label "Sozialversicherungspflichtige Beschäftigung"@de , "Employment subject to social security contributions"@en .
-ff:einkommen_neu-ao-alg a ff:AnswerOption ; rdfs:label "Arbeitslosengeld"@de , "Unemployment benefit"@en .
-ff:einkommen_neu-ao-alg-ii a ff:AnswerOption ; rdfs:label "Bürgergeld (früher ALG II)"@de , "Citizen's income (formerly unemployment benefit II)"@en .
 ff:einkommen_neu-ao-ausbildung a ff:AnswerOption ; rdfs:label "Ausbildungsvergütung"@de , "Training allowance"@en .
-ff:einkommen_neu-ao-bafoeg a ff:AnswerOption ; rdfs:label "BAföG"@de , "Student support (BAföG)"@en .
-ff:einkommen_neu-ao-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente"@de , "Standard retirement pension"@en .
-ff:einkommen_neu-ao-elterngeld a ff:AnswerOption ; rdfs:label "Elterngeld"@de , "Parental benefit"@en .
-ff:einkommen_neu-ao-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutterschaftsgeld"@de , "Maternity pay"@en .
-ff:einkommen_neu-ao-wohngeld a ff:AnswerOption ; rdfs:label "Wohngeld"@de , "Housing benefit"@en .
 ff:einkommen_neu-ao-sonstige a ff:AnswerOption ; rdfs:label "Sonstige"@de , "Other"@en .
+
 
 ff:einkommen_familie a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:erwerbstaetigkeit-df-kategorie ;
@@ -441,6 +435,32 @@ ff:pflege a ff:DataField, ff:SozialleistungsfinderDataField ;
 
 ff:pensionable a ff:DataField, ff:MaterializableDataField ; rdfs:label "Pensionable"@en, "Rentenberechtigt"@de .
 ff:hasAge a ff:DataField, ff:MaterializableDataField ; rdfs:label "Age"@en, "Alter"@de .
+
+# Sozialleistungen
+ff:bezogene_leistungen a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:sozialleistungen-df-kategorie ;
+    rdfs:label "Bezogene Leistungen"@de , "Received Benefits"@en ;
+    schema:question "Erhalten Sie eine oder mehrere der folgenden Leistungen? (Mehrfachnennung möglich)"@de, "Do you receive one or more of the following benefits? (multiple answers possible)"@en ;
+    rdfs:comment "Teilweise schließen sich bestimmte Leistungen gegenseitig aus. Wenn Sie beispielsweise Wohngeld beziehen, können Sie kein Bürgergeld erhalten. Auf der anderen Seite sind einige Leistungen Voraussetzung für andere."@de ,
+        "Some benefits are mutually exclusive. For example, if you receive housing benefit, you cannot receive citizen's income. On the other hand, some benefits are a prerequisite for others."@en ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:sozialleistungen ;
+        sh:in (
+
+        ) ;
+    ] .
+ff:bezogene_leistungen-arbeitslosengeld a ff:AnswerOption ; rdfs:label "Arbeitslosengeld"@de , "Unemployment benefit"@en .
+ff:bezogene_leistungen-buergergeld a ff:AnswerOption ; rdfs:label "Bürgergeld (früher ALG II)"@de , "Citizen's income (formerly unemployment benefit II)"@en .
+ff:bezogene_leistungen-asylblg a ff:AnswerOption ; rdfs:label "Asylbewerberleistungen (AsylbLG)"@de , "Asylum seeker benefits (AsylbLG)"@en .
+ff:bezogene_leistungen-bafoeg a ff:AnswerOption ; rdfs:label "BAföG"@de , "Student support (BAföG)"@en .
+ff:bezogene_leistungen-wohngeld a ff:AnswerOption ; rdfs:label "Wohngeld"@de , "Housing benefit"@en .
+ff:bezogene_leistungen-kinderzuschlag a ff:AnswerOption ; rdfs:label "Kinderzuschlag"@de , "Child supplement"@en .
+ff:bezogene_leistungen-elterngeld a ff:AnswerOption ; rdfs:label "Elterngeld"@de , "Parental allowance"@en .
+ff:bezogene_leistungen-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente"@de , "Standard retirement pension"@en .
+ff:bezogene_leistungen-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutterschaftsgeld"@de , "Maternity pay"@en .
+ff:bezogene_leistungen-erwerbsminderungsrente a ff:AnswerOption ; rdfs:label "Erwerbsminderungsrente"@de , "Disability pension"@en .
+ff:bezogene_leistungen-grundsicherung a ff:AnswerOption ; rdfs:label "Grundsicherung im Alter und bei Erwerbsminderung"@de , "Basic security in old age and in case of reduced earning capacity"@en .
 
 
 ##############################

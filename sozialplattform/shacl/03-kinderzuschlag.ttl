@@ -69,9 +69,9 @@ ff:kinderzuschlagMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:in (true) ;
     ] ;
     sh:property [
-        sh:path ff:einkommen_neu ;
+        sh:path ff:bezogene_leistungen ;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:einkommen_neu-ao-alg-ii) ;
+            sh:in (ff:bezogene_leistungen-buergergeld) ;
         ] ;
     ] .

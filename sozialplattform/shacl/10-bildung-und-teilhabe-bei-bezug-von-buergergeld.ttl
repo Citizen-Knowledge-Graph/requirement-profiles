@@ -59,8 +59,8 @@ ff:bildung-und-teilhabe-bei-bezug-von-buergergeldMainPersonShape a sh:NodeShape,
         ]
     ]) ;
     sh:property [
-        sh:path ff:einkommen_neu ;
-        sh:in (ff:einkommen_neu-ao-alg-ii ff:einkommen_neu-ao-wohngeld) ;
+        sh:path ff:bezogene_leistungen ;
+        sh:in (ff:bezogene_leistungen-buergergeld ff:bezogene_leistungen-wohngeld) ;
         sh:minCount 2 ;
         sh:maxCount 2 ;
     ] .

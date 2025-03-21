@@ -50,6 +50,13 @@ ff:arbeitslosengeldainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:path ff:einkommen_neu ;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:einkommen_neu-ao-selbstaendig ff:einkommen_neu-ao-soz ff:einkommen_neu-ao-mutterschaftsgeld ff:einkommen_neu-ao-alg ff:einkommen_neu-ao-rente) ;
+            sh:in (ff:einkommen_neu-ao-selbstaendig ff:einkommen_neu-ao-soz) ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path ff:bezogene_leistungen;
+        sh:minCount 1 ;
+        sh:not [
+            sh:in (ff:bezogene_leistungen-arbeitslosengeld ff:bezogene_leistungen-mutterschaftsgeld ff:bezogene_leistungen-rente) ;
         ] ;
     ] .

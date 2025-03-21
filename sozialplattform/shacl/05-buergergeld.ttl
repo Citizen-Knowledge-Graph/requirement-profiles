@@ -56,9 +56,9 @@ ff:buergergeldMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         ] ;
     ] ;
     sh:property [
-        sh:path ff:einkommen_neu ;
+        sh:path ff:bezoegene_leistungen ;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:einkommen_neu-ao-alg-ii ff:einkommen_neu-ao-rente ff:einkommen_neu-ao-wohngeld) ;
+            sh:in (ff:bezogene_leistungen-buergergeld ff:bezogene_leistungen-rente ff:einkommen_neu-ao-wohngeld) ;
         ] ;
     ] .
