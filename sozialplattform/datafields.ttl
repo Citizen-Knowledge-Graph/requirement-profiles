@@ -44,6 +44,9 @@ ff:selbstaendigkeit-gruendung a ff:BenefitCategory ;
 ff:wohnungsbau-modernisierung a ff:BenefitCategory ;
     rdfs:label "Wohnungsbau & Modernisierung"@de, "Housing & Modernization"@en .
 
+ff:innovation-forschung a ff:BenefitCategory ;
+    rdfs:label "Innovation & Forschung"@de, "Innovation & Research"@en .
+
 # DATAFIELD CATEGORIES
 
 ff:persoenliche-angaben-df-kategorie a ff:DatafieldCategory ; rdfs:label "Persönliche Angaben"@de, "Personal information"@en .
