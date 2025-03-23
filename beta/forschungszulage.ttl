@@ -7,6 +7,7 @@ ff:forschungszulage a ff:RequirementProfile ;
     ff:title "Forschungszulage - Steuerliche Förderung von Forschung und Entwicklung"@de ,
               "Research Allowance - Tax Incentive for R&D"@en ;
     ff:category ff:innovation-forschung ;
+    ff:validationStage ff:preliminary-validation ;
     ff:benefitInfo "Steuerpflichtige Unternehmen in Deutschland können eine Forschungszulage für förderfähige Aufwendungen in Grundlagenforschung, industrieller Forschung und experimenteller Entwicklung erhalten."@de ,
         "Tax-liable companies in Germany may claim a research allowance for eligible expenses related to basic research, industrial research, and experimental development."@en ;
     rdfs:seeAlso <https://www.bundesfinanzministerium.de> ;
