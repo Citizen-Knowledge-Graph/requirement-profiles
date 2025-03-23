@@ -1318,3 +1318,80 @@ ff:business_activity_location-berlin a ff:AnswerOption ; rdfs:label "Berlin"@en,
 ff:business_activity_location-hamburg a ff:AnswerOption ; rdfs:label "Hamburg"@en, "Hamburg"@de .
 ff:business_activity_location-brandenburg a ff:AnswerOption ; rdfs:label "Brandenburg"@en, "Brandenburg"@de .
 ff:business_activity_location-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
+##############################
+# Updated fields for Forschungszulage
+##############################
+
+ff:taxable_germany a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:forschungszulage-df-kategorie ;
+    rdfs:label "Taxable in Germany"@en, "Steuerpflichtig in Deutschland"@de ;
+    schema:question "Is your company taxable in Germany?"@en, "Ist Ihr Unternehmen in Deutschland steuerpflichtig?"@de ;
+    rdfs:comment "This question helps determine whether your company is subject to taxation in Germany, which may affect eligibility for research grants or tax incentives. Some funding programs require companies to be taxable in Germany to qualify for research funding or tax credits."@en,
+                 "Diese Frage hilft festzustellen, ob Ihr Unternehmen in Deutschland steuerpflichtig ist, was die Förderfähigkeit für Forschungszuschüsse oder Steuervergünstigungen beeinflussen kann. Einige Förderprogramme verlangen, dass Unternehmen in Deutschland steuerpflichtig sind, um für Forschungsförderung oder Steuergutschriften in Frage zu kommen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:taxable_germany ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:taxable_germany ;
+        sh:property [
+            sh:path ff:taxable_germany ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:research_type a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:forschungszulage-df-kategorie ;
+    rdfs:label "Research Type"@en, "Forschungstyp"@de ;
+    schema:question "What type of research activities does your company conduct?"@en, "Welche Art von Forschungsaktivitäten führt Ihr Unternehmen durch?"@de ;
+    rdfs:comment "The type of research activities conducted by your company can be relevant for funding opportunities that target specific research areas or require companies to be engaged in certain types of research. Some grants are specifically available for companies conducting basic research, applied research, or experimental development."@en,
+                 "Die Art der Forschungsaktivitäten, die Ihr Unternehmen durchführt, kann für Fördermöglichkeiten relevant sein, die auf bestimmte Forschungsbereiche abzielen oder voraussetzen, dass Unternehmen bestimmte Arten von Forschung betreiben. Einige Förderungen sind speziell für Unternehmen verfügbar, die Grundlagenforschung, angewandte Forschung oder experimentelle Entwicklung betreiben."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:research_type ;
+        sh:in (
+            ff:research_type-foundational
+            ff:research_type-industrial
+            ff:research_type-experimental
+            ff:research_type-other
+            ff:research_type-none
+        ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:research_type ;
+        sh:property [
+            sh:path ff:research_type ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
+
+ff:research_type-foundational a ff:AnswerOption ; rdfs:label "Foundational Research"@en, "Grundlagenforschung"@de .
+ff:research_type-industrial a ff:AnswerOption ; rdfs:label "Industrial Research"@en, "Industrielle Forschung"@de .
+ff:research_type-experimental a ff:AnswerOption ; rdfs:label "Experimental Development"@en, "Experimentelle Entwicklung"@de .
+ff:research_type-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+ff:research_type-none a ff:AnswerOption ; rdfs:label "None"@en, "Keine"@de .
+
+
+ff:research_start_date a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:forschungszulage-df-kategorie ;
+    rdfs:label "Research Start Date"@en, "Forschungsbeginn"@de ;
+    schema:question "Did your company start research activities after January 1, 2020?"@en, "Hat Ihr Unternehmen Forschungsaktivitäten nach dem 1. Januar 2020 begonnen?"@de ;
+    rdfs:comment "The start date of your company's research activities can be relevant for funding opportunities that target recent research projects or require companies to have initiated research activities within a specific timeframe. Some grants are specifically available for companies that started research activities after a certain date or for projects that are still in progress."@en,
+                 "Das Startdatum der Forschungsaktivitäten Ihres Unternehmens kann für Fördermöglichkeiten relevant sein, die sich auf aktuelle Forschungsprojekte konzentrieren oder voraussetzen, dass Unternehmen Forschungsaktivitäten innerhalb eines bestimmten Zeitraums begonnen haben. Einige Förderungen sind speziell für Unternehmen verfügbar, die Forschungsaktivitäten nach einem bestimmten Datum begonnen haben oder für Projekte, die noch laufen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:research_start_date ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:research_start_date ;
+        sh:property [
+            sh:path ff:research_start_date ;
+            sh:maxCount 1 ;
+        ] ;
+    ] .
