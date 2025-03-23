@@ -1330,8 +1330,8 @@ ff:taxable_germany a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:forschungszulage-df-kategorie ;
     rdfs:label "Taxable in Germany"@en, "Steuerpflichtig in Deutschland"@de ;
     schema:question "Is your company taxable in Germany?"@en, "Ist Ihr Unternehmen in Deutschland steuerpflichtig?"@de ;
-    rdfs:comment "This question helps determine whether your company is subject to taxation in Germany, which may affect eligibility for research grants or tax incentives. Some funding programs require companies to be taxable in Germany to qualify for research funding or tax credits."@en,
-                 "Diese Frage hilft festzustellen, ob Ihr Unternehmen in Deutschland steuerpflichtig ist, was die Förderfähigkeit für Forschungszuschüsse oder Steuervergünstigungen beeinflussen kann. Einige Förderprogramme verlangen, dass Unternehmen in Deutschland steuerpflichtig sind, um für Forschungsförderung oder Steuergutschriften in Frage zu kommen."@de ;
+    rdfs:comment "The question of whether your company is taxable in Germany can affect eligibility for research grants or tax incentives. Some funding programs require companies to be taxable in Germany to qualify for research funding or tax credits."@en,
+                 "Die Frage, ob Ihr Unternehmen in Deutschland steuerpflichtig ist, kann die Förderfähigkeit für Forschungszuschüsse oder Steuervergünstigungen beeinflussen. Einige Förderprogramme verlangen, dass Unternehmen in Deutschland steuerpflichtig sind, um für Forschungsförderung oder Steuergutschriften in Frage zu kommen."@de ;
     ff:objectConstraints [
         a sh:PropertyShape ;
         sh:targetObjectsOf ff:taxable_germany ;
