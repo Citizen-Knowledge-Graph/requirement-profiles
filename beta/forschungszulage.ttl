@@ -41,17 +41,4 @@ ff:forschungszulageMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:minCount 1 ;
         sh:in ( false ) ;
         sh:message "Unternehmen in Schwierigkeiten gemäß AGVO sind ausgeschlossen. (Quelle: §9 Abs. 2 FZulG)"@de ;
-    ] ;
-
-    sh:property [
-        sh:path ff:de_minimis_aid ;
-        sh:minCount 1 ;
-        sh:message "Für bestimmte Aufwendungen ist die Einhaltung der De-minimis-Verordnung erforderlich. (Quelle: §9 Abs. 5 FZulG)"@de ;
-    ] ;
-
-    sh:property [
-        sh:path ff:has_certification ;
-        sh:minCount 1 ;
-        sh:in ( true ) ;
-        sh:message "Eine gültige Bescheinigung durch eine autorisierte Stelle ist erforderlich. (Quelle: §6 Abs. 1 FZulG)"@de ;
     ] .
