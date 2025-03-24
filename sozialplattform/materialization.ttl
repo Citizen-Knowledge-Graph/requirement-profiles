@@ -108,3 +108,28 @@ ff:KidsInAgeRangesMeansHavingKids a ff:MaterializationRule, ff:SparqlRule ;
             }
         }
     """ .
+
+ff:HouseholdMembersToVermoegensGrenze a ff:MaterializationRule, ff:SparqlRule ;
+    rdfs:label "Berechnung der Vermögensgrenze basierend auf der Anzahl der Haushaltsmitglieder"@de, 
+               "Calculate the asset limit based on the number of household members"@en ;
+    ff:input ff:household_members ;
+    ff:input ff:buergergeld_vergangenheit ;
+    ff:output ff:vermoegensgrenze ;
+    ff:sparqlConstructQuery """
+        PREFIX ff: <https://foerderfunke.org/default#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+        CONSTRUCT {
+            ?person ff:vermoegensgrenze ?assetLimit .
+        } WHERE {
+            ?person ff:household_members ?members ;
+                    ff:buergergeld_vergangenheit ?pastEligible .
+
+            BIND(
+                IF(?pastEligible = true,
+                   ?members * 15000,
+                   40000 + (IF(?members > 1, (?members - 1) * 15000, 0))
+                ) AS ?assetLimit
+            )
+        }
+    """ .

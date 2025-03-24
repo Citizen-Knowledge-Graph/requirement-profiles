@@ -151,6 +151,18 @@ ff:aufenthaltsort a ff:DataField, ff:SozialleistungsfinderDataField ;
 ff:aufenthaltsort-ao-ausserhalb a ff:AnswerOption ; rdfs:label "Außerhalb Deutschlands"@de , "Outside Germany"@en .
 ff:aufenthaltsort-ao-innerhalb a ff:AnswerOption ; rdfs:label "Innerhalb Deutschlands"@de , "Inside Germany"@en .
 
+ff:household_members a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:persoenliche-angaben-df-kategorie;
+    rdfs:label "Haushaltsmitglieder"@de , "Household Members"@en ;
+    schema:question "Wie viele Personen leben in Ihrem Haushalt?"@de , "How many people live in your household?"@en ;
+    rdfs:comment "Zählen Sie alle Personen, die in Ihrer Wohnung oder Ihrem Haus leben. Dazu gehören auch Kinder, die bei Ihnen leben, aber nicht Ihr eigenes sind. Zählen Sie auch Personen, die nicht arbeiten, wie zum Beispiel Rentner:innen oder Kinder."@de ,
+        "Count all the people who live in your apartment or house. This includes children who live with you but are not your own. Also count people who do not work, such as pensioners or children."@en ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:household_members ;
+        sh:datatype xsd:integer ;
+    ] .
+
 # Kinder
 
 ff:kinder a ff:DataField, ff:SozialleistungsfinderDataField ;
@@ -378,6 +390,18 @@ ff:lebenslage a ff:DataField, ff:SozialleistungsfinderDataField ;
         ] ;
     ] .
 
+ff:vermoegen a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:lebenssituation-df-kategorie ;
+    rdfs:label "Vermögen"@de , "Assets"@en ;
+    schema:question "Wie hoch ist Ihr Vermögen? Runden Sie auf 5000 Euro auf."@de , "What is the value of your assets? Round up to 5000 euros."@en ;
+    rdfs:comment "Vermögen sind zum Beispiel: Bargeld, Sparguthaben, Wertpapiere, Immobilien, Schmuck, Kunstgegenstände, Autos, Boote, Anteile an Unternehmen oder Lebensversicherungen."@de ,
+        "Assets include: cash, savings, securities, real estate, jewelry, works of art, cars, boats, shares in companies or life insurance."@en ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:vermoegen ;
+        sh:datatype xsd:integer ;
+    ] .
+
 # Gesundheit
 
 ff:krankenversicherung a ff:DataField, ff:SozialleistungsfinderDataField ;
@@ -477,6 +501,17 @@ ff:bezogene_leistungen-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutters
 ff:bezogene_leistungen-erwerbsminderungsrente a ff:AnswerOption ; rdfs:label "Erwerbsminderungsrente"@de , "Disability pension"@en .
 ff:bezogene_leistungen-grundsicherung a ff:AnswerOption ; rdfs:label "Grundsicherung im Alter und bei Erwerbsminderung"@de , "Basic security in old age and in case of reduced earning capacity"@en .
 
+ff:buergergeld_vergangengeit a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:sozialleistungen-df-kategorie ;
+    rdfs:label "Bezogenes Bürgergeld in der Vergangenheit"@de , "Received citizen's income in the past"@en ;
+    schema:question "Haben Sie innerhalb der letzten 3 Jahre Bürgergeld bezogen?"@de , "Have you received citizen's income in the last 3 years?"@en ;
+    rdfs:comment "Manche Leistungen oder Voraussetzungen für Leistungen hängen davon ab, ob Sie in der Vergangenheit Bürgergeld bezogen haben."@de ,
+        "Some benefits or requirements for benefits depend on whether you have received citizen's income in the past."@en ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:buergergeld_vergangengeit ;
+        sh:datatype xsd:boolean ;
+    ] .
 
 ##############################
 # Updated Graduation Status field for EXIST Gründerstipendium
