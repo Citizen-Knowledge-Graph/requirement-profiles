@@ -72,7 +72,7 @@ ff:buergergeldMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         ] ;
     ] ;
     sh:property [
-        sh:path ff:buergergeld_vergangengeit ;
+        sh:path ff:buergergeld_vergangenheit ;
         sh:minCount 1 ;
     ] ;
     sh:property [

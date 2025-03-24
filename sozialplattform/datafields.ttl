@@ -501,7 +501,7 @@ ff:bezogene_leistungen-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutters
 ff:bezogene_leistungen-erwerbsminderungsrente a ff:AnswerOption ; rdfs:label "Erwerbsminderungsrente"@de , "Disability pension"@en .
 ff:bezogene_leistungen-grundsicherung a ff:AnswerOption ; rdfs:label "Grundsicherung im Alter und bei Erwerbsminderung"@de , "Basic security in old age and in case of reduced earning capacity"@en .
 
-ff:buergergeld_vergangengeit a ff:DataField, ff:SozialleistungsfinderDataField ;
+ff:buergergeld_vergangenheit a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:sozialleistungen-df-kategorie ;
     rdfs:label "Bezogenes Bürgergeld in der Vergangenheit"@de , "Received citizen's income in the past"@en ;
     schema:question "Haben Sie innerhalb der letzten 3 Jahre Bürgergeld bezogen?"@de , "Have you received citizen's income in the last 3 years?"@en ;
@@ -509,7 +509,7 @@ ff:buergergeld_vergangengeit a ff:DataField, ff:SozialleistungsfinderDataField ;
         "Some benefits or requirements for benefits depend on whether you have received citizen's income in the past."@en ;
     ff:objectConstraints [
         a sh:PropertyShape ;
-        sh:targetObjectsOf ff:buergergeld_vergangengeit ;
+        sh:targetObjectsOf ff:buergergeld_vergangenheit ;
         sh:datatype xsd:boolean ;
     ] .
 
