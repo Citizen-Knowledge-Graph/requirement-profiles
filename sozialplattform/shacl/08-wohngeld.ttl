@@ -18,6 +18,10 @@ ff:wohngeld a ff:RequirementProfile ;
 ff:wohngeldMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
     sh:targetClass ff:Citizen ;
     sh:property [
+        sh:path ff:household_members ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
         sh:path ff:aufenthaltsort ;
         sh:minCount 1 ;
         sh:in (ff:aufenthaltsort-ao-innerhalb) ;
