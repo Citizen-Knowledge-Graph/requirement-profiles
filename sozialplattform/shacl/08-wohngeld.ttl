@@ -32,11 +32,6 @@ ff:wohngeldMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:minInclusive 15 ;
     ] ;
     sh:property [
-        sh:path ff:pensionable ;
-        sh:minCount 1 ;
-        sh:in (false) ;
-    ] ;
-    sh:property [
         sh:path ff:beruf_neu ;
         sh:minCount 1 ;
         sh:not [
@@ -47,6 +42,19 @@ ff:wohngeldMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
         sh:path ff:bezogene_leistungen ;
         sh:minCount 1 ;
         sh:not [
-            sh:in (ff:bezogene_leistungen-wohngeld ff:bezogene_leistungen-bafoeg ff:bezogene_leistungen-buergergeld) ;
+            sh:in (
+                ff:bezogene_leistungen-wohngeld 
+                ff:bezogene_leistungen-bafoeg 
+                ff:bezogene_leistungen-buergergeld
+                ff:bezogene_leistungen-grundsicherung
+                ff:bezogene_leistungen-hilfe-zum-lebensunterhalt
+                ff:bezogene_leistungen-berufsausbildungsbeihilfe-und-ausbildungsgeld
+                ff:bezogene_leistungen-sicherung-des-lebensunterhaltes-mobipro-EU
+            ) ;
         ] ;
-    ] .
+    ] ;
+    sh:property [
+      	sh:path ff:vermoegen ;
+        sh:lessThan ff:vermoegensgrenze_wohngeld ;
+      	sh:minCount 1 ;
+   	] .

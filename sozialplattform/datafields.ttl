@@ -486,6 +486,9 @@ ff:bezogene_leistungen a ff:DataField, ff:SozialleistungsfinderDataField ;
             ff:bezogene_leistungen-mutterschaftsgeld
             ff:bezogene_leistungen-erwerbsminderungsrente
             ff:bezogene_leistungen-grundsicherung
+            ff:bezogene_leistungen-hilfe-zum-lebensunterhalt
+            ff:bezogene_leistungen-berufsausbildungsbeihilfe-und-ausbildungsgeld
+            ff:bezogene_leistungen-sicherung-des-lebensunterhaltes-mobipro-EU
         ) ;
     ] .
 ff:bezogene_leistungen-keine a ff:AnswerOption ; rdfs:label "Keine"@de , "None"@en .
@@ -500,6 +503,9 @@ ff:bezogene_leistungen-rente a ff:AnswerOption ; rdfs:label "Regelaltersrente"@d
 ff:bezogene_leistungen-mutterschaftsgeld a ff:AnswerOption ; rdfs:label "Mutterschaftsgeld"@de , "Maternity pay"@en .
 ff:bezogene_leistungen-erwerbsminderungsrente a ff:AnswerOption ; rdfs:label "Erwerbsminderungsrente"@de , "Disability pension"@en .
 ff:bezogene_leistungen-grundsicherung a ff:AnswerOption ; rdfs:label "Grundsicherung im Alter und bei Erwerbsminderung"@de , "Basic security in old age and in case of reduced earning capacity"@en .
+ff:bezogene_leistungen-hilfe-zum-lebensunterhalt a ff:AnswerOption ; rdfs:label "Hilfe zum Lebensunterhalt"@de , "Assistance for subsistence"@en .
+ff:bezogene_leistungen-berufsausbildungsbeihilfe-und-ausbildungsgeld a ff:AnswerOption ; rdfs:label "Berufsausbildungsbeihilfe und Ausbildungsgeld"@de , "Vocational training allowance and training allowance"@en .
+ff:bezogene_leistungen-sicherung-des-lebensunterhaltes-mobipro-EU a ff:AnswerOption ; rdfs:label "Sicherung des Lebensunterhaltes im Rahmen des MobiPro-EU Programms"@de , "Securing the livelihood within the framework of the MobiPro-EU program"@en .
 
 ff:buergergeld_vergangenheit a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:sozialleistungen-df-kategorie ;
