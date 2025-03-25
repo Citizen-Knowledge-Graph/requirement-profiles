@@ -393,7 +393,7 @@ ff:lebenslage a ff:DataField, ff:SozialleistungsfinderDataField ;
 ff:vermoegen a ff:DataField, ff:SozialleistungsfinderDataField ;
     schema:category ff:lebenssituation-df-kategorie ;
     rdfs:label "Vermögen"@de , "Assets"@en ;
-    schema:question "Wie hoch ist Ihr Vermögen? Runden Sie auf 5000 Euro auf."@de , "What is the value of your assets? Round up to 5000 euros."@en ;
+    schema:question "Wie hoch ist Ihr Vermögen? Runden Sie auf 5.000 Euro auf."@de , "What is the value of your assets? Round up to 5,000 euros."@en ;
     rdfs:comment "Vermögen sind zum Beispiel: Bargeld, Sparguthaben, Wertpapiere, Immobilien, Schmuck, Kunstgegenstände, Autos, Boote, Anteile an Unternehmen oder Lebensversicherungen."@de ,
         "Assets include: cash, savings, securities, real estate, jewelry, works of art, cars, boats, shares in companies or life insurance."@en ;
     ff:objectConstraints [
