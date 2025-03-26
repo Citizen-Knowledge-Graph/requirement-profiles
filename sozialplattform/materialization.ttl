@@ -167,7 +167,8 @@ ff:InterestedInBuildingActivatorRule a ff:MaterializationRule, ff:SparqlRule ;
         CONSTRUCT {
             ?person ff:interested_in_building_renovation_FLAG ?value .
         } WHERE {
-            ?person ff:interested_in_building_renovation ?interested_in_building_renovation .
+            ?person a ff:Citizen .
+            OPTIONAL { ?person ff:interested_in_building_renovation ?interested_in_building_renovation . }
 
             BIND(
                 IF(BOUND(?interested_in_building_renovation) && ?interested_in_building_renovation, true, false) AS ?value
