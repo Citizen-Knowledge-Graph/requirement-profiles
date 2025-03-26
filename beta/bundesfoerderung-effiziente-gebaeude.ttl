@@ -29,7 +29,7 @@ ff:bundesfoerderung-effiziente-gebaeudeMainPersonShape a sh:NodeShape, ff:Eligib
             shn:eq ([ sh:path ff:interested_in_building_renovation_FLAG ] false )
         ] ;
         sh:path ff:building_location_country ;
-        sh:hasValue ff:building_location_country-germany ;
+        sh:in ( ff:building_location_country-germany ) ;
         sh:minCount 1 ;
         sh:message "Das Gebäude muss sich in Deutschland befinden. (Quelle: BEG Infoblatt – 'Ziel der Bundesförderung ... in Deutschland gesteigert und die CO2-Emissionen ... gesenkt werden.')"@de ;
     ] ;
