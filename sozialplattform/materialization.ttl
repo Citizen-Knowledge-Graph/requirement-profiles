@@ -154,3 +154,25 @@ ff:HouseholdMembersToVermoegensGrenzeWohngeld a ff:MaterializationRule, ff:Sparq
             )
         }
     """ .
+
+ff:InterestedInBuildingActivatorRule a ff:MaterializationRule, ff:SparqlRule ;
+    rdfs:label "Activate interested_in_building requirement based on interested_in_building_renovation"@en ,
+        "Aktiviere die Anforderung interested_in_building basierend auf interested_in_building_renovation"@de ;
+    ff:input ff:interested_in_building_renovation ;
+    ff:output ff:interested_in_building_renovation_FLAG ;
+    ff:sparqlConstructQuery """
+        PREFIX ff: <https://foerderfunke.org/default#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+        CONSTRUCT {
+            ?person ff:interested_in_building_renovation_FLAG ?value .
+        } WHERE {
+            ?person a ff:Citizen .
+            OPTIONAL { ?person ff:interested_in_building_renovation ?interested_in_building_renovation . }
+
+            BIND(
+                AS ?value
+                IF(BOUND(?interested_in_building_renovation) && ?interested_in_building_renovation, true, false)
+            )
+        }
+    """ .

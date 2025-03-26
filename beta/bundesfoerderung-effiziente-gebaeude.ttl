@@ -14,9 +14,9 @@ ff:bundesfoerderung-effiziente-gebaeude a ff:RequirementProfile ;
     ff:hasMainPersonShape ff:bundesfoerderung-effiziente-gebaeudeMainPersonShape .
 
 ff:bundesfoerderung-effiziente-gebaeudeMainPersonShape a sh:NodeShape, ff:EligibilityConstraint ;
-    sh:targetClass ff:Applicant ;
+    sh:targetClass ff:Citizen ;
 
-    sh:property [
+	sh:property [
         sh:path ff:interested_in_building_renovation ;
         sh:in ( true ) ;
         sh:minCount 1 ;
@@ -25,27 +25,27 @@ ff:bundesfoerderung-effiziente-gebaeudeMainPersonShape a sh:NodeShape, ff:Eligib
 
    	sh:property [
         sh:deactivated [
-            shn:eq ([ sh:path ff:interested_in_building_renovation ] false )
+            shn:eq ([ sh:path ff:interested_in_building_renovation_FLAG ] false )
         ] ;
         sh:path ff:building_location_country ;
         sh:hasValue ff:building_location_country-germany ;
         sh:minCount 1 ;
         sh:message "Das Gebäude muss sich in Deutschland befinden. (Quelle: BEG Infoblatt – 'Ziel der Bundesförderung ... in Deutschland gesteigert und die CO2-Emissionen ... gesenkt werden.')"@de ;
-    ] .
+    ] ;
 
     sh:property [
         sh:deactivated [
-            shn:eq ([ sh:path ff:interested_in_building_renovation ] false )
+            shn:eq ([ sh:path ff:interested_in_building_renovation_FLAG ] false )
         ] ;
         sh:path ff:building_status ;
         sh:in ( ff:building_status-existing ) ;
         sh:minCount 1 ;
         sh:message "Gefördert werden ausschließlich Maßnahmen an bestehenden Gebäuden. (Quelle: BEG Infoblatt – '... bei der Antragstellung ... Sanierung ... Bestandsgebäude ...')"@de ;
     ] ;
-    
+
     sh:property [
         sh:deactivated [
-            shn:eq ([ sh:path ff:interested_in_building_renovation ] false )
+            shn:eq ([ sh:path ff:interested_in_building_renovation_FLAG ] false )
         ] ;        
         sh:path ff:building_renovation_type ;
         sh:in ( ff:building_renovation_type-energy-efficiency ff:building_renovation_type-renewable-heating ) ;
