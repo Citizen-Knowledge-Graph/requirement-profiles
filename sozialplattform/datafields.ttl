@@ -1439,3 +1439,77 @@ ff:research_start_date a ff:DataField, ff:SozialleistungsfinderDataField ;
             sh:maxCount 1 ;
         ] ;
     ] .
+
+##############################
+# Updated fields for Effiziente Gebäude
+##############################
+
+ff:interested_in_building_renovation a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Interest in Building Renovation"@en, "Interesse an Gebäudesanierung"@de ;
+    schema:question "Are you interested in renovating or retrofitting buildings?"@en, "Sind Sie an der Sanierung oder Nachrüstung von Gebäuden interessiert?"@de ;
+    rdfs:comment "This question helps identify individuals or organizations interested in renovating or retrofitting buildings for energy efficiency, which may be eligible for funding opportunities or grants supporting energy-saving measures."@en,
+                 "Diese Frage hilft dabei, Personen oder Organisationen zu identifizieren, die an der Sanierung oder Nachrüstung von Gebäuden zur Energieeffizienz interessiert sind und möglicherweise für Fördermöglichkeiten oder Zuschüsse zur Unterstützung von Energiesparmaßnahmen infrage kommen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:interested_in_building_renovation ;
+        sh:datatype xsd:boolean ;
+    ] .
+
+ff:building_location_country a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Building Location Country"@en, "Land des Gebäudestandorts"@de ;
+    schema:question "In which country is the building located that you plan to renovate or retrofit?"@en, "In welchem Land befindet sich das Gebäude, das Sie sanieren oder nachrüsten möchten?"@de ;
+    rdfs:comment "The location of the building to be renovated or retrofitted can be relevant for funding opportunities that target energy-saving measures in specific regions or countries. Some grants are specifically available for buildings located in Germany or in certain regions within the country."@en,
+                 "Der Standort des zu sanierenden oder nachzurüstenden Gebäudes kann für Fördermöglichkeiten relevant sein, die auf Energiesparmaßnahmen in bestimmten Regionen oder Ländern abzielen. Einige Förderungen sind speziell für Gebäude verfügbar, die sich in Deutschland oder in bestimmten Regionen innerhalb des Landes befinden."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:building_location_country ;
+        sh:in (
+            ff:building_location_country-germany
+            ff:building_location_country-eu
+            ff:building_location_country-other
+        ) ;
+    ] .
+
+ff:building_location_country-germany a ff:AnswerOption ; rdfs:label "Germany"@en, "Deutschland"@de .
+ff:building_location_country-eu a ff:AnswerOption ; rdfs:label "EU"@en, "EU"@de .
+ff:building_location_country-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
+
+ff:building_status a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Building Status"@en, "Gebäudestatus"@de ;
+    schema:question "Does the building that you plan to renovate or retrofit already exist, or is it a new construction project?"@en, "Handelt es sich bei dem Gebäude, das Sie sanieren oder nachrüsten möchten, um ein bestehendes Gebäude oder ein Neubauprojekt?"@de ;
+    rdfs:comment "The status of the building to be renovated or retrofitted can be relevant for funding opportunities that target energy-saving measures in existing buildings or new construction projects. Some grants are specifically available for retrofitting existing buildings with energy-efficient technologies or for implementing sustainable building practices in new construction."@en,
+                 "Der Status des zu sanierenden oder nachzurüstenden Gebäudes kann für Fördermöglichkeiten relevant sein, die auf Energiesparmaßnahmen in bestehenden Gebäuden oder Neubauprojekten abzielen. Einige Förderungen sind speziell für die Nachrüstung bestehender Gebäude mit energieeffizienten Technologien oder für die Umsetzung nachhaltiger Baupraktiken in Neubauprojekten verfügbar."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:building_status ;
+        sh:in (
+            ff:building_status-existing
+            ff:building_status-new-construction
+        ) ;
+    ] .
+
+ff:building_status-existing a ff:AnswerOption ; rdfs:label "Existing building"@en, "Bestehendes Gebäude"@de .
+ff:building_status-new-construction a ff:AnswerOption ; rdfs:label "New construction project"@en, "Neubauprojekt"@de .
+
+ff:building_renovation_type a ff:DataField, ff:SozialleistungsfinderDataField ;
+    schema:category ff:wohnungsbau-df-kategorie ;
+    rdfs:label "Building Renovation Type"@en, "Art der Gebäudesanierung"@de ;
+    schema:question "What type of renovation or retrofitting work do you plan to carry out on the building?"@en, "Welche Art von Sanierungs- oder Nachrüstungsarbeiten planen Sie am Gebäude durchzuführen?"@de ;
+    rdfs:comment "The type of renovation or retrofitting work planned for the building can be relevant for funding opportunities that target specific energy-saving measures or building improvements. Some grants are specifically available for projects involving insulation upgrades, window replacements, or heating system modernization."@en,
+                 "Die Art der geplanten Sanierungs- oder Nachrüstungsarbeiten am Gebäude kann für Fördermöglichkeiten relevant sein, die auf spezifische Energiesparmaßnahmen oder Gebäudeverbesserungen abzielen. Einige Förderungen sind speziell für Projekte verfügbar, die Dämmungsverbesserungen, Fensteraustausch oder die Modernisierung von Heizungssystemen umfassen."@de ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:building_renovation_type ;
+        sh:in (
+            ff:building_renovation_type-energy-efficiency 
+            ff:building_renovation_type-renewable-heating
+            ff:building_renovation_type-other
+        ) ;
+    ] .
+
+ff:building_renovation_type-energy-efficiency a ff:AnswerOption ; rdfs:label "Energy efficiency improvements"@en, "Energieeffizienzverbesserungen"@de .
+ff:building_renovation_type-renewable-heating a ff:AnswerOption ; rdfs:label "Renewable heating systems"@en, "Erneuerbare Heizsysteme"@de .
+ff:building_renovation_type-other a ff:AnswerOption ; rdfs:label "Other"@en, "Sonstige"@de .
