@@ -14,10 +14,10 @@ rdf.formats.import(formatsPretty)
 const debug = true
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..")
-const SHACL_DIR_1 = `${ROOT}/sozialplattform/shacl`
+const SHACL_DIR_1 = `${ROOT}/shacl`
 const SHACL_DIR_2 = `${ROOT}/beta`
-const DATAFIELDS_FILE = `${ROOT}/sozialplattform/datafields.ttl`
-const MATERIALIZATION_FILE = `${ROOT}/sozialplattform/materialization.ttl`
+const DATAFIELDS_FILE = `${ROOT}/datafields.ttl`
+const MATERIALIZATION_FILE = `${ROOT}/materialization.ttl`
 
 describe("Turtle files integrity", function () {
     let turtleFiles = [ DATAFIELDS_FILE, MATERIALIZATION_FILE ]
