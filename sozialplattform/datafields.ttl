@@ -259,6 +259,15 @@ ff:kindergeld a ff:DataField, ff:SozialleistungsfinderDataField ;
         ] ;
     ] .
 
+ff:hasChild a ff:DataField ;
+    schema:category ff:persoenliche-angaben-df-kategorie;
+    rdfs:label "Kinder"@de , "Children"@en ;
+    schema:question "Haben Sie Kinder?"@de , "Do you have children?"@en ;
+    ff:objectConstraints [
+        a sh:PropertyShape ;
+        sh:targetObjectsOf ff:hasChild ;
+    ] .
+
 # Erwerbstätigkeit
 
 ff:erwerbsfaehig_neu a ff:DataField, ff:SozialleistungsfinderDataField ;
