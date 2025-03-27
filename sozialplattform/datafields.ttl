@@ -1479,6 +1479,14 @@ ff:building_location_country a ff:DataField, ff:SozialleistungsfinderDataField ;
             ff:building_location_country-eu
             ff:building_location_country-other
         ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:building_location_country ;
+        sh:property [
+            sh:path ff:building_location_country ;
+            sh:maxCount 1 ;
+        ] ;
     ] .
 
 ff:building_location_country-germany a ff:AnswerOption ; rdfs:label "Germany"@en, "Deutschland"@de .
@@ -1498,6 +1506,14 @@ ff:building_status a ff:DataField, ff:SozialleistungsfinderDataField ;
             ff:building_status-existing
             ff:building_status-new-construction
         ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:building_status ;
+        sh:property [
+            sh:path ff:building_status ;
+            sh:maxCount 1 ;
+        ] ;
     ] .
 
 ff:building_status-existing a ff:AnswerOption ; rdfs:label "Existing building"@en, "Bestehendes Gebäude"@de .
@@ -1517,6 +1533,14 @@ ff:building_renovation_type a ff:DataField, ff:SozialleistungsfinderDataField ;
             ff:building_renovation_type-renewable-heating
             ff:building_renovation_type-other
         ) ;
+    ] ;
+    ff:usageConstraints [
+        a sh:NodeShape ;
+        sh:targetSubjectsOf ff:building_renovation_type ;
+        sh:property [
+            sh:path ff:building_renovation_type ;
+            sh:maxCount 1 ;
+        ] ;
     ] .
 
 ff:building_renovation_type-energy-efficiency a ff:AnswerOption ; rdfs:label "Energy efficiency improvements"@en, "Energieeffizienzverbesserungen"@de .
