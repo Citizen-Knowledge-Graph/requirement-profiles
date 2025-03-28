@@ -4,9 +4,7 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "^11.1.0",
-    "n3": "^1.24.2",
-    "rdf-ext": "^2.5.2",
-    "shacl-engine": "^1.0.2"
+    "@foerderfunke/sem-ops-utils": "^0.1.2",
+    "mocha": "^11.1.0"
   }
 }

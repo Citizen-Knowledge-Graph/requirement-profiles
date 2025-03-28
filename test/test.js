@@ -3,13 +3,7 @@ import { fileURLToPath } from "url"
 import fs, { promises as fsPromise } from "fs"
 import { describe } from "mocha"
 import { strictEqual } from "node:assert"
-import { Parser } from "n3"
-import Validator from "shacl-engine/Validator.js"
-import rdf from "rdf-ext"
-import formatsPretty from "@rdfjs/formats/pretty.js"
-
-const parser = new Parser({ factory: rdf })
-rdf.formats.import(formatsPretty)
+import { buildValidator, datasetToTurtle, parser, turtleToDataset } from "@foerderfunke/sem-ops-utils"
 
 const debug = true
 
@@ -104,7 +98,7 @@ describe("Content-related tests on Turtle files", function () {
         try {
             const buildDs = async (file) => {
                 let str = await fsPromise.readFile(file, "utf8")
-                return { file: file, str: str, ds: rdf.dataset(parser.parse(str)) }
+                return { file: file, str: str, ds: turtleToDataset(str) }
             }
             for (const file of (await fsPromise.readdir(SHACL_DIR_1))) datasets.shacl[file] = await buildDs(`${SHACL_DIR_1}/${file}`)
             for (const file of (await fsPromise.readdir(SHACL_DIR_2))) datasets.shacl[file] = await buildDs(`${SHACL_DIR_2}/${file}`)
@@ -135,18 +129,12 @@ describe("Content-related tests on Turtle files", function () {
                             sh:path sh:minCount ;
                             sh:minCount 1 ;
                         ] .`
-                let shapeDs = rdf.dataset(parser.parse(shacl))
-                let validator = new Validator(shapeDs, { factory: rdf })
+                let validator = buildValidator(shacl)
 
                 for (let entry of Object.values(datasets.shacl)) {
                     let result = await validator.validate({ dataset: entry.ds })
                     if (!result.conforms && debug) {
-                        let turtle = await rdf.io.dataset.toText("text/turtle", result.dataset, { prefixes: [
-                                ["ff", rdf.namedNode("https://foerderfunke.org/default#")],
-                                ["sh", rdf.namedNode("http://www.w3.org/ns/shacl#")],
-                                ["xsd", rdf.namedNode("http://www.w3.org/2001/XMLSchema#")],
-                                ["rdf", rdf.namedNode("http://www.w3.org/1999/02/22-rdf-syntax-ns#")]]
-                        })
+                        let turtle = datasetToTurtle(result.dataset)
                         console.log(`Validation report for file ${entry.file}`, turtle)
                     }
                     strictEqual(result.conforms, true, `PropertyShapes without sh:minCount exist in ${entry.file}`)
